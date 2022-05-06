@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
 public class CheckDirection : MonoBehaviour
 {
     [SerializeField]
@@ -31,9 +30,9 @@ public class CheckDirection : MonoBehaviour
     {
         mouseDirection = Camera.main.ScreenToWorldPoint(direction) - transform.position;
         mouseDirection.Normalize();
-        if (transform.right == Vector3.right)
-            {
-Debug.Log("RIGHT");
+        
+        if (transform.right == Vector3.right){
+            Debug.Log("RIGHT");
             visuals.localScale = new Vector3(Mathf.Sign(mouseDirection.x), visuals.localScale.y, visuals.localScale.z);
             }
         else if( transform.right == Vector3.forward){
@@ -41,14 +40,5 @@ Debug.Log("RIGHT");
             visuals.localScale = new Vector3(Mathf.Sign(mouseDirection.z), visuals.localScale.y, visuals.localScale.z);
         }
     }
-
-
-    public Vector3 GetWorldPositionOnPlane(Vector3 screenPosition, float z) {
-     Ray ray = Camera.main.ScreenPointToRay(screenPosition);
-     Plane xy = new Plane(Vector3.forward, new Vector3(0, 0, z));
-     float distance;
-     xy.Raycast(ray, out distance);
-     return ray.GetPoint(distance);
- }
 
 }
