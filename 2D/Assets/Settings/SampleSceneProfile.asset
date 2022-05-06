@@ -35,7 +35,7 @@ MonoBehaviour:
     m_Value: 0
   focusDistance:
     m_OverrideState: 1
-    m_Value: 14.71
+    m_Value: 5.61
     min: 0.1
   aperture:
     m_OverrideState: 0
@@ -44,7 +44,7 @@ MonoBehaviour:
     max: 32
   focalLength:
     m_OverrideState: 1
-    m_Value: 226
+    m_Value: 20
     min: 1
     max: 300
   bladeCount:
@@ -82,7 +82,7 @@ MonoBehaviour:
     min: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 5.7
     min: 0
   scatter:
     m_OverrideState: 0
@@ -202,13 +202,13 @@ MonoBehaviour:
   m_AdvancedMode: 0
   lift:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 0.86941516, z: 0.82073057, w: 0}
+    m_Value: {x: 1, y: 0.8926512, z: 0.8475716, w: -0.042771537}
   gamma:
     m_OverrideState: 1
-    m_Value: {x: 0.8126347, y: 0.8389179, z: 1, w: 0}
+    m_Value: {x: 0.8126347, y: 0.8389179, z: 1, w: 0.17108639}
   gain:
     m_OverrideState: 1
-    m_Value: {x: 0.98044115, y: 1, z: 0.96088225, w: 0}
+    m_Value: {x: 0.98044115, y: 1, z: 0.96088225, w: 0.4704875}
 --- !u!114 &2085852628968809096
 MonoBehaviour:
   m_ObjectHideFlags: 3

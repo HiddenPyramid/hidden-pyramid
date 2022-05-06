@@ -23,6 +23,8 @@ public class CameraController : MonoBehaviour
     private Camera _camera;
 
     public float forward=5f;
+    public float xOffset=2f;
+    public float yOffset=2f;
 
 
     public static Camera mainCamera;
@@ -58,8 +60,8 @@ public class CameraController : MonoBehaviour
     {
         // var pos = Vector3.zero;
 
-        float posX=Targets2[0].position.x;
-        float posY=Targets2[0].position.y;
+        float posX=Targets2[0].position.x + xOffset;
+        float posY=Targets2[0].position.y + yOffset;
         float posZ=Targets2[0].position.z;
 
 
