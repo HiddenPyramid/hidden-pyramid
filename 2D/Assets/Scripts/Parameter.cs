@@ -1,0 +1,22 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+public static class Parameter
+{
+    //Input
+    public static readonly String ACTION_SHOOT = "Shoot";
+    public static readonly String ACTION_AIM = "Look";
+    public static readonly String ACTION_PICK = "Pick";
+    public static readonly String ACTION_REVIVE = "Revive";
+    public static readonly String ACTION_JUMP = "Jump";
+    public static readonly String ACTION_MOVE = "Move";
+
+    //Layers
+    public const int LAYER_ITEM = 7;
+    public const int LAYER_PLAYER = 6;
+    public const int LAYER_TRIGGER = 8;
+    public const int LAYER_GROUND = 0;
+}
