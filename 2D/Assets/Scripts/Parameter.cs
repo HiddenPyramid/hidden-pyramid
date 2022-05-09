@@ -19,4 +19,7 @@ public static class Parameter
     public const int LAYER_PLAYER = 6;
     public const int LAYER_TRIGGER = 8;
     public const int LAYER_GROUND = 0;
+
+    //Animation
+    public static readonly String ANIM_RUNNING = "isRunning";
 }
