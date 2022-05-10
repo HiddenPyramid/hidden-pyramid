@@ -37,8 +37,9 @@ public class Shooting : MonoBehaviour
         }
         else
         {
-            Vector3 temp = Camera.main.ScreenToWorldPoint(vector2) - weaponContainer.position;
-            direction = temp;
+            Vector3 temp = new Vector3(vector2.x, vector2.y, Camera.main.transform.position.z);
+            Vector3 dir = Camera.main.ScreenToWorldPoint(temp) - weaponContainer.position;
+            direction = dir;
         }
     }
 

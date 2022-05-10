@@ -28,15 +28,14 @@ public class CheckDirection : MonoBehaviour
 
     private void Check()
     {
-        mouseDirection = Camera.main.ScreenToWorldPoint(direction) - transform.position;
+        Vector3 dir = new Vector3(direction.x, direction.y, Camera.main.transform.position.z);
+        mouseDirection = Camera.main.ScreenToWorldPoint(dir) - transform.position;
         mouseDirection.Normalize();
         
         if (transform.right == Vector3.right){
-            Debug.Log("RIGHT");
             visuals.localScale = new Vector3(Mathf.Sign(mouseDirection.x), visuals.localScale.y, visuals.localScale.z);
             }
         else if( transform.right == Vector3.forward){
-            Debug.Log("LEFT");
             visuals.localScale = new Vector3(Mathf.Sign(mouseDirection.z), visuals.localScale.y, visuals.localScale.z);
         }
     }
