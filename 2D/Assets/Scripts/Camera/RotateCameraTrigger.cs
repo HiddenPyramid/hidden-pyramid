@@ -37,8 +37,9 @@ public class RotateCameraTrigger : MonoBehaviour
             timeCount = timeCount + Time.fixedDeltaTime;
             float l_Pct=Mathf.Min(1.0f, timeCount/timeToLerp);
             _camera.transform.rotation = Quaternion.Lerp(startRotation, newPos.transform.rotation, l_Pct);
-            
-            if(l_Pct==1.0f){
+            player.transform.rotation = _camera.transform.rotation;
+
+            if (l_Pct==1.0f){
                 rotation=false;
             }
                 
@@ -47,11 +48,9 @@ public class RotateCameraTrigger : MonoBehaviour
 
     IEnumerator DisablePlayer()
     {
-        player.SetActive(false);
+        player.GetComponent<PlayerMovement>().enabled = false;
         yield return new WaitForSeconds(timeToLerp);
-        player.SetActive(true);
-        player.transform.rotation = _camera.transform.rotation;
-        player.transform.position = transform.position;
+        player.GetComponent<PlayerMovement>().enabled = true;
         gameObject.SetActive(false);
     }
 }

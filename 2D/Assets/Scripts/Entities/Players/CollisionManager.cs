@@ -57,7 +57,7 @@ public class CollisionManager : MonoBehaviour
                 pickSystem.Pickable = collider.transform;
                 break;
             case Parameter.LAYER_TRIGGER:
-                healthSystem.Partner = collider.gameObject.GetComponentInParent<HealthSystem>();
+                //healthSystem.Partner = collider.gameObject.GetComponentInParent<HealthSystem>();
                 break;
         }
     }
