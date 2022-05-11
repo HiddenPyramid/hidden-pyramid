@@ -294,6 +294,25 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 2557732093906784702, guid: 72f573a33f1c6564ab3ec71c9ab3925c, type: 3}
   m_PrefabInstance: {fileID: 2557732093658114497}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &923314980 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8144130267307317920, guid: 6077e2d486e694d488b38b7badb40e14, type: 3}
+  m_PrefabInstance: {fileID: 8144130267242981485}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &923314982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 923314980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a88c52dda3507f4eba2443247bec913, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Respawn: {x: 62.15, y: 78.43, z: 13}
+  Lives: 2
 --- !u!4 &923314993 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2582383983922972301, guid: 6077e2d486e694d488b38b7badb40e14, type: 3}
@@ -367,6 +386,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2557732093906784576, guid: 72f573a33f1c6564ab3ec71c9ab3925c, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 923314993}
+    - target: {fileID: 2557732093906784576, guid: 72f573a33f1c6564ab3ec71c9ab3925c, type: 3}
+      propertyPath: Offset.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2557732093906784576, guid: 72f573a33f1c6564ab3ec71c9ab3925c, type: 3}
+      propertyPath: Offset.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2557732093906784576, guid: 72f573a33f1c6564ab3ec71c9ab3925c, type: 3}
+      propertyPath: Offset.z
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2557732093906784576, guid: 72f573a33f1c6564ab3ec71c9ab3925c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2557732093906784576, guid: 72f573a33f1c6564ab3ec71c9ab3925c, type: 3}
       propertyPath: Targets2.Array.data[0]
       value: 
