@@ -7,6 +7,8 @@ public class ChAnimation : MonoBehaviour
 {
     [SerializeField]
     private Animator animator;
+    [SerializeField]
+    private Transform visuals;
     private InputAction moveAction;
     private float input;
     // Start is called before the first frame update
@@ -20,8 +22,16 @@ public class ChAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (input != 0)
+        if (input > 0)
+        {
             animator.SetBool(Parameter.ANIM_RUNNING, true);
+            visuals.localScale = Vector3.one;
+        }
+        else if(input < 0)
+        {
+            animator.SetBool(Parameter.ANIM_RUNNING, true);
+            visuals.localScale = new Vector3(-1, visuals.localScale.y, visuals.localScale.z);
+        }
         else
             animator.SetBool(Parameter.ANIM_RUNNING, false);
     }

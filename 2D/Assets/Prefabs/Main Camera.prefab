@@ -129,12 +129,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0bee0aaf3672cd4093e70b08c6d74ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CameraTransform: {fileID: 2557732093906784577}
-  Targets2:
-  - {fileID: 0}
-  Smoothing: 0
-  MinZoom: 0
-  zoomMarges: 0.5
-  forward: 5
-  xOffset: 2
-  yOffset: 2
+  Player: {fileID: 0}
+  SmoothTime: 0
+  Offset: {x: 1, y: 0.5, z: -5}
