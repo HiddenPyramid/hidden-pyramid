@@ -51,6 +51,7 @@ public class RotateCameraTrigger : MonoBehaviour
         yield return new WaitForSeconds(timeToLerp);
         player.SetActive(true);
         player.transform.rotation = _camera.transform.rotation;
+        player.transform.position = transform.position;
         gameObject.SetActive(false);
     }
 }

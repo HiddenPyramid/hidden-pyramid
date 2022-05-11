@@ -10,10 +10,4 @@ public class LaserRay : MonoBehaviour
     {
         this.animator.SetTrigger("shoot");
     }
-
-    private void OnTriggerEnter(Collider other) {
-        if (other.gameObject.CompareTag("Player")){
-            // TODO DEAL DAMAGE
-        }
-    }
 }

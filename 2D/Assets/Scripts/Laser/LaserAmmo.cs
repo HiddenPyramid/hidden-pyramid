@@ -7,8 +7,6 @@ public class LaserAmmo : MonoBehaviour
 
     public float speed = 200f;
     public Rigidbody rb;
-    public int damage = 100;
-    private Transform CameraTransform;
 
     // public GameObject shootingFirePoint;
 
@@ -16,7 +14,6 @@ public class LaserAmmo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CameraTransform = Camera.main.transform;
         rb.velocity = transform.right * speed;
         StartCoroutine(AutoDestroy());
     }

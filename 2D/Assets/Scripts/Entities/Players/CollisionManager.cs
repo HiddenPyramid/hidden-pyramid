@@ -7,19 +7,25 @@ public class CollisionManager : MonoBehaviour
 {
     [SerializeField]
     private Transform GroundPoint;
+    [SerializeField]
+    private Transform WallPoint;
 
     private Picking pickSystem;
     private HealthSystem healthSystem;
 
     private float pointRadius = 0.15f;
+    private float wallPointRadius = 0.6f;
     private bool inGround;
-    private bool wasGrounded;
+    private bool inWall;
 
     public bool InGround { get => inGround; }
+    public bool InWall { get => inWall; }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(GroundPoint.position, pointRadius);
+        Gizmos.DrawWireSphere(WallPoint.position, wallPointRadius);
         Gizmos.color = Color.white;
     }
     // Start is called before the first frame update
@@ -32,8 +38,15 @@ public class CollisionManager : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        IsInGround();
+        CheckCollisions();
     }
+
+    private void CheckCollisions()
+    {
+        IsInGround();
+        IsInWall();
+    }
+
 
     private void OnTriggerEnter(Collider collider)
     {
@@ -54,6 +67,11 @@ public class CollisionManager : MonoBehaviour
         //if (!wasGrounded && inGround)
         //    EventManager.Landing();
         //wasGrounded = inGround;
+    }
+    private void IsInWall()
+    {
+        inWall = Physics.Raycast(WallPoint.position, transform.right, wallPointRadius) ||
+            Physics.Raycast(WallPoint.position, -transform.right, wallPointRadius);
     }
 }
 
