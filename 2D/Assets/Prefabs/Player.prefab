@@ -1704,7 +1704,6 @@ GameObject:
   - component: {fileID: 6050777331477609099}
   - component: {fileID: 393993964374050053}
   - component: {fileID: 4911339641221926477}
-  - component: {fileID: 7415042873595950592}
   - component: {fileID: 8144130267307317941}
   m_Layer: 6
   m_Name: Player
@@ -1872,19 +1871,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponContainer: {fileID: 4974591709809695462}
---- !u!114 &7415042873595950592
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8144130267307317920}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: feddb04c2641f5f4588a8b3c5ac96ec0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  visuals: {fileID: 0}
 --- !u!114 &8144130267307317941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1898,6 +1884,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 7036804646267761182}
+  visuals: {fileID: 2677096102036712412}
 --- !u!1 &8213222592361502290
 GameObject:
   m_ObjectHideFlags: 0
