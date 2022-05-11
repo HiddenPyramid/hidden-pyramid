@@ -26,7 +26,11 @@ public class PlayerController : MonoBehaviour, ITakeDamage
     }
     private void SetGravity()
     {
-        if (collision.InGround && rigidbody.velocity.y < 0)
+        if (collision.InWall)
+        {
+            rigidbody.velocity = new Vector3(0f, player.GravityValue * Time.deltaTime, rigidbody.velocity.z);
+        }
+        else if (collision.InGround && rigidbody.velocity.y < 0)
             rigidbody.velocity = new Vector3(rigidbody.velocity.x, 0f, rigidbody.velocity.z);
         else
             rigidbody.velocity += new Vector3(0f, player.GravityValue * Time.deltaTime, 0f);

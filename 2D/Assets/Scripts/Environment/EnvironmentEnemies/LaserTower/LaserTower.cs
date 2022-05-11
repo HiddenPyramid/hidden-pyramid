@@ -20,9 +20,9 @@ public class LaserTower : MonoBehaviour
     {
         while (isActive)
         {
-            yield return new WaitForSeconds(laserInterval);
-            ShootWarning();
             yield return new WaitForSeconds(warningInterval);
+            ShootWarning();
+            yield return new WaitForSeconds(laserInterval);
             ShootLaser();
         }
     }
