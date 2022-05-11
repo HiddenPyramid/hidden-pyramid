@@ -5,13 +5,13 @@ using UnityEngine.InputSystem;
 
 public class ChAnimation : MonoBehaviour
 {
+    [SerializeField]
     private Animator animator;
     private InputAction moveAction;
     private float input;
     // Start is called before the first frame update
     void Start()
     {
-        animator = GetComponent<Animator>();
         moveAction = GetComponent<PlayerInput>().actions[Parameter.ACTION_MOVE];
         moveAction.performed += x => input = x.ReadValue<Vector2>().x;
         moveAction.canceled += _ => input = 0f;
