@@ -32,24 +32,24 @@ public class FinalBoss : MonoBehaviour
     }
     private IEnumerator BossAttack()
     {
-        Debug.Log("STARTS");
         while (this.rightAlive || this.leftAlive)
         {
-            Debug.Log("LOOP");
+            while (!this.rightReady) { yield return new WaitForSeconds(checkInterval); }
+            if (this.rightAlive) {
+                StartCoroutine(RightAttack());
+                yield return new WaitForSeconds(delay);
+            }
 
-            while (!this.rightReady) { Debug.Log("right"); yield return new WaitForSeconds(checkInterval); }
-            RightAttack();
-
-            yield return new WaitForSeconds(delay);
-
-            while (!this.leftReady) { Debug.Log("left"); yield return new WaitForSeconds(checkInterval); }
-            LeftAttack();
+            while (!this.leftReady) { yield return new WaitForSeconds(checkInterval); }
+            if (this.leftAlive) {
+                StartCoroutine(LeftAttack());
+            }
             
             DecrementDelay();
         }
         while (this.headAlive)
         {
-            HeadAttack();
+            StartCoroutine(HeadAttack());
             yield return new WaitForSeconds(delay);
             DecrementDelay();
         }
@@ -58,7 +58,6 @@ public class FinalBoss : MonoBehaviour
     private IEnumerator RightAttack()
     {
         this.rightReady = false;
-
         this.rightArm.Lower();
         Debug.Log("RIGHT DOWN");
         yield return new WaitForSeconds(downTime);
