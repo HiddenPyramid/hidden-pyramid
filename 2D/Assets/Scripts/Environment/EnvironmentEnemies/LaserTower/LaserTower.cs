@@ -10,6 +10,7 @@ public class LaserTower : MonoBehaviour
     private bool isActive = true;
     public float laserInterval = 10f;
     public float warningInterval = 5f;
+    public GoBackTrigger goBackTrigger;
 
     private void Start() 
     {
@@ -21,8 +22,10 @@ public class LaserTower : MonoBehaviour
         while (isActive)
         {
             yield return new WaitForSeconds(warningInterval);
+            //goBackTrigger.gameObject.SetActive(false);
             ShootWarning();
             yield return new WaitForSeconds(laserInterval);
+            //goBackTrigger.gameObject.SetActive(true);
             ShootLaser();
         }
     }
