@@ -35,4 +35,14 @@ public class ChAnimation : MonoBehaviour
         else
             animator.SetBool(Parameter.ANIM_RUNNING, false);
     }
+
+    public void StartJump()
+    {
+        animator.SetBool(Parameter.ANIM_JUMPING, true);
+    }
+
+    public void EndJump()
+    {
+        animator.SetBool(Parameter.ANIM_JUMPING, false);
+    }
 }

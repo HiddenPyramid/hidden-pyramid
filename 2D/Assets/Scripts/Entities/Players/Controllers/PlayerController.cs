@@ -9,12 +9,15 @@ public class PlayerController : MonoBehaviour, ITakeDamage
     private CollisionManager collision;
     private Rigidbody rigidbody;
 
+    private ChAnimation chAnimation;
+
     private void Start()
     {
         player = GetComponent<PlayerStats>();
         rigidbody = GetComponent<Rigidbody>();
         collision = GetComponent<CollisionManager>();
         jumpAction = GetComponent<PlayerInput>().actions[Parameter.ACTION_JUMP];
+        chAnimation = GetComponent<ChAnimation>();
 
         jumpAction.performed += _ => Jump();
         jumpAction.canceled += _ => Fall();
@@ -42,6 +45,11 @@ public class PlayerController : MonoBehaviour, ITakeDamage
         {
             Vector3 vec = new Vector3(rigidbody.velocity.x, player.JumpHeight, rigidbody.velocity.z);
             rigidbody.velocity = vec;
+            chAnimation.StartJump();
+        }
+        else
+        {
+            chAnimation.EndJump();
         }
     }
 
