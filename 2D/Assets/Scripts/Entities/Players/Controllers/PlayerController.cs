@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour, ITakeDamage
     private void FixedUpdate()
     {
         SetGravity();   
+        CheckEndJump();
     }
     private void SetGravity()
     {
@@ -47,10 +48,6 @@ public class PlayerController : MonoBehaviour, ITakeDamage
             rigidbody.velocity = vec;
             chAnimation.StartJump();
         }
-        else
-        {
-            chAnimation.EndJump();
-        }
     }
 
 
@@ -61,6 +58,14 @@ public class PlayerController : MonoBehaviour, ITakeDamage
             //EventManager.Landing();
             rigidbody.velocity = new Vector3(rigidbody.velocity.x, 0f, rigidbody.velocity.z);
         }
+    }
+
+    private void CheckEndJump()
+    {
+        if (collision.InGround)
+            chAnimation.EndJump();
+        else
+            chAnimation.StartJump();
     }
 
     public void TakeDamage(float dmg)
