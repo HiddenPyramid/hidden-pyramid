@@ -11,9 +11,10 @@ public class CollisionManager : MonoBehaviour
     private Transform WallPoint;
 
     private Picking pickSystem;
-    private HealthSystem healthSystem;
 
+    [SerializeField]
     private float pointRadius = 0.15f;
+    [SerializeField]
     private float wallPointRadius = 0.6f;
     private bool inGround;
     private bool inWall;
@@ -32,7 +33,6 @@ public class CollisionManager : MonoBehaviour
     void Start()
     {
         pickSystem = GetComponent<Picking>();
-        healthSystem = GetComponent<HealthSystem>();
     }
 
     // Update is called once per frame
@@ -55,9 +55,6 @@ public class CollisionManager : MonoBehaviour
         {
             case Parameter.LAYER_ITEM:
                 pickSystem.Pickable = collider.transform;
-                break;
-            case Parameter.LAYER_TRIGGER:
-                //healthSystem.Partner = collider.gameObject.GetComponentInParent<HealthSystem>();
                 break;
         }
     }

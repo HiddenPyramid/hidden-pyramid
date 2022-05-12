@@ -10,14 +10,18 @@ public abstract class Golem : MonoBehaviour, ITakeDamage
     protected float Speed;
     [SerializeField]
     protected bool Chase;
+    [SerializeField]
+    protected Transform Visuals;
 
     protected List<Transform> playersDetected;
     protected PlayerDetection detection;
+    protected GolemCollision collision;
 
     // Start is called before the first frame update
     void Awake()
     {
         detection = GetComponent<PlayerDetection>();
+        collision = GetComponent<GolemCollision>();
     }
 
     protected abstract void Move();
@@ -26,9 +30,10 @@ public abstract class Golem : MonoBehaviour, ITakeDamage
     {
         Health -= dmg;
     }
-    protected void CheckDie()
+    protected bool CheckDie()
     {
         if (Health <= 0)
-            Destroy(gameObject);
+            return true;
+        return false;
     }
 }
