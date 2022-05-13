@@ -14,6 +14,7 @@ public class FollowPlayer : MonoBehaviour
     private float speed;
 
     private List<Vector3> storedPositions;
+    public Animator animator;
 
 
     void Awake()
@@ -29,6 +30,8 @@ public class FollowPlayer : MonoBehaviour
             var nextPos = storedPositions[0] + player.right * followDistance;
             transform.position = Vector3.Lerp(transform.position, nextPos, Time.deltaTime * speed); 
             storedPositions.RemoveAt(0); 
+
+            animator.SetFloat("Speed", (transform.position - nextPos).magnitude);
         }
         transform.rotation = player.rotation;
     }

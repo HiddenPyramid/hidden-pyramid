@@ -9,8 +9,11 @@ public class ChAnimation : MonoBehaviour
     private Animator animator;
     [SerializeField]
     private Transform visuals;
+    public Transform slymVisuals;
+
     private InputAction moveAction;
     private float input;
+    private int lastInput;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,11 +29,13 @@ public class ChAnimation : MonoBehaviour
         {
             animator.SetBool(Parameter.ANIM_RUNNING, true);
             visuals.localScale = Vector3.one;
+            slymVisuals.localScale = Vector3.one;
         }
         else if(input < 0)
         {
             animator.SetBool(Parameter.ANIM_RUNNING, true);
             visuals.localScale = new Vector3(-1, visuals.localScale.y, visuals.localScale.z);
+            slymVisuals.localScale = new Vector3(-1, slymVisuals.localScale.y, slymVisuals.localScale.z);
         }
         else
             animator.SetBool(Parameter.ANIM_RUNNING, false);
