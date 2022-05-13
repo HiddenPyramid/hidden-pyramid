@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -14,7 +13,6 @@ public class PlayerController : MonoBehaviour, ITakeDamage
 
     private ChAnimation chAnimation;
     public Animator [] hearts;
-    private float gainHeartDelay = 0.5f;
 
 
     private void Start()
@@ -80,28 +78,17 @@ public class PlayerController : MonoBehaviour, ITakeDamage
         {
             if (dmg <= 1){
                 player.Health -= 1;
+                Debug.Log(player.Health);
                 hearts[player.Health].SetTrigger("lost");
+                Debug.Log("eiiii");
             }
             else{
                 player.Health -= 2;
+                Debug.Log(player.Health);
                 hearts[player.Health+1].SetTrigger("lost");
                 hearts[player.Health].SetTrigger("lost");
+                Debug.Log("eiiii");
             }
         } catch {}
-    }
-
-    public void RegainLives()
-    {
-        StartCoroutine(GainLives());
-    }
-    
-    private IEnumerator GainLives()
-    {
-        yield return new WaitForSeconds(gainHeartDelay);
-        foreach (Animator heart in hearts)
-        {
-            heart.SetTrigger("gained");
-            yield return new WaitForSeconds(gainHeartDelay);
-        }
     }
 }

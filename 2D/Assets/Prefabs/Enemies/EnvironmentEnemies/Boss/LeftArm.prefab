@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4614634242916079401}
   - component: {fileID: 4614634242916079403}
   - component: {fileID: 4614634242916079402}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: plane_relief (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 4614634242966898836}
   - component: {fileID: 4614634242966898838}
   - component: {fileID: 4614634242966898837}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: column (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,7 +173,7 @@ GameObject:
   - component: {fileID: 4614634243010601190}
   - component: {fileID: 4614634243010601184}
   - component: {fileID: 4614634243010601191}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: column (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -254,7 +254,7 @@ GameObject:
   - component: {fileID: 4614634243059571310}
   - component: {fileID: 4614634243059571304}
   - component: {fileID: 4614634243059571311}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: vorera_2 (27)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -335,7 +335,7 @@ GameObject:
   - component: {fileID: 4614634243132726113}
   - component: {fileID: 4614634243132726115}
   - component: {fileID: 4614634243132726114}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: column (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -416,7 +416,7 @@ GameObject:
   - component: {fileID: 4614634243333586479}
   - component: {fileID: 4614634243333586473}
   - component: {fileID: 4614634243333586472}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: column (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -497,7 +497,7 @@ GameObject:
   - component: {fileID: 4614634243335093906}
   - component: {fileID: 4614634243335093916}
   - component: {fileID: 4614634243335093907}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: column (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -578,7 +578,7 @@ GameObject:
   - component: {fileID: 4614634243355174191}
   - component: {fileID: 4614634243355174185}
   - component: {fileID: 4614634243355174184}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: column (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -659,7 +659,7 @@ GameObject:
   - component: {fileID: 4614634243414436856}
   - component: {fileID: 4614634243414436858}
   - component: {fileID: 4614634243414436857}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: plane_relief (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -740,7 +740,7 @@ GameObject:
   - component: {fileID: 4614634243440118079}
   - component: {fileID: 4614634243440118073}
   - component: {fileID: 4614634243440118072}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: column (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -821,7 +821,7 @@ GameObject:
   - component: {fileID: 4614634243444935316}
   - component: {fileID: 4614634243444935318}
   - component: {fileID: 4614634243444935317}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: vorera_2 (24)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -902,7 +902,7 @@ GameObject:
   - component: {fileID: 4614634243494650212}
   - component: {fileID: 4614634243494650214}
   - component: {fileID: 4614634243494650213}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: vorera_2 (25)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -983,7 +983,7 @@ GameObject:
   - component: {fileID: 4614634243511817587}
   - component: {fileID: 4614634243511817597}
   - component: {fileID: 4614634243511817596}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: LeftArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1049,7 +1049,7 @@ GameObject:
   - component: {fileID: 4614634243652307393}
   - component: {fileID: 4614634243652307395}
   - component: {fileID: 4614634243652307394}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: column (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1130,7 +1130,7 @@ GameObject:
   - component: {fileID: 4614634243725020262}
   - component: {fileID: 4614634243725020256}
   - component: {fileID: 4614634243725020263}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: column (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1209,7 +1209,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4614634243787823265}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: LeftArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1272,7 +1272,7 @@ GameObject:
   - component: {fileID: 4614634243795976663}
   - component: {fileID: 4614634243795976657}
   - component: {fileID: 4614634243795976656}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: plane_relief (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1353,7 +1353,7 @@ GameObject:
   - component: {fileID: 4614634243945861368}
   - component: {fileID: 4614634243945861370}
   - component: {fileID: 4614634243945861369}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: vorera_2 (26)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1434,7 +1434,7 @@ GameObject:
   - component: {fileID: 4614634243995705770}
   - component: {fileID: 4614634243995705748}
   - component: {fileID: 4614634243995705771}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: plane_relief (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1515,7 +1515,7 @@ GameObject:
   - component: {fileID: 4614634244004969437}
   - component: {fileID: 4614634244004969439}
   - component: {fileID: 4614634244004969438}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: column (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1596,7 +1596,7 @@ GameObject:
   - component: {fileID: 4614634244130527885}
   - component: {fileID: 4614634244130527887}
   - component: {fileID: 4614634244130527886}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: plane_relief (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1677,7 +1677,7 @@ GameObject:
   - component: {fileID: 4614634244258011427}
   - component: {fileID: 4614634244258011437}
   - component: {fileID: 4614634244258011436}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: column (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1758,7 +1758,7 @@ GameObject:
   - component: {fileID: 4614634244363311133}
   - component: {fileID: 4614634244363311135}
   - component: {fileID: 4614634244363311134}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: plane_relief (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1839,7 +1839,7 @@ GameObject:
   - component: {fileID: 4614634244408559521}
   - component: {fileID: 4614634244408559523}
   - component: {fileID: 4614634244408559522}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: plane_relief (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1920,7 +1920,7 @@ GameObject:
   - component: {fileID: 4614634244439446755}
   - component: {fileID: 4614634244439446765}
   - component: {fileID: 4614634244439446764}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: column (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2001,7 +2001,7 @@ GameObject:
   - component: {fileID: 4614634244484531648}
   - component: {fileID: 4614634244484531650}
   - component: {fileID: 4614634244484531649}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: plane_relief (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2082,7 +2082,7 @@ GameObject:
   - component: {fileID: 4614634244499002006}
   - component: {fileID: 4614634244499002000}
   - component: {fileID: 4614634244499002007}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: column (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2163,7 +2163,7 @@ GameObject:
   - component: {fileID: 4614634244513077448}
   - component: {fileID: 4614634244513077450}
   - component: {fileID: 4614634244513077449}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: LeftArm_pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2246,7 +2246,7 @@ GameObject:
   - component: {fileID: 4614634244642144186}
   - component: {fileID: 4614634244642144164}
   - component: {fileID: 4614634244642144187}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: column (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2327,7 +2327,7 @@ GameObject:
   - component: {fileID: 4614634244709610285}
   - component: {fileID: 4614634244709610287}
   - component: {fileID: 4614634244709610286}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: column (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2408,7 +2408,7 @@ GameObject:
   - component: {fileID: 4614634244725196359}
   - component: {fileID: 4614634244725196353}
   - component: {fileID: 4614634244725196352}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: plane_relief (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2489,7 +2489,7 @@ GameObject:
   - component: {fileID: 4614634244762976457}
   - component: {fileID: 4614634244762976459}
   - component: {fileID: 4614634244762976458}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: plane_relief (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2570,7 +2570,7 @@ GameObject:
   - component: {fileID: 4614634244849792749}
   - component: {fileID: 4614634244849792751}
   - component: {fileID: 4614634244849792750}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: plane_relief (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2653,7 +2653,7 @@ GameObject:
   - component: {fileID: 3175935744813303434}
   - component: {fileID: 6414269051896729594}
   - component: {fileID: 6428162976997053905}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: DamageDealer
   m_TagString: Untagged
   m_Icon: {fileID: 0}

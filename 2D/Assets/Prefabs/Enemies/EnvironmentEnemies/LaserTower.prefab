@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2142063425069002361}
   - component: {fileID: 6102857936135326949}
   - component: {fileID: 6933361484033080906}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: GoBackTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -144,7 +144,7 @@ GameObject:
   - component: {fileID: 962840339969234185}
   - component: {fileID: 962840339969234190}
   - component: {fileID: 962840339969234186}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: WarningLaser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -352,7 +352,7 @@ GameObject:
   m_Component:
   - component: {fileID: 962840340064108105}
   - component: {fileID: 962840340978144529}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: LaserTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -492,7 +492,7 @@ GameObject:
   - component: {fileID: 962840340160022355}
   - component: {fileID: 962840340160022365}
   - component: {fileID: 962840340160022354}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: column (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -573,7 +573,7 @@ GameObject:
   - component: {fileID: 962840340187340145}
   - component: {fileID: 962840340187340147}
   - component: {fileID: 962840340187340144}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: plane_relief (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -654,7 +654,7 @@ GameObject:
   - component: {fileID: 962840340229324608}
   - component: {fileID: 962840340229324610}
   - component: {fileID: 962840340229324611}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: plane_relief (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -740,7 +740,7 @@ GameObject:
   - component: {fileID: 962840340232419491}
   - component: {fileID: 962840340232419502}
   - component: {fileID: 962840340232419497}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: LaserRay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -965,7 +965,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 20
   destroyOnHit: 0
-  push: 0
 --- !u!1 &962840340742523922
 GameObject:
   m_ObjectHideFlags: 0
@@ -978,7 +977,7 @@ GameObject:
   - component: {fileID: 962840340742523932}
   - component: {fileID: 962840340742523933}
   - component: {fileID: 9174180697925834071}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: LaserTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1023,9 +1022,6 @@ MonoBehaviour:
   timeToDie: 2
   initialHP: 50
   Health: 0
-  arm: {fileID: 0}
-  head: {fileID: 0}
-  isLeft: 1
 --- !u!95 &962840340742523933
 Animator:
   serializedVersion: 3
@@ -1069,7 +1065,7 @@ GameObject:
   - component: {fileID: 962840340770841157}
   - component: {fileID: 962840340770841159}
   - component: {fileID: 962840340770841156}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: column_top (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1150,7 +1146,7 @@ GameObject:
   - component: {fileID: 962840341537535887}
   - component: {fileID: 962840341537535881}
   - component: {fileID: 962840341537535886}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: plane_relief (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1231,7 +1227,7 @@ GameObject:
   - component: {fileID: 962840341537831198}
   - component: {fileID: 962840341537831192}
   - component: {fileID: 962840341537831193}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: vorera_2 (21)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1312,7 +1308,7 @@ GameObject:
   - component: {fileID: 962840341622219224}
   - component: {fileID: 962840341622219226}
   - component: {fileID: 962840341622219227}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: plane_relief (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1393,7 +1389,7 @@ GameObject:
   - component: {fileID: 962840341640304138}
   - component: {fileID: 962840341640304244}
   - component: {fileID: 962840341640304245}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: vorera_1 (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1474,7 +1470,7 @@ GameObject:
   - component: {fileID: 2932586137705381923}
   - component: {fileID: 6943329702876796330}
   - component: {fileID: 8299357546148547738}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: vorera_2 (24)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1555,7 +1551,7 @@ GameObject:
   - component: {fileID: 6919046325284448189}
   - component: {fileID: 4039228811790343921}
   - component: {fileID: 5351792609655183695}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: vorera_2 (22)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1636,7 +1632,7 @@ GameObject:
   - component: {fileID: 4481269027477159120}
   - component: {fileID: 6006471189593869410}
   - component: {fileID: 1070043750356251803}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: column (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1717,7 +1713,7 @@ GameObject:
   - component: {fileID: 4585982810424447352}
   - component: {fileID: 3071428040110173569}
   - component: {fileID: 390557273548745266}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: vorera_2 (23)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1796,7 +1792,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000076591016802274}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: LaseParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
