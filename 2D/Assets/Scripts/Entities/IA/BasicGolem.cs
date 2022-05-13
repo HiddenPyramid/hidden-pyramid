@@ -12,6 +12,8 @@ public class BasicGolem : Golem
 
     private float initialHP;
     private Vector3 lastPos;
+    public Animator animator;
+    public float timeToDie = 2.0f;
     private void Start()
     {
         initialHP = Health;
@@ -33,7 +35,7 @@ public class BasicGolem : Golem
 
     private void Attack()
     {
-        
+        animator.SetTrigger("punch");
     }
 
     private void CheckAll()
@@ -62,9 +64,13 @@ public class BasicGolem : Golem
         if (playersDetected.Count > 0)
         {
             Chase();
+            animator.SetBool("chase", true);
         }
         else
+        {
             Patrol();
+            animator.SetBool("chase", false);
+        }
     }
 
     private void Patrol()
@@ -81,9 +87,17 @@ public class BasicGolem : Golem
     private void CheckHealth()
     {
         if (CheckDie())
-            Destroy(gameObject);
+        {
+            animator.SetTrigger("die");
+            StartCoroutine(WaitToDestroy(timeToDie));
+        }
         else if (Health / initialHP < 0.5 || Health / initialHP < 0.25 && Arms.Count > 0)
             Arms[0].GetComponent<ArmFall>().Drop();
     }
 
+    private IEnumerator WaitToDestroy(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        Destroy(gameObject);
+    }
 }
