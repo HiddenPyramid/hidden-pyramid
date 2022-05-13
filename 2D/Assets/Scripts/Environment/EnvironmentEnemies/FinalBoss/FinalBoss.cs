@@ -49,7 +49,7 @@ public class FinalBoss : MonoBehaviour
             yield return new WaitForSeconds(delay);
             DecrementDelay();
         }
-        finalRoom.SetTrigger("end");
+        finalRoom.SetBool("toEnd",true);
         headWithBody.FallBoss();
         Debug.Log("END");
     }
