@@ -1887,6 +1887,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 7036804646267761182}
   visuals: {fileID: 2677096102036712412}
+  slymVisuals: {fileID: 0}
 --- !u!114 &8956272187704002641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1901,6 +1902,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Respawn: {x: 62.15, y: 78.43, z: 13}
   Lives: 2
+  playerAnimator: {fileID: 0}
+  slymAnimator: {fileID: 0}
 --- !u!1 &8213222592361502290
 GameObject:
   m_ObjectHideFlags: 0
