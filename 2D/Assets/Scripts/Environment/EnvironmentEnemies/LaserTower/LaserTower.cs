@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LaserTower : MonoBehaviour
+public class LaserTower : MonoBehaviour, ITakeDamage
 {
     public LaserRay laserRay;
     public WarningLaser warningLaser;
@@ -12,9 +12,21 @@ public class LaserTower : MonoBehaviour
     public float warningInterval = 5f;
     public GoBackTrigger goBackTrigger;
 
+    public float timeToDie = 2.0f;
+    public float initialHP = 50;
+
+    [SerializeField]
+    protected float Health;
+
     private void Start() 
     {
         StartCoroutine(ShootingLoop());
+        this.Health = initialHP;
+    }
+
+    private void Update() 
+    {
+        CheckHealth();
     }
 
     private IEnumerator ShootingLoop()
@@ -38,5 +50,33 @@ public class LaserTower : MonoBehaviour
     private void ShootWarning()
     {
         this.warningLaser.Shoot();
+    }
+
+
+    public void TakeDamage(float dmg)
+    {
+        Health -= dmg;
+    }
+    protected bool CheckDie()
+    {
+        if (Health <= 0)
+            return true;
+        return false;
+    }
+
+    private void CheckHealth()
+    {
+        if (CheckDie())
+        {
+            animator.SetTrigger("die");
+            //StartCoroutine(WaitToDestroy(timeToDie));
+            this.isActive = false;
+        }
+    }
+
+    private IEnumerator WaitToDestroy(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        Destroy(gameObject);
     }
 }
