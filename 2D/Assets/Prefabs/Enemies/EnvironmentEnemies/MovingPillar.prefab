@@ -1120,9 +1120,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59e5d43399369044abb6010167d637c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
+  damage: 1
   destroyOnHit: 0
-  push: 0
+  push: 10
 --- !u!114 &6206995885052561217
 MonoBehaviour:
   m_ObjectHideFlags: 0

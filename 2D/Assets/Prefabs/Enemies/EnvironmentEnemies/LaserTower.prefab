@@ -965,7 +965,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 20
   destroyOnHit: 0
-  push: 0
+  push: 10
 --- !u!1 &962840340742523922
 GameObject:
   m_ObjectHideFlags: 0
@@ -1021,7 +1021,7 @@ MonoBehaviour:
   warningInterval: 5
   goBackTrigger: {fileID: 6102857936135326949}
   timeToDie: 2
-  initialHP: 50
+  initialHP: 10
   Health: 0
   arm: {fileID: 0}
   head: {fileID: 0}
