@@ -18,6 +18,8 @@ public class LaserTower : MonoBehaviour, ITakeDamage
     [SerializeField]
     protected float Health;
     public Arm arm;
+    public Head head;
+    public bool isLeft = true;
 
     private void Start() 
     {
@@ -86,5 +88,11 @@ public class LaserTower : MonoBehaviour, ITakeDamage
     {
         if (this.arm != null)
             this.arm.Fall();
+        if (this.head != null)
+        {
+            if (isLeft) head.FallLeft();
+            else head.FallRight();
+        }
+            
     }
 }

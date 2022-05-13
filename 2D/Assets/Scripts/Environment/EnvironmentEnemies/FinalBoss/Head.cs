@@ -25,11 +25,18 @@ public class Head : MonoBehaviour
     {
         leftCheekAnimator.SetTrigger("fall");
         leftAlive = false;
+        if (!rightAlive) FallBoss();
     }
 
     public void FallRight()
     {
         rightCheekAnimator.SetTrigger("fall");
         rightAlive = true;
+        if (!leftAlive) FallBoss();
+    }
+
+    public void FallBoss()
+    {
+        headAnimator.SetTrigger("fall");
     }
 }
