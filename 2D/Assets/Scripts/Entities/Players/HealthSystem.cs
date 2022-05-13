@@ -12,6 +12,7 @@ public class HealthSystem : MonoBehaviour
     private int Lives;
 
     private PlayerStats player;
+    public Animator playerAnimator, slymAnimator;
 
     private void Start()
     {
@@ -30,6 +31,9 @@ public class HealthSystem : MonoBehaviour
             transform.rotation = Quaternion.identity;
             Camera.main.transform.rotation = transform.rotation;
             player.Health = Lives;
+            
+            playerAnimator.SetTrigger(Parameter.ANIM_DIES);
+            slymAnimator.SetTrigger(Parameter.ANIM_DIES);
         }
     }
     //private PlayerStats player;

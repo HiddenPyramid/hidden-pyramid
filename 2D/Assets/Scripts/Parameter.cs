@@ -23,6 +23,7 @@ public static class Parameter
     //Animation
     public static readonly String ANIM_RUNNING = "isRunning";
     public static readonly String ANIM_JUMPING = "isJumping";
+    public static readonly String ANIM_DIES = "dies";
 
     //Tags
     public static readonly String PLAYER = "Player";
