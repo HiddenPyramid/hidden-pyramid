@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour, ITakeDamage
     private Rigidbody rigidbody;
 
     private ChAnimation chAnimation;
+    public Animator [] hearts;
+
 
     private void Start()
     {
@@ -72,9 +74,21 @@ public class PlayerController : MonoBehaviour, ITakeDamage
 
     public void TakeDamage(float dmg)
     {
-        if (dmg <= 1)
-            player.Health -= 1;
-        else
-            player.Health -= 2;
+        try
+        {
+            if (dmg <= 1){
+                player.Health -= 1;
+                Debug.Log(player.Health);
+                hearts[player.Health].SetTrigger("lost");
+                Debug.Log("eiiii");
+            }
+            else{
+                player.Health -= 2;
+                Debug.Log(player.Health);
+                hearts[player.Health+1].SetTrigger("lost");
+                hearts[player.Health].SetTrigger("lost");
+                Debug.Log("eiiii");
+            }
+        } catch {}
     }
 }
