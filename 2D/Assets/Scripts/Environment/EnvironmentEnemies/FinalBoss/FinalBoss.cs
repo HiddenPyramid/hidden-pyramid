@@ -19,7 +19,6 @@ public class FinalBoss : MonoBehaviour
     public bool rightReady = true;
     public bool headReady = true;
     public float checkInterval = 1f;
-    public Animator finalRoom;
 
     private void Start() 
     {
@@ -50,16 +49,17 @@ public class FinalBoss : MonoBehaviour
             DecrementDelay();
         }
         headWithBody.FallBoss();
-        finalRoom.SetTrigger("end");
     }
 
     private IEnumerator RightAttack()
     {
         this.rightReady = false;
         this.rightArm.Lower();
+        Debug.Log("RIGHT DOWN");
         yield return new WaitForSeconds(downTime);
         this.rightArm.Rise();
         DecrementDownTime();
+        Debug.Log("RIGHT UP");
 
         this.rightReady = true;
     }
@@ -69,9 +69,11 @@ public class FinalBoss : MonoBehaviour
         this.leftReady = false;
 
         this.leftArm.Lower();
+        Debug.Log("LEFT DOWN");
         yield return new WaitForSeconds(downTime);
         this.leftArm.Rise();
         DecrementDownTime();
+        Debug.Log("LEFT UP");
 
         this.leftReady = true;
     }
@@ -80,17 +82,19 @@ public class FinalBoss : MonoBehaviour
     {
         this.headReady = false;
 
+        Debug.Log("HEAD DOWN");
         this.headWithBody.Lower();
         yield return new WaitForSeconds(downTime);
         this.headWithBody.Rise();
         DecrementDownTime();
+        Debug.Log("HEAD UP");
+
         this.headReady = true;
     }
 
     public void Activate()
     {
         StartCoroutine(BossAttack());
-        finalRoom.SetTrigger("move");
     }
 
     private void DecrementDelay()
