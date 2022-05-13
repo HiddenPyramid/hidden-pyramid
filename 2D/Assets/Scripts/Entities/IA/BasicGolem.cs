@@ -23,6 +23,7 @@ public class BasicGolem : Golem
     void Update()
     {
         playersDetected = detection.PlayersDetected;
+        CheckHealth();
         if (!collision.Collided)
         {
             CheckAll();
@@ -41,13 +42,12 @@ public class BasicGolem : Golem
     private void CheckAll()
     {
         CheckCollision();
-        CheckHealth();
         CheckDirection();
     }
 
     private void CheckCollision()
     {
-        if (!collision.InGround || collision.InWall)
+        if (!collision.InGround)
             Speed *= -1;
     }
 
@@ -89,15 +89,15 @@ public class BasicGolem : Golem
         if (CheckDie())
         {
             animator.SetTrigger("die");
-            StartCoroutine(WaitToDestroy(timeToDie));
+            StartCoroutine(WaitToDestroy());
         }
         else if (Health / initialHP < 0.5 || Health / initialHP < 0.25 && Arms.Count > 0)
             Arms[0].GetComponent<ArmFall>().Drop();
     }
 
-    private IEnumerator WaitToDestroy(float seconds)
+    private IEnumerator WaitToDestroy()
     {
-        yield return new WaitForSeconds(seconds);
+        yield return new WaitForSeconds(timeToDie);
         Destroy(gameObject);
     }
 }
