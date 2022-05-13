@@ -8,12 +8,13 @@ public class BasicGolem : Golem
     [SerializeField]
     private float SprintSpeed;
     [SerializeField]
+    private float deathDelay;
+    [SerializeField]
     private List<Transform> Arms;
 
     private float initialHP;
     private Vector3 lastPos;
-    public Animator animator;
-    public float timeToDie = 2.0f;
+    private bool dead = false;
     private void Start()
     {
         initialHP = Health;
@@ -22,21 +23,25 @@ public class BasicGolem : Golem
     // Update is called once per frame
     void Update()
     {
-        playersDetected = detection.PlayersDetected;
-        CheckHealth();
-        if (!collision.Collided)
+        if (!dead)
         {
-            CheckAll();
-            Move();
+            playersDetected = detection.PlayersDetected;
+            CheckHealth();
+            if (collision.Collided == null)
+            {
+                CheckAll();
+                Move();
+            }
+            else
+                Attack();
         }
-        else
-            Attack();
 
     }
 
     private void Attack()
     {
         animator.SetTrigger("punch");
+        GetComponent<DamageDealer>().DealDamage(collision.Collided);
     }
 
     private void CheckAll()
@@ -89,15 +94,11 @@ public class BasicGolem : Golem
         if (CheckDie())
         {
             animator.SetTrigger("die");
-            StartCoroutine(WaitToDestroy());
+            dead = true;
+            Destroy(gameObject, animator.GetCurrentAnimatorStateInfo(0).length + deathDelay);
         }
-        else if (Health / initialHP < 0.5 || Health / initialHP < 0.25 && Arms.Count > 0)
+        else if (Arms.Count > 0 && Health / initialHP < 0.5 || Health / initialHP < 0.25)
             Arms[0].GetComponent<ArmFall>().Drop();
     }
 
-    private IEnumerator WaitToDestroy()
-    {
-        yield return new WaitForSeconds(timeToDie);
-        Destroy(gameObject);
-    }
 }

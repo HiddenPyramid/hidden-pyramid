@@ -12,6 +12,8 @@ public abstract class Golem : MonoBehaviour, ITakeDamage
     protected bool Chase;
     [SerializeField]
     protected Transform Visuals;
+    [SerializeField]
+    protected Animator animator;
 
     protected List<Transform> playersDetected;
     protected PlayerDetection detection;

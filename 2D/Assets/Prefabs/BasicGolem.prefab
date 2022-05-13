@@ -152,10 +152,10 @@ MonoBehaviour:
   Speed: 1
   Chase: 1
   Visuals: {fileID: 8404833270112850122}
-  SprintSpeed: 3
-  Arms: []
   animator: {fileID: 6341687000236771164}
-  timeToDie: 2
+  SprintSpeed: 3
+  deathDelay: 0.5
+  Arms: []
 --- !u!114 &4495769183749517148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,7 +170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   destroyOnHit: 0
-  push: 20
+  push: 2
 --- !u!114 &2177755303123027557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,7 +198,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.49, y: 1.4442902, z: 1}
+  m_Size: {x: 1.09, y: 1.4442902, z: 1}
   m_Center: {x: 0, y: 0.73226166, z: 0}
 --- !u!1 &7380000497612364406
 GameObject:
