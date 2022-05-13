@@ -10,6 +10,7 @@ public class MovingPillar : MonoBehaviour
     public float slowness = 100f;
     public Vector3 velocity = Vector3.zero;
     public float changingDistance = 1.5f;
+    public MovingPillarCollider pillarCollider;
 
 
     private void Update() 
@@ -33,6 +34,12 @@ public class MovingPillar : MonoBehaviour
             moving = true;
         }
         this.animator.SetTrigger("shoot");
+        pillarCollider.Shoot();
+    }
+
+    public void Unshoot()
+    {
+        pillarCollider.Unshoot();
     }
 
     private bool TargetReached()
