@@ -7,6 +7,9 @@ public class Head : MonoBehaviour
     public Animator headAnimator;
     public Animator leftCheekAnimator;
     public Animator rightCheekAnimator;
+    public bool alive => leftAlive || rightAlive;
+    public bool leftAlive = true;
+    public bool rightAlive = true;
 
     public void Lower()
     {
@@ -21,10 +24,12 @@ public class Head : MonoBehaviour
     public void FallLeft()
     {
         leftCheekAnimator.SetTrigger("fall");
+        leftAlive = false;
     }
 
     public void FallRight()
     {
         rightCheekAnimator.SetTrigger("fall");
+        rightAlive = true;
     }
 }

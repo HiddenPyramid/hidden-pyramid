@@ -17,6 +17,7 @@ public class LaserTower : MonoBehaviour, ITakeDamage
 
     [SerializeField]
     protected float Health;
+    public Arm arm;
 
     private void Start() 
     {
@@ -71,6 +72,7 @@ public class LaserTower : MonoBehaviour, ITakeDamage
             animator.SetTrigger("die");
             //StartCoroutine(WaitToDestroy(timeToDie));
             this.isActive = false;
+            CheckBossWarning();
         }
     }
 
@@ -78,5 +80,11 @@ public class LaserTower : MonoBehaviour, ITakeDamage
     {
         yield return new WaitForSeconds(seconds);
         Destroy(gameObject);
+    }
+
+    private void CheckBossWarning()
+    {
+        if (this.arm != null)
+            this.arm.Fall();
     }
 }

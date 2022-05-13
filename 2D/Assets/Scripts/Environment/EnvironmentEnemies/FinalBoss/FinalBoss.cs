@@ -15,10 +15,6 @@ public class FinalBoss : MonoBehaviour
     public float downTime, delay;
     public float decrement = 0.5f;
 
-    public bool leftAlive = true;
-    public bool rightAlive = true;
-    public bool headAlive = true;
-
     public bool leftReady = true;
     public bool rightReady = true;
     public bool headReady = true;
@@ -28,26 +24,25 @@ public class FinalBoss : MonoBehaviour
     {
         downTime = initialDownTime;
         delay = initialDelay;
-        StartCoroutine(BossAttack());
     }
     private IEnumerator BossAttack()
     {
-        while (this.rightAlive || this.leftAlive)
+        while (rightArm.alive || leftArm.alive)
         {
             while (!this.rightReady) { yield return new WaitForSeconds(checkInterval); }
-            if (this.rightAlive) {
+            if (rightArm.alive) {
                 StartCoroutine(RightAttack());
                 yield return new WaitForSeconds(delay);
             }
 
             while (!this.leftReady) { yield return new WaitForSeconds(checkInterval); }
-            if (this.leftAlive) {
+            if (leftArm.alive) {
                 StartCoroutine(LeftAttack());
             }
             
             DecrementDelay();
         }
-        while (this.headAlive)
+        while (headWithBody.alive)
         {
             StartCoroutine(HeadAttack());
             yield return new WaitForSeconds(delay);
@@ -94,6 +89,11 @@ public class FinalBoss : MonoBehaviour
         Debug.Log("HEAD UP");
 
         this.headReady = true;
+    }
+
+    public void Activate()
+    {
+        StartCoroutine(BossAttack());
     }
 
     private void DecrementDelay()
