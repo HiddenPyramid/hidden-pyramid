@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 4495769183749517148}
   - component: {fileID: 2177755303123027557}
   - component: {fileID: 4877163345094679964}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BasicGolem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df57540ba232dbd478ebf7af1fb6f9c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 0
+  radius: 5
   fov: 0
   FovAngle: 0
   playerLayer:
@@ -170,6 +170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   destroyOnHit: 0
+  push: 20
 --- !u!114 &2177755303123027557
 MonoBehaviour:
   m_ObjectHideFlags: 0

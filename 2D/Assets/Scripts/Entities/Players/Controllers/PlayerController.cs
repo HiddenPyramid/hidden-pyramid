@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour, ITakeDamage
 {
+    [SerializeField]
+    private float push;
     private InputAction jumpAction;
     private PlayerStats player;
     private CollisionManager collision;
