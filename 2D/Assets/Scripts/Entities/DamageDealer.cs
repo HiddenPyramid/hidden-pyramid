@@ -10,7 +10,7 @@ public class DamageDealer : MonoBehaviour
     private bool destroyOnHit;
     [SerializeField]
     private float push;
-    private void OnCollisionEnter(Collision collision)
+    /* private void OnCollisionEnter(Collision collision)
     {
         var reciever = collision.gameObject.GetComponent<ITakeDamage>();
         var movement = collision.gameObject.GetComponent<PlayerMovement>();
@@ -27,23 +27,23 @@ public class DamageDealer : MonoBehaviour
             movement.Push(dir.normalized * push);
 
         }
-    }
-    private void OnTriggerEnter(Collider collision)
+    } */
+    public void DealDamage(Transform hit)
     {
-        var reciever = collision.gameObject.GetComponent<ITakeDamage>();
-        var movement = collision.gameObject.GetComponent<PlayerMovement>();
+        var reciever = hit.GetComponent<ITakeDamage>();
+        var movement = hit.GetComponent<PlayerMovement>();
         if (reciever != null)
         {
             reciever.TakeDamage(damage);
-            if (destroyOnHit)
-                Destroy(gameObject);
         }
         if(movement != null)
         {
-            var dir = collision.transform.position - transform.position;
+            var dir = hit.position - transform.position;
             dir.Scale(transform.right);
             movement.Push(dir.normalized * push);
 
         }
+        if (destroyOnHit)
+            Destroy(gameObject);
     }
 }

@@ -18,6 +18,7 @@ public static class Parameter
     public const int LAYER_ITEM = 7;
     public const int LAYER_PLAYER = 6;
     public const int LAYER_TRIGGER = 8;
+    public const int LAYER_ENEMY = 9;
     public const int LAYER_GROUND = 0;
 
     //Animation
