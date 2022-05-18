@@ -8,7 +8,7 @@ public class BasicGolem : Golem
     [SerializeField]
     private float SprintSpeed;
     [SerializeField]
-    private float deathDelay;
+     private float deathDelay;
     [SerializeField]
     private List<Transform> Arms;
 
@@ -100,5 +100,4 @@ public class BasicGolem : Golem
         else if (Arms.Count > 0 && Health / initialHP < 0.5 || Health / initialHP < 0.25)
             Arms[0].GetComponent<ArmFall>().Drop();
     }
-
 }
