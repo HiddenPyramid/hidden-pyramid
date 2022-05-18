@@ -41,6 +41,7 @@ public class DamageDealer : MonoBehaviour
             var dir = hit.position - transform.position;
             dir.Scale(transform.right);
             movement.Push(dir.normalized * push);
+            Debug.Log("pyuum");
 
         }
         if (destroyOnHit)

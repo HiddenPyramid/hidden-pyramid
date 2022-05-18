@@ -5037,6 +5037,7 @@ MonoBehaviour:
   rightReady: 1
   headReady: 1
   checkInterval: 1
+  finalRoom: {fileID: 0}
 --- !u!1 &6584036508618134801
 GameObject:
   m_ObjectHideFlags: 0
@@ -13910,6 +13911,14 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e40a4d3fb46062542b1ab30589e82b84, type: 2}
+    - target: {fileID: 962840340232419497, guid: 91f25620caa81e94b8af6394c813caf7, type: 3}
+      propertyPath: push
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 962840340232419497, guid: 91f25620caa81e94b8af6394c813caf7, type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 962840340742523922, guid: 91f25620caa81e94b8af6394c813caf7, type: 3}
       propertyPath: m_Name
       value: LaserTower (1)
@@ -14242,6 +14251,14 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e40a4d3fb46062542b1ab30589e82b84, type: 2}
+    - target: {fileID: 962840340232419497, guid: 91f25620caa81e94b8af6394c813caf7, type: 3}
+      propertyPath: push
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 962840340232419497, guid: 91f25620caa81e94b8af6394c813caf7, type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 962840340742523932, guid: 91f25620caa81e94b8af6394c813caf7, type: 3}
       propertyPath: head
       value: 
