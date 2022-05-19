@@ -16,11 +16,9 @@ public class GolemCollision : MonoBehaviour
     private float wallPointRadius = 0.6f;
     private bool inGround;
     private bool inWall;
-    private Transform collided;
 
     public bool InGround { get => inGround; }
     public bool InWall { get => inWall; }
-    public Transform Collided { get => collided; }
 
     private void OnDrawGizmos()
     {
@@ -34,17 +32,6 @@ public class GolemCollision : MonoBehaviour
     void FixedUpdate()
     {
         CheckCollisions();
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        
-        if (other.gameObject.layer == Parameter.LAYER_PLAYER)
-            collided = other.transform;
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.layer == Parameter.LAYER_PLAYER)
-            collided = other.transform;
     }
     private void CheckCollisions()
     {

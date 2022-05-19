@@ -35,14 +35,13 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 l_playerMovement = input * transform.right * stats.Speed;
         l_playerMovement.y = rigidbody.velocity.y;
-        rigidbody.velocity = l_playerMovement;
+        rigidbody.velocity = l_playerMovement + push;
+        push = Vector3.zero;
         //animator.SetFloat("Speed", Mathf.Abs(l_playerMovement.x));
     }
     public void Push(Vector3 vec)
     {
-        Debug.Log(vec);
         push = vec;
-        rigidbody.AddForce(push, ForceMode.Impulse);
     }
 
 }

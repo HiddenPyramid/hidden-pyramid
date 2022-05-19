@@ -354,7 +354,7 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 3153011154419395184}
   m_Bounds:
-    m_Center: {x: -0.005534768, y: -0.000713408, z: 0}
+    m_Center: {x: -0.0055309534, y: -0.000713408, z: 0}
     m_Extent: {x: 0.4144928, y: 0.39583465, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -496,8 +496,8 @@ MonoBehaviour:
   - {fileID: 3331655597212414978}
   - {fileID: 1864255354951831687}
   m_Bounds:
-    m_Center: {x: 0.00034472346, y: -0.00053334236, z: 0}
-    m_Extent: {x: 0.34972534, y: 0.4750991, z: 0}
+    m_Center: {x: 0.0003477633, y: -0.00053334236, z: 0}
+    m_Extent: {x: 0.34972608, y: 0.4750991, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &2353289077291986362
@@ -901,8 +901,8 @@ MonoBehaviour:
   - {fileID: 7887408834436771848}
   - {fileID: 5050223578349575566}
   m_Bounds:
-    m_Center: {x: -0.0020664185, y: -0.00055009127, z: 0}
-    m_Extent: {x: 0.18846866, y: 0.4589046, z: 0}
+    m_Center: {x: -0.0020702332, y: -0.00055009127, z: 0}
+    m_Extent: {x: 0.18847248, y: 0.4589046, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &4946650110343020292
@@ -1430,8 +1430,8 @@ MonoBehaviour:
   - {fileID: 1671600712737218808}
   - {fileID: 3331655597212414978}
   m_Bounds:
-    m_Center: {x: 0.0017196238, y: -0.0013784766, z: 0}
-    m_Extent: {x: 0.21107313, y: 0.42424983, z: 0}
+    m_Center: {x: 0.0017177165, y: -0.0013784766, z: 0}
+    m_Extent: {x: 0.21107504, y: 0.42424983, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &6244671921778698623
@@ -1682,8 +1682,8 @@ MonoBehaviour:
   - {fileID: 7887408834436771848}
   - {fileID: 5050223578349575566}
   m_Bounds:
-    m_Center: {x: -0.0014762431, y: 0.0011661947, z: 0}
-    m_Extent: {x: 0.18782425, y: 0.45873132, z: 0}
+    m_Center: {x: -0.0014743358, y: 0.0011661947, z: 0}
+    m_Extent: {x: 0.18782234, y: 0.45873132, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &8144130267307317920
@@ -1695,7 +1695,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2582383983922972301}
-  - component: {fileID: 8462642368486556668}
   - component: {fileID: 4237276163583638146}
   - component: {fileID: 9145729626694800545}
   - component: {fileID: 9101979153957857650}
@@ -1706,6 +1705,7 @@ GameObject:
   - component: {fileID: 4911339641221926477}
   - component: {fileID: 8144130267307317941}
   - component: {fileID: 8956272187704002641}
+  - component: {fileID: 9157727554737214192}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -1730,19 +1730,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &8462642368486556668
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8144130267307317920}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.84, y: 2.34, z: 0.2}
-  m_Center: {x: 0, y: -0.004189253, z: 0}
 --- !u!54 &4237276163583638146
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1831,6 +1818,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c50443b33ebdd9439391b50ec0de3b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  push: 0
+  hearts: []
 --- !u!114 &6050777331477609099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1904,6 +1893,20 @@ MonoBehaviour:
   Lives: 2
   playerAnimator: {fileID: 0}
   slymAnimator: {fileID: 0}
+--- !u!136 &9157727554737214192
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8144130267307317920}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2.4
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8213222592361502290
 GameObject:
   m_ObjectHideFlags: 0
@@ -2099,7 +2102,7 @@ MonoBehaviour:
   - {fileID: 3153011154419395184}
   - {fileID: 7887408834436771848}
   m_Bounds:
-    m_Center: {x: -0.0044338107, y: -0.0018032193, z: 0}
+    m_Center: {x: -0.004429996, y: -0.0018032193, z: 0}
     m_Extent: {x: 0.30446017, y: 0.32833695, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1

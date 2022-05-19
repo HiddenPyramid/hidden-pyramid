@@ -26,38 +26,24 @@ public class BasicGolem : Golem
         if (!dead)
         {
             playersDetected = detection.PlayersDetected;
-            CheckHealth();
-            if (collision.Collided == null)
-            {
-                CheckAll();
-                Move();
-            }
-            else
-                Attack();
+            CheckAll();
+            Move();
         }
 
     }
 
-    private void Attack()
-    {
-        animator.SetTrigger("punch");
-        GetComponent<DamageDealer>().DealDamage(collision.Collided);
-    }
 
     private void CheckAll()
     {
-        CheckCollision();
+        CheckHealth();
         CheckDirection();
     }
 
-    private void CheckCollision()
-    {
-        if (!collision.InGround)
-            Speed *= -1;
-    }
 
     private void CheckDirection()
     {
+        if (!collision.InGround)
+            Speed *= -1;
         var dir = lastPos - Vector3.Scale(transform.position, transform.right);
         var scale = (dir.x < 0 || dir.z < 0) ? -1 : 1;
         Visuals.localScale = new Vector3(scale, Visuals.localScale.y, Visuals.localScale.z);

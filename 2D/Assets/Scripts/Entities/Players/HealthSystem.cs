@@ -13,10 +13,12 @@ public class HealthSystem : MonoBehaviour
 
     private PlayerStats player;
     public Animator playerAnimator, slymAnimator;
+    private PlayerController playerController;
 
     private void Start()
     {
         player = GetComponent<PlayerStats>();
+        playerController = GetComponent<PlayerController>();
     }
     private void Update()
     {
@@ -34,6 +36,8 @@ public class HealthSystem : MonoBehaviour
             
             playerAnimator.SetTrigger(Parameter.ANIM_DIES);
             slymAnimator.SetTrigger(Parameter.ANIM_DIES);
+
+            playerController.RegainLives();
         }
     }
     //private PlayerStats player;
