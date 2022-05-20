@@ -13,6 +13,8 @@ public class CameraController : MonoBehaviour
     private float SmoothTime = 0f;
     [SerializeField]
     private Vector3 Offset;
+    public bool yBlocked = true;
+    public float yBlockPosition = 78.43f;
 
 
 
@@ -29,7 +31,23 @@ public class CameraController : MonoBehaviour
 
     private Vector3 GetPosition()
     {
-        Vector3 offset = Offset.x * Player.right + Offset.y * Player.up + Offset.z * Player.forward;
-        return Player.position + offset;
+        Vector3 offset;
+        offset = Offset.x * Player.right + Offset.y * Player.up + Offset.z * Player.forward;
+
+        if (!yBlocked) 
+            return Player.position + offset;
+        
+        Vector3 positionYBlocked = new Vector3 (Player.position.x, yBlockPosition, Player.position.z);
+        return positionYBlocked + offset;
+    }
+
+    public Vector3 GetOffset()
+    {
+        return this.Offset;
+    }
+
+    public void SetOffset(Vector3 newOffset)
+    {
+        this.Offset = new Vector3 (newOffset.x, newOffset.y, newOffset.z);
     }
 }
