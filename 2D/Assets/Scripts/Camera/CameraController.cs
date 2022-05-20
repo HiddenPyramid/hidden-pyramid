@@ -16,7 +16,7 @@ public class CameraController : MonoBehaviour
     public bool yBlocked = true;
     public float yBlockPosition = 78.43f;
 
-
+    private bool currentSwapped = false;
 
     void Update()
     {
@@ -48,6 +48,15 @@ public class CameraController : MonoBehaviour
 
     public void SetOffset(Vector3 newOffset)
     {
-        this.Offset = new Vector3 (newOffset.x, newOffset.y, newOffset.z);
+        this.Offset = currentSwapped ? new Vector3 (   newOffset.x, newOffset.y, newOffset.z) : 
+                                       new Vector3 ( - newOffset.x, newOffset.y, newOffset.z);
+    }
+
+    public void SwapXOffset()
+    {
+        this.Offset = new Vector3(- this.Offset.x, 
+                                    this.Offset.y, 
+                                    this.Offset.z);
+        this.currentSwapped = ! this.currentSwapped;
     }
 }

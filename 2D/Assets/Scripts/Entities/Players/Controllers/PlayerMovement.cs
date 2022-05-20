@@ -11,23 +11,23 @@ public class PlayerMovement : MonoBehaviour
     private InputAction moveAction;
     private float input;
     private Vector3 push;
-    //private Animator animator;
-    // Start is called before the first frame update
+
+    public CameraDirection cameraDirection;
+
     void Start()
     {
         stats = GetComponent<PlayerStats>();
         rigidbody = GetComponent<Rigidbody>();
         moveAction = GetComponent<PlayerInput>().actions[Parameter.ACTION_MOVE];
-        //animator = GetComponentInChildren<Animator>();
 
         moveAction.performed += x => input = x.ReadValue<Vector2>().x;
         moveAction.canceled += _ => input = 0f;
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         Move();
+        cameraDirection.SetInput(input);
     }
 
 
@@ -37,7 +37,6 @@ public class PlayerMovement : MonoBehaviour
         l_playerMovement.y = rigidbody.velocity.y;
         rigidbody.velocity = l_playerMovement + push;
         push = Vector3.zero;
-        //animator.SetFloat("Speed", Mathf.Abs(l_playerMovement.x));
     }
     public void Push(Vector3 vec)
     {
