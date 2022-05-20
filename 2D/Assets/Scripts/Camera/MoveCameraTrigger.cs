@@ -5,48 +5,24 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider))]
 public class MoveCameraTrigger : MonoBehaviour
 {
+    // Note: Intended usage: the trigger covers all the length of the corridor.
     public CameraController cameraController;
     public Vector3 offset;
-    private Vector3 previousOffset;
-    private bool entering = true;
-    private void Update() {
-        Debug.Log(cameraController.GetOffset());
-    }
 
     private void OnTriggerEnter(Collider other) 
     {
-        if (other.gameObject.CompareTag(Parameter.PLAYER))
-        {
-            MoveCamera();
-            Debug.Log("ENTRAA");
-        }
-    }
+        MoveIfPlayerEntered(other);        
+    }    
 
-    /* private void OnTriggerExit(Collider other) 
+    private void MoveIfPlayerEntered(Collider other)
     {
         if (other.gameObject.CompareTag(Parameter.PLAYER))
-        {
             MoveCamera();
-            Debug.Log("SURT");
-        }
-    } */
-    
+    } 
 
     private void MoveCamera()
     {
-        if (entering)
-        {
-            entering = false;
-            previousOffset = cameraController.GetOffset();
-            Debug.Log(cameraController.GetOffset());
-            cameraController.SetOffset(this.offset);
-            Debug.Log(cameraController.GetOffset());
-        }
-        else
-        {
-            entering = true;
-            cameraController.SetOffset(this.previousOffset);
-        }
+        cameraController.SetOffset(this.offset);
     }
 
 }
