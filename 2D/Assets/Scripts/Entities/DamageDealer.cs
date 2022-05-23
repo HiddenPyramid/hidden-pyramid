@@ -10,13 +10,9 @@ public class DamageDealer : MonoBehaviour
     private bool destroyOnHit;
     [SerializeField]
     private float push;
-    [SerializeField]
-    private List<LayerMask> victims;
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (!victims.Contains(collision.gameObject.layer))
-            return;
         var reciever = collision.gameObject.GetComponent<ITakeDamage>();
         var movement = collision.gameObject.GetComponent<PlayerMovement>();
         if (reciever != null)
@@ -32,8 +28,6 @@ public class DamageDealer : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (!victims.Contains(other.gameObject.layer))
-            return;
         var reciever = other.gameObject.GetComponent<ITakeDamage>();
         var movement = other.gameObject.GetComponent<PlayerMovement>();
         if (reciever != null)

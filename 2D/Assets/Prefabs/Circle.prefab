@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6171716625866235474}
   - component: {fileID: 7560303994594002799}
   - component: {fileID: 642930601537481189}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Circle
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -130,11 +130,6 @@ MonoBehaviour:
   damage: 1
   destroyOnHit: 1
   push: 15
-  victims:
-  - serializedVersion: 2
-    m_Bits: 512
-  - serializedVersion: 2
-    m_Bits: 1
 --- !u!135 &642930601537481189
 SphereCollider:
   m_ObjectHideFlags: 0
