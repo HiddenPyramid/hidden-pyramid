@@ -16,6 +16,7 @@ public class ChAnimation : MonoBehaviour
     private InputAction moveAction;
     private float input;
     private int lastInput;
+    private bool startedJumping = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -50,13 +51,26 @@ public class ChAnimation : MonoBehaviour
 
     public void StartJump()
     {
-        animator.SetBool(Parameter.ANIM_JUMPING, true);
-        shadowAnimator.SetBool(Parameter.ANIM_JUMPING, true);
+        if (!animator.GetBool(Parameter.ANIM_JUMPING))
+        {
+            animator.SetTrigger(Parameter.ANIM_TAKEOFF);
+            animator.SetBool(Parameter.ANIM_JUMPING, true);
+            shadowAnimator.SetBool(Parameter.ANIM_JUMPING, true);
+            shadowAnimator.SetTrigger(Parameter.ANIM_TAKEOFF);
+        }
+        else
+        {
+            animator.ResetTrigger(Parameter.ANIM_TAKEOFF);
+            shadowAnimator.ResetTrigger(Parameter.ANIM_TAKEOFF);
+        }
     }
 
     public void EndJump()
     {
-        animator.SetBool(Parameter.ANIM_JUMPING, false);
-        shadowAnimator.SetBool(Parameter.ANIM_JUMPING, false);
+        if (animator.GetBool(Parameter.ANIM_JUMPING))
+        {
+            animator.SetBool(Parameter.ANIM_JUMPING, false);
+            shadowAnimator.SetBool(Parameter.ANIM_JUMPING, false);
+        }
     }
 }
