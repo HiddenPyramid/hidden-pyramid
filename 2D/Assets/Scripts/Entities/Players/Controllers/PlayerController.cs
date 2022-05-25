@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour, ITakeDamage
     private PlayerStats player;
     private CollisionManager collision;
     private Rigidbody rigidbody;
+    public SoundManager soundManager;
 
     private ChAnimation chAnimation;
     public Animator [] hearts;
@@ -22,7 +23,7 @@ public class PlayerController : MonoBehaviour, ITakeDamage
         collision = GetComponent<CollisionManager>();
         jumpAction = GetComponent<PlayerInput>().actions[Parameter.ACTION_JUMP];
         chAnimation = GetComponent<ChAnimation>();
-
+        
         jumpAction.performed += _ => Jump();
         jumpAction.canceled += _ => Fall();
 
@@ -57,6 +58,7 @@ public class PlayerController : MonoBehaviour, ITakeDamage
             Vector3 vec = new Vector3(rigidbody.velocity.x, player.JumpHeight, rigidbody.velocity.z);
             rigidbody.velocity = vec;
             chAnimation.StartJump();
+            soundManager.audioSelect(0, 0.5f);
         }
     }
 

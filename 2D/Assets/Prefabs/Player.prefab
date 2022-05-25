@@ -1056,8 +1056,8 @@ MonoBehaviour:
   - {fileID: 4397206536884676181}
   - {fileID: 474223862525102073}
   m_Bounds:
-    m_Center: {x: -0.0020692796, y: -0.0005415082, z: -2.0770065e-10}
-    m_Extent: {x: 0.18846771, y: 0.45890367, z: 2.1315762e-10}
+    m_Center: {x: -0.0020664185, y: -0.0005415082, z: -2.0770065e-10}
+    m_Extent: {x: 0.18846866, y: 0.45890367, z: 2.1315762e-10}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &3101263734352973251
@@ -1162,7 +1162,7 @@ MonoBehaviour:
   - {fileID: 4397206536884676181}
   - {fileID: 474223862525102073}
   m_Bounds:
-    m_Center: {x: -0.0014762431, y: 0.001168102, z: -0.0000038144808}
+    m_Center: {x: -0.0014743358, y: 0.001168102, z: -0.0000038144808}
     m_Extent: {x: 0.18782234, y: 0.45873135, z: 0.000003814933}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -1367,8 +1367,8 @@ MonoBehaviour:
   - {fileID: 6061819073706907675}
   - {fileID: 128343872957791978}
   m_Bounds:
-    m_Center: {x: 0.00034835935, y: -0.00053343177, z: -0.000007629438}
-    m_Extent: {x: 0.3497255, y: 0.4750992, z: 4.3655746e-11}
+    m_Center: {x: 0.00034853816, y: -0.00053343177, z: -0.000007629438}
+    m_Extent: {x: 0.34972534, y: 0.4750992, z: 4.3655746e-11}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &3678840799280992057
@@ -3281,8 +3281,8 @@ MonoBehaviour:
   - {fileID: 4397206536884676181}
   - {fileID: 128343872957791978}
   m_Bounds:
-    m_Center: {x: 0.0017229766, y: -0.0004464686, z: -0.0000076293927}
-    m_Extent: {x: 0.21105984, y: 0.42483276, z: 1.8872015e-11}
+    m_Center: {x: 0.0017191619, y: -0.0004464686, z: -0.0000076293927}
+    m_Extent: {x: 0.21105602, y: 0.42483276, z: 1.8872015e-11}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &8144130267307317920
@@ -3306,6 +3306,7 @@ GameObject:
   - component: {fileID: 8956272187704002641}
   - component: {fileID: 9157727554737214192}
   - component: {fileID: 7729544840030015652}
+  - component: {fileID: 8939446427528692262}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -3420,6 +3421,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c50443b33ebdd9439391b50ec0de3b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundManager: {fileID: 0}
   hearts: []
 --- !u!114 &6050777331477609099
 MonoBehaviour:
@@ -3522,6 +3524,14 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.9030304, z: 1}
   m_Center: {x: 0, y: 0.24780273, z: 0}
+--- !u!81 &8939446427528692262
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8144130267307317920}
+  m_Enabled: 1
 --- !u!1 &8213222592361502290
 GameObject:
   m_ObjectHideFlags: 0
