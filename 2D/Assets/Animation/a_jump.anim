@@ -530,6 +530,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
+<<<<<<< HEAD
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -539,6 +540,8 @@ AnimationClip:
         outWeight: 0
       - serializedVersion: 3
         time: 1.1666666
+=======
+>>>>>>> 244fff887691994f1df11c2c6704a9504408f23f
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -546,6 +549,7 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0
         outWeight: 0
+<<<<<<< HEAD
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -558,6 +562,10 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
+=======
+      - serializedVersion: 3
+        time: 1.15
+>>>>>>> 244fff887691994f1df11c2c6704a9504408f23f
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -568,8 +576,13 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+<<<<<<< HEAD
     attribute: Loop
     path: sfxAudios
+=======
+    attribute: m_PlayOnAwake
+    path: AudioSaltar
+>>>>>>> 244fff887691994f1df11c2c6704a9504408f23f
     classID: 82
     script: {fileID: 0}
   - curve:
@@ -578,6 +591,7 @@ AnimationClip:
       - serializedVersion: 3
         time: 0
         value: 0
+<<<<<<< HEAD
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 103
@@ -598,6 +612,37 @@ AnimationClip:
       m_RotationOrder: 4
     attribute: Mute
     path: sfxAudios
+=======
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.016666668
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1.15
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_Volume
+    path: AudioSaltar
+>>>>>>> 244fff887691994f1df11c2c6704a9504408f23f
     classID: 82
     script: {fileID: 0}
   m_PPtrCurves: []
@@ -700,13 +745,18 @@ AnimationClip:
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
+<<<<<<< HEAD
       path: 3409554861
+=======
+      path: 291080270
+>>>>>>> 244fff887691994f1df11c2c6704a9504408f23f
       attribute: 2720275347
       script: {fileID: 0}
       typeID: 82
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
+<<<<<<< HEAD
       path: 3409554861
       attribute: 23966416
       script: {fileID: 0}
@@ -716,6 +766,10 @@ AnimationClip:
     - serializedVersion: 2
       path: 3409554861
       attribute: 1821105250
+=======
+      path: 291080270
+      attribute: 4104493590
+>>>>>>> 244fff887691994f1df11c2c6704a9504408f23f
       script: {fileID: 0}
       typeID: 82
       customType: 0
@@ -2322,6 +2376,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
+<<<<<<< HEAD
         value: 0
         inSlope: 0
         outSlope: 0
@@ -2373,6 +2428,30 @@ AnimationClip:
     attribute: m_LocalPosition.z
     path: sfxAudios
     classID: 4
+=======
+        value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1.15
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_PlayOnAwake
+    path: AudioSaltar
+    classID: 82
+>>>>>>> 244fff887691994f1df11c2c6704a9504408f23f
     script: {fileID: 0}
   - curve:
       serializedVersion: 2
@@ -2386,6 +2465,7 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -2399,12 +2479,18 @@ AnimationClip:
       - serializedVersion: 3
         time: 0
         value: 0
+=======
+      - serializedVersion: 3
+        time: 0.016666668
+        value: 1
+>>>>>>> 244fff887691994f1df11c2c6704a9504408f23f
         inSlope: 0
         outSlope: 0
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+<<<<<<< HEAD
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -2417,6 +2503,10 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
+=======
+      - serializedVersion: 3
+        time: 1.15
+>>>>>>> 244fff887691994f1df11c2c6704a9504408f23f
         value: 0
         inSlope: 0
         outSlope: 0
@@ -2427,6 +2517,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+<<<<<<< HEAD
     attribute: localEulerAnglesRaw.z
     path: sfxAudios
     classID: 4
@@ -2504,6 +2595,10 @@ AnimationClip:
       m_RotationOrder: 4
     attribute: Mute
     path: sfxAudios
+=======
+    attribute: m_Volume
+    path: AudioSaltar
+>>>>>>> 244fff887691994f1df11c2c6704a9504408f23f
     classID: 82
     script: {fileID: 0}
   m_EulerEditorCurves:
