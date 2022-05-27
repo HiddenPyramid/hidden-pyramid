@@ -30,6 +30,7 @@ public abstract class Golem : MonoBehaviour, ITakeDamage
 
     public void TakeDamage(float dmg)
     {
+        animator.SetTrigger("tookDamage");
         Health -= dmg;
     }
     protected bool CheckDie()

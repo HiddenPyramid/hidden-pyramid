@@ -11,12 +11,17 @@ public class DamageDealer : MonoBehaviour
     [SerializeField]
     private float push;
 
+    public Animator animator;
+
     private void OnCollisionEnter(Collision collision)
     {
         var reciever = collision.gameObject.GetComponent<ITakeDamage>();
         var movement = collision.gameObject.GetComponent<PlayerMovement>();
         if (reciever != null)
+        {
             reciever.TakeDamage(damage);
+        }
+            
         if (movement != null && push != 0)
         {
             var dir = collision.transform.position - transform.position;
