@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
     private float input;
     private Vector3 push;
 
+    private bool moveBlocked = false;
+
     public CameraDirection cameraDirection;
 
     void Start()
@@ -26,8 +28,11 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        Move();
-        cameraDirection.SetInput(input);
+        if (!moveBlocked)
+        {
+            Move();
+            cameraDirection.SetInput(input);
+        }
     }
 
 
@@ -43,4 +48,13 @@ public class PlayerMovement : MonoBehaviour
         push = vec;
     }
 
+    public void BlockMove()
+    {
+        this.moveBlocked = true;
+    }
+
+    public void UnblockMove()
+    {
+        this.moveBlocked = false;
+    }
 }
