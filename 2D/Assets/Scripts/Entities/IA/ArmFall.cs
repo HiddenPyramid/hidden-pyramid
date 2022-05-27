@@ -5,6 +5,11 @@ public class ArmFall : MonoBehaviour
 {
     [SerializeField]
     private Rigidbody rigidbody;
+
+    private void Start() 
+    {
+        this.Drop();
+    }
     
     public void Drop()
     {

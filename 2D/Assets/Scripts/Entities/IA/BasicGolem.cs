@@ -10,15 +10,20 @@ public class BasicGolem : Golem
     [SerializeField]
      private float deathDelay;
     [SerializeField]
-    private List<Transform> Arms;
+    private List<Transform> ArmVisuals;
+    [SerializeField]
+    private List<ArmFall> ArmRagdolls;
 
     private float initialHP;
     private Vector3 lastPos;
     private bool dead = false;
+
+    private int armIndex;
     private void Start()
     {
         initialHP = Health;
         lastPos = transform.position;
+        armIndex = 0;
     }
     // Update is called once per frame
     void Update()
@@ -83,7 +88,24 @@ public class BasicGolem : Golem
             dead = true;
             Destroy(gameObject, animator.GetCurrentAnimatorStateInfo(0).length + deathDelay);
         }
-        else if (Arms.Count > 0 && Health / initialHP < 0.5 || Health / initialHP < 0.25)
-            Arms[0].GetComponent<ArmFall>().Drop();
+        if (RemainingArms() && FallingArmThresholdPassed())
+        {
+            ArmVisuals[armIndex].gameObject.SetActive(false);
+            Debug.Log("Ei desactivat");
+            Instantiate(ArmRagdolls[armIndex], ArmVisuals[armIndex].position, ArmVisuals[armIndex].rotation);
+            armIndex = armIndex+1;
+        }
+    }
+
+    private bool RemainingArms()
+    {
+        return this.armIndex < this.ArmVisuals.Count;
+    }
+
+    private bool FallingArmThresholdPassed()
+    {
+        float inverseIndex = this.ArmVisuals.Count - this.armIndex - 1;
+        float armThreshold = 1.0f / (float)this.ArmVisuals.Count * inverseIndex; 
+        return (Health / initialHP) <= (armThreshold);
     }
 }
