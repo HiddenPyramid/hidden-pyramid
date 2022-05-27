@@ -7,6 +7,7 @@ public class CheckDirection : MonoBehaviour
 {
     [SerializeField]
     private Transform visuals;
+    private Transform shadowVisuals;
     private PlayerInput input;
     private InputAction aimAction;
     private Vector2 direction;
@@ -15,6 +16,7 @@ public class CheckDirection : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("A=ASASASASA");
         input = GetComponentInParent<PlayerInput>();
         aimAction = input.actions[Parameter.ACTION_AIM];
         aimAction.performed += x => direction = x.ReadValue<Vector2>();
@@ -34,9 +36,11 @@ public class CheckDirection : MonoBehaviour
         
         if (transform.right == Vector3.right){
             visuals.localScale = new Vector3(Mathf.Sign(mouseDirection.x), visuals.localScale.y, visuals.localScale.z);
+            shadowVisuals.localScale = new Vector3(Mathf.Sign(mouseDirection.x), shadowVisuals.localScale.y, shadowVisuals.localScale.z);
             }
         else if( transform.right == Vector3.forward){
             visuals.localScale = new Vector3(Mathf.Sign(mouseDirection.z), visuals.localScale.y, visuals.localScale.z);
+            shadowVisuals.localScale = new Vector3(Mathf.Sign(mouseDirection.z), shadowVisuals.localScale.y, shadowVisuals.localScale.z);
         }
     }
 

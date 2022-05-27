@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
-        Vector3 l_playerMovement = input * transform.right * stats.Speed;
+        Vector3 l_playerMovement =  input * transform.right * stats.Speed;
         l_playerMovement.y = rigidbody.velocity.y;
         rigidbody.velocity = l_playerMovement + push;
         push = Vector3.zero;

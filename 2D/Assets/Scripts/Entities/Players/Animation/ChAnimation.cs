@@ -11,6 +11,8 @@ public class ChAnimation : MonoBehaviour
     private Animator shadowAnimator;
     [SerializeField]
     private Transform visuals;
+    [SerializeField]
+    private Transform shadowVisuals;
     public Transform slymVisuals;
 
     private InputAction moveAction;
@@ -33,6 +35,7 @@ public class ChAnimation : MonoBehaviour
             animator.SetBool(Parameter.ANIM_RUNNING, true);
             shadowAnimator.SetBool(Parameter.ANIM_RUNNING, true);
             visuals.localScale = Vector3.one;
+            shadowVisuals.localScale = Vector3.one;
             slymVisuals.localScale = Vector3.one;
         }
         else if(input < 0)
@@ -40,6 +43,7 @@ public class ChAnimation : MonoBehaviour
             animator.SetBool(Parameter.ANIM_RUNNING, true);
             shadowAnimator.SetBool(Parameter.ANIM_RUNNING, true);
             visuals.localScale = new Vector3(-1, visuals.localScale.y, visuals.localScale.z);
+            shadowVisuals.localScale = new Vector3(-1, shadowVisuals.localScale.y, shadowVisuals.localScale.z);
             slymVisuals.localScale = new Vector3(-1, slymVisuals.localScale.y, slymVisuals.localScale.z);
         }
         else
