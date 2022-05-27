@@ -37,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
         l_playerMovement.y = rigidbody.velocity.y;
         rigidbody.velocity = l_playerMovement + push;
         push = Vector3.zero;
+        Debug.Log("PAtata");
     }
     public void Push(Vector3 vec)
     {
