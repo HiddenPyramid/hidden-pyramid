@@ -16,7 +16,6 @@ public class CheckDirection : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("A=ASASASASA");
         input = GetComponentInParent<PlayerInput>();
         aimAction = input.actions[Parameter.ACTION_AIM];
         aimAction.performed += x => direction = x.ReadValue<Vector2>();
