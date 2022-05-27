@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
         instance = this;
         currentScene = SceneIndexes.MAIN_MENU;
         SceneManager.LoadSceneAsync((int)SceneIndexes.MAIN_MENU, LoadSceneMode.Additive);
+
+         Debug.Log("a veure");
     }
 
     public void LoadGame(SceneIndexes nextScene)
@@ -26,20 +28,24 @@ public class GameManager : MonoBehaviour
         scenesLoading.Add(SceneManager.LoadSceneAsync((int)nextScene, LoadSceneMode.Additive));
         currentScene = nextScene;
 
+        Debug.Log("PATATA");
+
         StartCoroutine(GetSceneLoadProgressAndActivateScene());
     }
 
     private IEnumerator GetSceneLoadProgressAndActivateScene()
     {
+        Debug.Log("entr");
         for (int i = 0; i < scenesLoading.Count; i++)
         {
             while (!scenesLoading[i].isDone)
             {
+                Debug.Log("hei");
                 UpdateProgress();
                 yield return null;
             }
         }
-
+        Debug.Log("acabat");
         loadingScreen.gameObject.SetActive(false);
         SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(((int)currentScene)));
     }

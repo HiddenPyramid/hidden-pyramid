@@ -7,6 +7,7 @@ public class SceneLoadTrigger : MonoBehaviour
     [SerializeField] private SceneIndexes nextScene;
     [SerializeField] private PausePanel optionalPausePanel;
     [SerializeField] private AudioSource optionalButtonAudio;
+    [SerializeField] private float waitDuration = 3f;
 
     public void LoadNextScene()
     {
@@ -18,6 +19,7 @@ public class SceneLoadTrigger : MonoBehaviour
     {
         float duration = PlayAndGetAudioDuration();
         yield return new WaitForSeconds(duration);
+        duration = waitDuration > duration ? waitDuration : duration;
 
         GameManager.instance.LoadGame(nextScene);
     }

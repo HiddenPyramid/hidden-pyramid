@@ -30444,7 +30444,7 @@ RectTransform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 1949644097}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -38692,7 +38692,7 @@ RectTransform:
   m_LocalScale: {x: 1.586264, y: 1.586264, z: 1.586264}
   m_Children: []
   m_Father: {fileID: 1949644097}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -77329,10 +77329,10 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 636329097977845714}
   - {fileID: 1007231418}
   - {fileID: 2061293822}
   - {fileID: 747509085}
-  - {fileID: 636329097977845714}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -81029,6 +81029,7 @@ GameObject:
   - component: {fileID: 2061293824}
   - component: {fileID: 2061293823}
   - component: {fileID: 2061293826}
+  - component: {fileID: 2061293827}
   m_Layer: 5
   m_Name: PlayButton
   m_TagString: Untagged
@@ -81048,7 +81049,7 @@ RectTransform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 1949644097}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -81098,7 +81099,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2061293824}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2061293827}
+        m_TargetAssemblyTypeName: SceneLoadTrigger, Assembly-CSharp
+        m_MethodName: LoadNextScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2061293824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81153,6 +81166,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2061293827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2061293821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75c8bbc735ec6ef4fa38b51be5b1d9f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextScene: 2
+  optionalPausePanel: {fileID: 0}
+  optionalButtonAudio: {fileID: 0}
+  waitDuration: 3
 --- !u!1 &2063808429
 GameObject:
   m_ObjectHideFlags: 0
@@ -84444,7 +84473,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3304760781201613548, guid: 5fd60aa6322e83f4e9395e75f9ed3bb4, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3304760781201613548, guid: 5fd60aa6322e83f4e9395e75f9ed3bb4, type: 3}
       propertyPath: m_AnchorMax.x
