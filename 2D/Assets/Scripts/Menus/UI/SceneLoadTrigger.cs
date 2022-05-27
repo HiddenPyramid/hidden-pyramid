@@ -8,11 +8,19 @@ public class SceneLoadTrigger : MonoBehaviour
     [SerializeField] private PausePanel optionalPausePanel;
     [SerializeField] private AudioSource optionalButtonAudio;
     [SerializeField] private float waitDuration = 3f;
+    public Animator curtainAnimator;
 
     public void LoadNextScene()
     {
         if (optionalPausePanel != null) optionalPausePanel.PrepareToQuit();
+        TryToCloseCurtain();
         StartCoroutine(LoadGameWaiting());
+    }
+
+    private void TryToCloseCurtain()
+    {
+        if (curtainAnimator != null)
+            curtainAnimator.SetTrigger("close");
     }
 
     private IEnumerator LoadGameWaiting()

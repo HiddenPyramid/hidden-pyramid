@@ -81182,6 +81182,7 @@ MonoBehaviour:
   optionalPausePanel: {fileID: 0}
   optionalButtonAudio: {fileID: 0}
   waitDuration: 3
+  curtainAnimator: {fileID: 636329097977845715}
 --- !u!1 &2063808429
 GameObject:
   m_ObjectHideFlags: 0
@@ -84552,6 +84553,11 @@ PrefabInstance:
 --- !u!224 &636329097977845714 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3304760781201613548, guid: 5fd60aa6322e83f4e9395e75f9ed3bb4, type: 3}
+  m_PrefabInstance: {fileID: 636329097977845713}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &636329097977845715 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6815138594423608033, guid: 5fd60aa6322e83f4e9395e75f9ed3bb4, type: 3}
   m_PrefabInstance: {fileID: 636329097977845713}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &4662315331306789568
