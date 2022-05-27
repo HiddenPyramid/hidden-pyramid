@@ -1729,7 +1729,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1318647199682489756
 Transform:
   m_ObjectHideFlags: 0
@@ -8282,10 +8282,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 7036804646267761182}
-  shadowAnimator: {fileID: 0}
+  shadowAnimator: {fileID: 6874117454682974597}
   visuals: {fileID: 2677096102036712412}
-  shadowVisuals: {fileID: 0}
+  shadowVisuals: {fileID: 3374030206409416316}
   slymVisuals: {fileID: 0}
+  walkParticles: {fileID: 1223410779282953464}
 --- !u!114 &8956272187704002641
 MonoBehaviour:
   m_ObjectHideFlags: 0

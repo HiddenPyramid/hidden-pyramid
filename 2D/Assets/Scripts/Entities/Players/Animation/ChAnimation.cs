@@ -19,6 +19,8 @@ public class ChAnimation : MonoBehaviour
     private float input;
     private int lastInput;
     private bool startedJumping = false;
+
+    public ParticleSystem walkParticles;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +39,8 @@ public class ChAnimation : MonoBehaviour
             visuals.localScale = Vector3.one;
             shadowVisuals.localScale = Vector3.one;
             slymVisuals.localScale = Vector3.one;
+            //walkParticles.gameObject.transform.localScale = Vector3.one;
+            if (!walkParticles.isPlaying) walkParticles.Play();
         }
         else if(input < 0)
         {
@@ -45,11 +49,14 @@ public class ChAnimation : MonoBehaviour
             visuals.localScale = new Vector3(-1, visuals.localScale.y, visuals.localScale.z);
             shadowVisuals.localScale = new Vector3(-1, shadowVisuals.localScale.y, shadowVisuals.localScale.z);
             slymVisuals.localScale = new Vector3(-1, slymVisuals.localScale.y, slymVisuals.localScale.z);
+            //walkParticles.gameObject.transform.localScale = new Vector3(-1, shadowVisuals.localScale.y, shadowVisuals.localScale.z);
+            if (!walkParticles.isPlaying) walkParticles.Play();
         }
         else
         {
             animator.SetBool(Parameter.ANIM_RUNNING, false);
             shadowAnimator.SetBool(Parameter.ANIM_RUNNING, false);
+            if (walkParticles.isPlaying) walkParticles.Stop();
         }
     }
 
