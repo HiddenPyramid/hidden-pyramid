@@ -170,10 +170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   destroyOnHit: 0
-  push: 10
-  victims:
-  - serializedVersion: 2
-    m_Bits: 64
+  push: 50
 --- !u!114 &2177755303123027557
 MonoBehaviour:
   m_ObjectHideFlags: 0

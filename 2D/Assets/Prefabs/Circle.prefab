@@ -129,7 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   destroyOnHit: 1
-  push: 15
+  push: 30
 --- !u!135 &642930601537481189
 SphereCollider:
   m_ObjectHideFlags: 0
