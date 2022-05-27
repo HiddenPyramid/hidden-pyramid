@@ -14,8 +14,8 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        currentScene = SceneIndexes.TITLE_SCREEN;
-        SceneManager.LoadSceneAsync((int)SceneIndexes.TITLE_SCREEN, LoadSceneMode.Additive);
+        currentScene = SceneIndexes.MAIN_MENU;
+        SceneManager.LoadSceneAsync((int)SceneIndexes.MAIN_MENU, LoadSceneMode.Additive);
     }
 
     public void LoadGame(SceneIndexes nextScene)
