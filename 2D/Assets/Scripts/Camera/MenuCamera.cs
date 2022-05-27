@@ -34,7 +34,6 @@ public class MenuCamera : MonoBehaviour
         if (remainingTargets)
         {
             float distance = (transform.position - targets[currentTarget].position).magnitude; 
-            Debug.Log(distance);
             return distance < changingDistance;
         }
         return true;
