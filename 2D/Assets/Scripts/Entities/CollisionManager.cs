@@ -50,7 +50,6 @@ public class CollisionManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        Debug.Log("Triggered");
         switch (collider.gameObject.layer)
         {
             case Parameter.LAYER_ITEM:

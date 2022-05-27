@@ -3,13 +3,12 @@ using UnityEngine;
 
 public class ArmFall : MonoBehaviour
 {
+    [SerializeField]
     private Rigidbody rigidbody;
-    private void Start()
-    {
-        rigidbody = GetComponent<Rigidbody>();
-    }
+    
     public void Drop()
     {
+        Debug.Log("Dropeja");
         transform.SetParent(null);
         rigidbody.useGravity = true;
     }
