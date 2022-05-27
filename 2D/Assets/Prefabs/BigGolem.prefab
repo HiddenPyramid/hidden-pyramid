@@ -145,10 +145,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8027349474862536003}
-  - component: {fileID: 4072676467772172765}
-  - component: {fileID: 6413780448969439297}
   m_Layer: 0
-  m_Name: Brac2
+  m_Name: Brac2Visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -171,35 +169,6 @@ Transform:
   m_Father: {fileID: 1811207223398770195}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4072676467772172765
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 477037960260997104}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a43c82f8e72a8444bc1e2dd90e778a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rigidbody: {fileID: 6413780448969439297}
---- !u!54 &6413780448969439297
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 477037960260997104}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 48
-  m_CollisionDetection: 0
 --- !u!1 &577419617888794717
 GameObject:
   m_ObjectHideFlags: 0
@@ -512,10 +481,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 793442480495731436}
-  - component: {fileID: 2317620449415785373}
-  - component: {fileID: 6038481392156552669}
   m_Layer: 0
-  m_Name: Brac4
+  m_Name: Brac4Visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -539,35 +506,6 @@ Transform:
   m_Father: {fileID: 1811207223398770195}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2317620449415785373
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1600413918824855694}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a43c82f8e72a8444bc1e2dd90e778a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rigidbody: {fileID: 6038481392156552669}
---- !u!54 &6038481392156552669
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1600413918824855694}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 48
-  m_CollisionDetection: 0
 --- !u!1 &1790990582559734093
 GameObject:
   m_ObjectHideFlags: 0
@@ -1409,11 +1347,16 @@ MonoBehaviour:
   animator: {fileID: 5120667722919811681}
   SprintSpeed: 1
   deathDelay: 4
-  Arms:
+  ArmVisuals:
   - {fileID: 3349447159315726954}
   - {fileID: 8027349474862536003}
   - {fileID: 3989083573329093159}
   - {fileID: 793442480495731436}
+  ArmRagdolls:
+  - {fileID: 9153099615300608841, guid: 45451a2faa12e2f4a8a9793954d95922, type: 3}
+  - {fileID: 3520664344869180466, guid: 3a25baaa7376828499234adc8feffede, type: 3}
+  - {fileID: 3761534294715948198, guid: 79f5825edfeaa7d4ebb9a78c99b034de, type: 3}
+  - {fileID: 65337532460022318, guid: c12db46af3e419c4fa626db7d26941a7, type: 3}
 --- !u!114 &5120667721997872275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2658,10 +2601,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3989083573329093159}
-  - component: {fileID: 8649135685440207968}
-  - component: {fileID: 4904609943834822243}
   m_Layer: 0
-  m_Name: Brac3
+  m_Name: Brac3Visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2685,35 +2626,6 @@ Transform:
   m_Father: {fileID: 1811207223398770195}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8649135685440207968
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8596083064341528389}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a43c82f8e72a8444bc1e2dd90e778a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rigidbody: {fileID: 4904609943834822243}
---- !u!54 &4904609943834822243
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8596083064341528389}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 48
-  m_CollisionDetection: 0
 --- !u!1 &8609316733926445947
 GameObject:
   m_ObjectHideFlags: 0
@@ -2723,10 +2635,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3349447159315726954}
-  - component: {fileID: 6105139902688356974}
-  - component: {fileID: 6657733515009450322}
   m_Layer: 0
-  m_Name: Brac1
+  m_Name: Brac1Visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2749,35 +2659,6 @@ Transform:
   m_Father: {fileID: 1811207223398770195}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6105139902688356974
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8609316733926445947}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a43c82f8e72a8444bc1e2dd90e778a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rigidbody: {fileID: 6657733515009450322}
---- !u!54 &6657733515009450322
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8609316733926445947}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 48
-  m_CollisionDetection: 0
 --- !u!1 &8622930424022055051
 GameObject:
   m_ObjectHideFlags: 0
