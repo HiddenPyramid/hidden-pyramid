@@ -20,7 +20,19 @@ public class PlayerManager : MonoBehaviour
 
     public static void NextPlayer()
     {
+        DisableCurrent();
         playerIndex ++;
+        EnableCurrent();
         if (playerIndex >= playersStatic.Length) playerIndex = 0;
+    }
+
+    public static void DisableCurrent()
+    {
+        playersStatic[playerIndex].SetActive(false);
+    }
+
+    public static void EnableCurrent()
+    {
+        playersStatic[playerIndex].SetActive(true);
     }
 }

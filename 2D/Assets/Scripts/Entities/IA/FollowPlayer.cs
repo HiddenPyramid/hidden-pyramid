@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class FollowPlayer : MonoBehaviour
 {
-    [SerializeField]
     private Transform player;
     [SerializeField]
     private int followDelay;
@@ -24,6 +23,7 @@ public class FollowPlayer : MonoBehaviour
 
     void Update()
     {
+        player = PlayerManager.GetPlayer().gameObject.transform;
         storedPositions.Add(player.position);
         if (storedPositions.Count > followDelay)
         {

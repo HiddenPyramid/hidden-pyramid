@@ -7,7 +7,6 @@ using System.Linq;
 
 public class CameraController : MonoBehaviour
 {
-    [SerializeField]
     private Transform Player;
     [SerializeField]
     private float SmoothTime = 0f;
@@ -31,6 +30,7 @@ public class CameraController : MonoBehaviour
 
     private Vector3 GetPosition()
     {
+        Player = PlayerManager.GetPlayer().gameObject.transform;
         Vector3 offset;
         offset = Offset.x * Player.right + Offset.y * Player.up + Offset.z * Player.forward;
 
