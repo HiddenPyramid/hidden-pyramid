@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    public GameObject [] players;
-    private static GameObject [] playersStatic;
+    public PlayerAndSlym [] players;
+    private static PlayerAndSlym [] playersStatic;
     private static int playerIndex = 0;
 
     private void Awake() 
@@ -15,7 +15,7 @@ public class PlayerManager : MonoBehaviour
 
     public static GameObject GetPlayer()
     {
-        return playersStatic[playerIndex];
+        return playersStatic[playerIndex].player;
     }
 
     public static void NextPlayer()
@@ -28,11 +28,11 @@ public class PlayerManager : MonoBehaviour
 
     public static void DisableCurrent()
     {
-        playersStatic[playerIndex].SetActive(false);
+        playersStatic[playerIndex].gameObject.SetActive(false);
     }
 
     public static void EnableCurrent()
     {
-        playersStatic[playerIndex].SetActive(true);
+        playersStatic[playerIndex].gameObject.SetActive(true);
     }
 }

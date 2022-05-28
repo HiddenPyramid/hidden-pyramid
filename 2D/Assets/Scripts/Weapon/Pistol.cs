@@ -12,8 +12,7 @@ public class Pistol : Weapon
     private bool canShoot = true;
     public override void Attack(InputAction.CallbackContext callback)
     {
-
-        if (!canShoot) return;
+        if (!canShoot || !this.gameObject.activeSelf) return;
         Instantiate(bullet, transform.position, transform.rotation, null);
         StartCoroutine(Delay());
     }
