@@ -5,12 +5,14 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     public PlayerAndSlym [] players;
+    public int initialIndex = 0;
     private static PlayerAndSlym [] playersStatic;
     private static int playerIndex = 0;
 
     private void Awake() 
     {
         playersStatic = players;
+        playerIndex = initialIndex;
     }
 
     public static GameObject GetPlayer()

@@ -12,10 +12,12 @@ public class Shooting : MonoBehaviour
     private IWeapon currentWeapon;
     private PlayerInput input;
     private InputAction shootAction;
-    private InputAction aimAction;
+    private InputAction aimAction; 
     private Vector3 direction;
     private bool isGamepad = false;
     // Start is called before the first frame update
+
+    public GameObject aimingPoint; // ------------------------------------------------------------------------ fet per debugar o mostrar més input. ! NO FUNCIONA ENCARA, TREURE SI CAL
     void Start()
     {
         currentWeapon = weaponContainer.GetComponentInChildren<IWeapon>();
@@ -38,6 +40,7 @@ public class Shooting : MonoBehaviour
         else
         {
             Vector3 temp = new Vector3(vector2.x, vector2.y, Camera.main.transform.position.z);
+            aimingPoint.transform.position = Camera.main.ScreenToWorldPoint(temp);    // ------------------------------------------------------------------------ fet per debugar o mostrar més input. ! NO FUNCIONA ENCARA, TREURE SI CAL
             Vector3 dir = Camera.main.ScreenToWorldPoint(temp) - weaponContainer.position;
             direction = dir;
         }
