@@ -21,9 +21,15 @@ public class FollowPlayer : MonoBehaviour
         storedPositions = new List<Vector3>();
     }
 
+    private void Start() 
+    {
+        player = FindObjectOfType<PlayerManager>().GetPlayer().gameObject.transform;
+        FindObjectOfType<PlayerManager>().playerChangeEvent += GetCurrentPlayer;
+    }
+
     void Update()
     {
-        player = PlayerManager.GetPlayer().gameObject.transform;
+        
         storedPositions.Add(player.position);
         if (storedPositions.Count > followDelay)
         {
@@ -34,5 +40,10 @@ public class FollowPlayer : MonoBehaviour
             animator.SetFloat("Speed", (transform.position - nextPos).magnitude);
         }
         transform.rotation = player.rotation;
+    }
+
+    private void GetCurrentPlayer()
+    {
+        player = FindObjectOfType<PlayerManager>().GetPlayer().gameObject.transform;
     }
 }

@@ -5,36 +5,51 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     public PlayerAndSlym [] players;
-    public int initialIndex = 0;
-    private static PlayerAndSlym [] playersStatic;
-    private static int playerIndex = 0;
+    public float changePlayerDelay = 1.5f;
+    public int playerIndex = 0;
 
-    private void Awake() 
+    public delegate void playerChangeDelegate();
+    public event playerChangeDelegate playerChangeEvent;
+    private bool isChanging = false;
+
+    public GameObject GetPlayer()
     {
-        playersStatic = players;
-        playerIndex = initialIndex;
+        return players[playerIndex].player;
     }
 
-    public static GameObject GetPlayer()
+    public void NextPlayer()
     {
-        return playersStatic[playerIndex].player;
+        Debug.Log("Change");
+        if (!isChanging)
+        {
+            StartCoroutine(WaitForNextPlayer());
+        }
     }
 
-    public static void NextPlayer()
+    private IEnumerator WaitForNextPlayer()
+    {
+        isChanging = true;
+        yield return new WaitForSeconds(changePlayerDelay);
+        GoToNextPlayer();
+        isChanging = false;
+        playerChangeEvent();
+    }
+
+    private void GoToNextPlayer()
     {
         DisableCurrent();
         playerIndex ++;
         EnableCurrent();
-        if (playerIndex >= playersStatic.Length) playerIndex = 0;
+        if (playerIndex >= players.Length) playerIndex = 0;
     }
 
-    public static void DisableCurrent()
+    public void DisableCurrent()
     {
-        playersStatic[playerIndex].gameObject.SetActive(false);
+        players[playerIndex].gameObject.SetActive(false);
     }
 
-    public static void EnableCurrent()
+    public void EnableCurrent()
     {
-        playersStatic[playerIndex].gameObject.SetActive(true);
+        players[playerIndex].gameObject.SetActive(true);
     }
 }

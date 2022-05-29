@@ -17,7 +17,7 @@ public class Shooting : MonoBehaviour
     private bool isGamepad = false;
     // Start is called before the first frame update
 
-    public GameObject aimingPoint; // ------------------------------------------------------------------------ fet per debugar o mostrar més input. ! NO FUNCIONA ENCARA, TREURE SI CAL
+    //public GameObject aimingPoint; // ------------------------------------------------------------------------ fet per debugar o mostrar més input. ! NO FUNCIONA ENCARA, TREURE SI CAL
     void Start()
     {
         currentWeapon = weaponContainer.GetComponentInChildren<IWeapon>();
@@ -40,8 +40,9 @@ public class Shooting : MonoBehaviour
         else
         {
             Vector3 temp = new Vector3(vector2.x, vector2.y, Camera.main.transform.position.z);
-            aimingPoint.transform.position = Camera.main.ScreenToWorldPoint(temp);    // ------------------------------------------------------------------------ fet per debugar o mostrar més input. ! NO FUNCIONA ENCARA, TREURE SI CAL
+            //aimingPoint.transform.position = temp;    // ------------------------------------------------------------------------ fet per debugar o mostrar més input. ! NO FUNCIONA ENCARA, TREURE SI CAL
             Vector3 dir = Camera.main.ScreenToWorldPoint(temp) - weaponContainer.position;
+            //Debug.DrawRay (weaponContainer.position, Camera.main.ScreenToWorldPoint(temp), Color.green); // -----------------------------------------------------------------------
             direction = dir;
         }
     }

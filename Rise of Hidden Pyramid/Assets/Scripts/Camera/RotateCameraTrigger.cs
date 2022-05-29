@@ -18,6 +18,12 @@ public class RotateCameraTrigger : MonoBehaviour
     private bool rotation = false;
     Quaternion startRotation;
     private GameObject player;
+    private PlayerManager playerManager;
+
+    private void Awake() 
+    {
+        playerManager = FindObjectOfType<PlayerManager>();
+    }
 
     void OnTriggerEnter(Collider other)
     {
@@ -57,6 +63,6 @@ public class RotateCameraTrigger : MonoBehaviour
 
     private void SwitchToNextPlayer()
     {
-        PlayerManager.NextPlayer();
+        playerManager.NextPlayer();
     }
 }

@@ -17,6 +17,12 @@ public class CameraController : MonoBehaviour
 
     private bool currentSwapped = false;
 
+    private void Start() 
+    {
+        Player = FindObjectOfType<PlayerManager>().GetPlayer().gameObject.transform;
+        FindObjectOfType<PlayerManager>().playerChangeEvent += GetCurrentPlayer;
+    }
+
     void Update()
     {
         FollowPlayer();
@@ -30,7 +36,6 @@ public class CameraController : MonoBehaviour
 
     private Vector3 GetPosition()
     {
-        Player = PlayerManager.GetPlayer().gameObject.transform;
         Vector3 offset;
         offset = Offset.x * Player.right + Offset.y * Player.up + Offset.z * Player.forward;
 
@@ -58,5 +63,10 @@ public class CameraController : MonoBehaviour
                                     this.Offset.y, 
                                     this.Offset.z);
         this.currentSwapped = ! this.currentSwapped;
+    }
+
+    private void GetCurrentPlayer()
+    {
+        Player = FindObjectOfType<PlayerManager>().GetPlayer().gameObject.transform;
     }
 }
