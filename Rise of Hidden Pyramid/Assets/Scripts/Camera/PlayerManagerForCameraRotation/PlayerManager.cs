@@ -12,6 +12,13 @@ public class PlayerManager : MonoBehaviour
     public event playerChangeDelegate playerChangeEvent;
     private bool isChanging = false;
 
+    public Player2DMovementEnforcer player2DMovementEnforcer;
+
+    private void Awake()
+    {
+        UpdateDataToEnforcePlayer2DMovement();
+    }
+
     public GameObject GetPlayer()
     {
         return players[playerIndex].player;
@@ -19,7 +26,6 @@ public class PlayerManager : MonoBehaviour
 
     public void NextPlayer()
     {
-        Debug.Log("Change");
         if (!isChanging)
         {
             StartCoroutine(WaitForNextPlayer());
@@ -51,5 +57,25 @@ public class PlayerManager : MonoBehaviour
     public void EnableCurrent()
     {
         players[playerIndex].gameObject.SetActive(true);
+        UpdateDataToEnforcePlayer2DMovement();
+    }
+
+    private void UpdateDataToEnforcePlayer2DMovement()
+    {
+        player2DMovementEnforcer.SetPlayer(players[playerIndex]);
+        GameObject currentPlayer = players[playerIndex].player;
+
+        switch (players[playerIndex].axisToEnforce2DMovement)
+        {
+            case Player2DMovementEnforcer.Axis.x:
+                player2DMovementEnforcer.SetPosition(currentPlayer.transform.position.x, Player2DMovementEnforcer.Axis.x);
+            break;
+            case Player2DMovementEnforcer.Axis.y:
+                player2DMovementEnforcer.SetPosition(currentPlayer.transform.position.y, Player2DMovementEnforcer.Axis.y);
+            break;
+            case Player2DMovementEnforcer.Axis.z:
+                player2DMovementEnforcer.SetPosition(currentPlayer.transform.position.z, Player2DMovementEnforcer.Axis.z);
+            break;
+        }
     }
 }
