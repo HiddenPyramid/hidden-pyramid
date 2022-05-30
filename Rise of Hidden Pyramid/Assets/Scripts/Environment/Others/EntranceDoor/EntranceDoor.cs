@@ -14,7 +14,7 @@ public class EntranceDoor : MonoBehaviour
         {
             opened = true;
             animator.SetTrigger("open");
-            doorCollider.SetActive(true);
+            doorCollider.SetActive(false);
         }
     }
 
@@ -24,7 +24,7 @@ public class EntranceDoor : MonoBehaviour
         {
             opened = false;
             animator.SetTrigger("close");
-            doorCollider.SetActive(false);
+            doorCollider.SetActive(true);
         }
     }
 }
