@@ -1801,9 +1801,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 886ea7c30bb907a4db4d3cf78d8fcac4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followDelay: 30
-  followDistance: -2
-  speed: 3
+  followDelay: 15
+  followDistance: 2
+  speed: 3.5
   animator: {fileID: 0}
 --- !u!1 &4576058542272652378
 GameObject:
@@ -1839,7 +1839,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 9.75, y: 6.58}
+  m_AnchoredPosition: {x: 6.5, y: 21.7}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9041717029615340830

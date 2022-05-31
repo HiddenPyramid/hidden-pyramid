@@ -14,6 +14,7 @@ public class ChAnimation : MonoBehaviour
     [SerializeField]
     private Transform shadowVisuals;
     public Transform slymVisuals;
+    public FollowPlayer followPlayer;
     public Shooting shooting;
 
     private InputAction moveAction;
@@ -41,6 +42,7 @@ public class ChAnimation : MonoBehaviour
             shadowVisuals.localScale = Vector3.one;
             slymVisuals.localScale = Vector3.one;
             shooting.FaceRight();
+            followPlayer.Deinverse();
             //walkParticles.gameObject.transform.localScale = Vector3.one;
             if (!walkParticles.isPlaying) walkParticles.Play();
         }
@@ -52,6 +54,7 @@ public class ChAnimation : MonoBehaviour
             shadowVisuals.localScale = new Vector3(-1, shadowVisuals.localScale.y, shadowVisuals.localScale.z);
             slymVisuals.localScale = new Vector3(-1, slymVisuals.localScale.y, slymVisuals.localScale.z);
             shooting.FaceLeft();
+            followPlayer.Inverse();
             //walkParticles.gameObject.transform.localScale = new Vector3(-1, shadowVisuals.localScale.y, shadowVisuals.localScale.z);
             if (!walkParticles.isPlaying) walkParticles.Play();
         }
