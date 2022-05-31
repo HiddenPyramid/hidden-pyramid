@@ -8304,6 +8304,7 @@ MonoBehaviour:
   visuals: {fileID: 2677096102036712412}
   shadowVisuals: {fileID: 3374030206409416316}
   slymVisuals: {fileID: 0}
+  shooting: {fileID: 4911339641221926477}
   walkParticles: {fileID: 1223410779282953464}
 --- !u!114 &8956272187704002641
 MonoBehaviour:

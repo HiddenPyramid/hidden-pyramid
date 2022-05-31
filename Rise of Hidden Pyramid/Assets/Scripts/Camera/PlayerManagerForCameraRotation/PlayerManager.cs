@@ -52,11 +52,13 @@ public class PlayerManager : MonoBehaviour
     public void DisableCurrent()
     {
         players[playerIndex].gameObject.SetActive(false);
+        players[playerIndex].shoots = false;
     }
 
     public void EnableCurrent()
     {
         players[playerIndex].gameObject.SetActive(true);
+        players[playerIndex].shoots = true;
         UpdateDataToEnforcePlayer2DMovement();
     }
 

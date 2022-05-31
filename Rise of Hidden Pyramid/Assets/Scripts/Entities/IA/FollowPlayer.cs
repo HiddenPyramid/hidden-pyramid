@@ -12,6 +12,8 @@ public class FollowPlayer : MonoBehaviour
     [SerializeField]
     private float speed;
 
+    private bool inversed = false;
+
     private List<Vector3> storedPositions;
     public Animator animator;
 
@@ -45,5 +47,23 @@ public class FollowPlayer : MonoBehaviour
     private void GetCurrentPlayer()
     {
         player = FindObjectOfType<PlayerManager>().GetPlayer().gameObject.transform;
+    }
+
+    public void Inverse()
+    {
+        if (!inversed)
+        {
+            inversed = true;
+            this.followDistance *= -1;
+        }
+    }
+
+    public void Deinverse()
+    {
+        if (inversed)
+        {
+            inversed = false;
+            this.followDistance *= -1;
+        }
     }
 }
