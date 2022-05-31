@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShadowMovement : MonoBehaviour
 {
-    public float[]  yBlockPositions;
+    public float[]  yBlockPositions = {77.2f, -1.135f};
     private int indexY = 0;
     public bool fixedY = true;
 
@@ -17,6 +17,7 @@ public class ShadowMovement : MonoBehaviour
     private void GoToFixedY()
     {
         transform.position = new Vector3(transform.position.x, yBlockPositions[indexY], transform.position.z);
+        Debug.Log(yBlockPositions[indexY]);
     } 
 
     public void NextYPosition()

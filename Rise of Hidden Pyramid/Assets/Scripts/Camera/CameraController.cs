@@ -13,7 +13,8 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     private Vector3 Offset;
     public bool yBlocked = true;
-    public float yBlockPosition = 78.43f;
+    public float [] yBlockPositions = {78.43f, 20f};
+    public int currentYBlockIndex = 0;
 
     private bool currentSwapped = false;
 
@@ -42,7 +43,7 @@ public class CameraController : MonoBehaviour
         if (!yBlocked) 
             return Player.position + offset;
         
-        Vector3 positionYBlocked = new Vector3 (Player.position.x, yBlockPosition, Player.position.z);
+        Vector3 positionYBlocked = new Vector3 (Player.position.x, yBlockPositions[currentYBlockIndex], Player.position.z);
         return positionYBlocked + offset;
     }
 
@@ -68,5 +69,16 @@ public class CameraController : MonoBehaviour
     private void GetCurrentPlayer()
     {
         Player = FindObjectOfType<PlayerManager>().GetPlayer().gameObject.transform;
+    }
+
+    public void UnblockY()
+    {
+        this.yBlocked = false;
+        currentYBlockIndex ++;
+    }
+
+    public void BlockY()
+    {
+        this.yBlocked = true;
     }
 }
