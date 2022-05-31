@@ -17,7 +17,6 @@ public class ShadowMovement : MonoBehaviour
     private void GoToFixedY()
     {
         transform.position = new Vector3(transform.position.x, yBlockPositions[indexY], transform.position.z);
-        Debug.Log(yBlockPositions[indexY]);
     } 
 
     public void NextYPosition()

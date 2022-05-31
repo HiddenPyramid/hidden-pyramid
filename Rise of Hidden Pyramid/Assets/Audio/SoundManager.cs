@@ -16,7 +16,6 @@ public class SoundManager : MonoBehaviour
 
     public void audioSelect(int idx, float volume)
     {
-        Debug.Log("Arribo a audio Select:" + idx + "," + volume);
         controlAudio.PlayOneShot(audios[idx], volume);
     }
 }

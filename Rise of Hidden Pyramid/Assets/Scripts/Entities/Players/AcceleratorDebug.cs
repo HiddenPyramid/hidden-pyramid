@@ -7,7 +7,6 @@ public class AcceleratorDebug : MonoBehaviour
     private void Update() {
         if(Input.GetKey(m_AcceleratorKeyCode))
         {
-            Debug.Log("key");
             Time.timeScale=10.0f;
         }
         else
