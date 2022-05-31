@@ -7,7 +7,7 @@ using System.Linq;
 
 public class CameraController : MonoBehaviour
 {
-    private Transform Player;
+    public Transform Player;
     [SerializeField]
     private float SmoothTime = 0f;
     [SerializeField]
