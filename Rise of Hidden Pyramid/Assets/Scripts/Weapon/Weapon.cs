@@ -12,6 +12,7 @@ public abstract class Weapon : MonoBehaviour, IWeapon
     protected float dropFwForce = 4f;
     protected float dropUpForce = 2f;
     public abstract void Attack(InputAction.CallbackContext callback);
+    public abstract void Attack(bool inverted);
 
     public void Drop()
     {

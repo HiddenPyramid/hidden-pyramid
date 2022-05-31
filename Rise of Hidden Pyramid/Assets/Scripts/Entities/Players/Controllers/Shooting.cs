@@ -15,9 +15,10 @@ public class Shooting : MonoBehaviour
     private InputAction aimAction; 
     private Vector3 direction;
     private bool isGamepad = false;
+
+    private bool inverted = false;
     // Start is called before the first frame update
 
-    //public GameObject aimingPoint; // ------------------------------------------------------------------------ fet per debugar o mostrar més input. ! NO FUNCIONA ENCARA, TREURE SI CAL
     void Start()
     {
         currentWeapon = weaponContainer.GetComponentInChildren<IWeapon>();
@@ -27,43 +28,31 @@ public class Shooting : MonoBehaviour
         shootAction.started += x => Shoot(x);
         shootAction.performed += x => Shoot(x);
         shootAction.canceled += x => Shoot(x);
-        aimAction.performed += x => ReadInput(x.ReadValue<Vector2>());
+        //aimAction.performed += x => ReadInput(x.ReadValue<Vector2>()); // No aiming anymore
     }
 
     private void ReadInput(Vector2 vector2)
     {
-        if (isGamepad)
-        {
-            //Vector3 direction = Vector3.up * looking.x + transform.right * looking.y;
-            //weaponContainer.rotation = Quaternion.LookRotation(Vector3.forward, direction);
-        }
-        else
-        {
-            Vector3 temp = new Vector3(vector2.x, vector2.y, Camera.main.transform.position.z);
-            //aimingPoint.transform.position = temp;    // ------------------------------------------------------------------------ fet per debugar o mostrar més input. ! NO FUNCIONA ENCARA, TREURE SI CAL
-            Vector3 dir = Camera.main.ScreenToWorldPoint(temp) - weaponContainer.position;
-            //Debug.DrawRay (weaponContainer.position, Camera.main.ScreenToWorldPoint(temp), Color.green); // -----------------------------------------------------------------------
-            direction = dir;
-        }
+        Vector3 temp = new Vector3(vector2.x, vector2.y, Camera.main.transform.position.z);
+        Vector3 dir = Camera.main.ScreenToWorldPoint(temp) - weaponContainer.position;
+        direction = dir;
     }
 
 
-    // Update is called once per frame
-    void Update()
+    /*void Update()
     {
-        CheckWeapon();
-        if (currentWeapon != null)
-            Rotate();
-    }
+        CheckWeapon(); // Weapon is always the same
+        //if (currentWeapon != null) Rotate(); // No rotation anymore
+    }*/
 
 
     private void Shoot(InputAction.CallbackContext callback)
     {
         if(currentWeapon != null)
-            currentWeapon.Attack(callback);
+            currentWeapon.Attack(inverted);
     }
 
-    private void CheckWeapon()
+    /* private void CheckWeapon()
     {
         currentWeapon = weaponContainer.GetComponentInChildren<IWeapon>();
     }
@@ -73,12 +62,20 @@ public class Shooting : MonoBehaviour
     {
         weaponContainer.rotation = Quaternion.LookRotation(weaponContainer.forward, direction);
         weaponContainer.rotation *= Quaternion.Euler(0, 0, 90);
+    } */
 
-    }
-
-    public void OnDeviceChange(PlayerInput playerInput)
+    /* public void OnDeviceChange(PlayerInput playerInput) // Device is always the same
     {
         isGamepad = playerInput.currentControlScheme.Equals("Gamepad");
-    }
+    } */
     
+    public void FaceLeft()
+    {
+        inverted = false;
+    }
+
+    public void FaceRight()
+    {
+        inverted = true;
+    }
 }
