@@ -1673,10 +1673,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3094496604860553837}
-  - component: {fileID: 3094496604738678939}
-  - component: {fileID: 3094496604738678936}
   - component: {fileID: 3094496604738678937}
-  - component: {fileID: 3094496604738678886}
   - component: {fileID: 3094496604738678887}
   - component: {fileID: 3094496604738678938}
   - component: {fileID: 5973378722273880970}
@@ -1704,54 +1701,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3094496604738678939
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3094496604738678885}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df57540ba232dbd478ebf7af1fb6f9c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: 5
-  fov: 0
-  FovAngle: 73.41
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 64
---- !u!114 &3094496604738678936
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3094496604738678885}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9b6b44b41a601542b9d78ce027a1410, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  aiPatrol: {fileID: 0}
-  Health: 8
-  Speed: 0.5
-  Chase: 1
-  Visuals: {fileID: 3094496603761805789}
-  animator: {fileID: 3094496603761805788}
-  SprintSpeed: 1
-  deathDelay: 4
-  ArmVisuals:
-  - {fileID: 3094496604308377319}
-  - {fileID: 3094496603806309121}
-  - {fileID: 3094496604333345388}
-  - {fileID: 3094496605578605769}
-  ArmRagdolls:
-  - {fileID: 9153099615300608841, guid: 45451a2faa12e2f4a8a9793954d95922, type: 3}
-  - {fileID: 3520664344869180466, guid: 3a25baaa7376828499234adc8feffede, type: 3}
-  - {fileID: 3761534294715948198, guid: 79f5825edfeaa7d4ebb9a78c99b034de, type: 3}
-  - {fileID: 65337532460022318, guid: c12db46af3e419c4fa626db7d26941a7, type: 3}
 --- !u!114 &3094496604738678937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1768,22 +1717,6 @@ MonoBehaviour:
   destroyOnHit: 0
   push: 50
   animator: {fileID: 3094496603761805788}
---- !u!114 &3094496604738678886
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3094496604738678885}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f22b65071da187f4d813b99579621274, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GroundPoint: {fileID: 3094496603913263822}
-  WallPoint: {fileID: 3094496604647707033}
-  pointRadius: 0.15
-  wallPointRadius: 2.24
 --- !u!114 &3094496604738678887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1796,7 +1729,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 296495e4a70bb1044b26c0a4f1749414, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 2
+  Health: 8
   Speed: 90
   Chase: 1
   Visuals: {fileID: 3094496603761805789}
@@ -1810,8 +1743,16 @@ MonoBehaviour:
     m_Bits: 2048
   range: 4
   deathDelay: 0
-  ArmVisuals: []
-  ArmRagdolls: []
+  ArmVisuals:
+  - {fileID: 3094496604308377319}
+  - {fileID: 3094496603806309121}
+  - {fileID: 3094496604333345388}
+  - {fileID: 3094496605578605769}
+  ArmRagdolls:
+  - {fileID: 9153099615300608841, guid: 45451a2faa12e2f4a8a9793954d95922, type: 3}
+  - {fileID: 3520664344869180466, guid: 3a25baaa7376828499234adc8feffede, type: 3}
+  - {fileID: 3761534294715948198, guid: 79f5825edfeaa7d4ebb9a78c99b034de, type: 3}
+  - {fileID: 65337532460022318, guid: c12db46af3e419c4fa626db7d26941a7, type: 3}
 --- !u!54 &3094496604738678938
 Rigidbody:
   m_ObjectHideFlags: 0
