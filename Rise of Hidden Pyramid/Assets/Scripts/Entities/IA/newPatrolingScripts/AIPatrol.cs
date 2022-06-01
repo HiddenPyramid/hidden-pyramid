@@ -16,12 +16,26 @@ public class AIPatrol :  Golem
     public LayerMask wallLayer;
     public float range;
 
+
+    [SerializeField] private float deathDelay;
+    [SerializeField] private List<Transform> ArmVisuals;
+    [SerializeField] private List<ArmFall> ArmRagdolls;
+    private float initialHP;
+    private bool dead = false;
+    private int armIndex;
+
+    [SerializeField]
+    protected float Health;
+
  
     void Start()
     {
         mustPatrol = true;
         player = FindObjectOfType<PlayerManager>().GetPlayer().gameObject.transform;
         FindObjectOfType<PlayerManager>().playerChangeEvent += GetCurrentPlayer;
+
+        initialHP = Health;
+        armIndex = 0;
     }
 
     private void FixedUpdate()
@@ -31,7 +45,17 @@ public class AIPatrol :  Golem
             mustFlip = Physics.CheckSphere(wallCheckPos.position, 0.1f, wallLayer);
         }
     }
+
     void Update()
+    {
+        if (!dead)
+        {
+            CheckHealth();
+            CheckDirection();
+        }
+    }
+
+    private void CheckDirection()
     {
         if (mustPatrol)
         {
@@ -82,5 +106,49 @@ public class AIPatrol :  Golem
     private void GetCurrentPlayer()
     {
         player = FindObjectOfType<PlayerManager>().GetPlayer().gameObject.transform;
+    }
+
+    private void CheckHealth()
+    {
+        Debug.Log("EIII Healtsadasd "+Health);
+        if (CheckDie())
+        {
+            animator.SetTrigger("die");
+            dead = true;
+            Destroy(gameObject, animator.GetCurrentAnimatorStateInfo(0).length + deathDelay);
+        }
+        if (RemainingArms() && FallingArmThresholdPassed())
+        {
+            ArmVisuals[armIndex].gameObject.SetActive(false);
+            Debug.Log("Ei desactivat");
+            Instantiate(ArmRagdolls[armIndex], ArmVisuals[armIndex].position, ArmVisuals[armIndex].rotation);
+            armIndex = armIndex+1;
+        }
+    }
+
+    private bool RemainingArms()
+    {
+        return this.armIndex < this.ArmVisuals.Count;
+    }
+
+    private bool FallingArmThresholdPassed()
+    {
+        float inverseIndex = this.ArmVisuals.Count - this.armIndex - 1;
+        float armThreshold = 1.0f / (float)this.ArmVisuals.Count * inverseIndex; 
+        return (Health / initialHP) <= (armThreshold);
+    }
+
+    public override void TakeDamage(float dmg)
+    {
+        animator.SetTrigger("tookDamage");
+        Debug.Log("Previous "+Health);
+        Health -= dmg;
+        Debug.Log("Current "+Health);
+    }
+    protected override bool CheckDie()
+    {
+        if (Health <= 0)
+            return true;
+        return false;
     }
 }
