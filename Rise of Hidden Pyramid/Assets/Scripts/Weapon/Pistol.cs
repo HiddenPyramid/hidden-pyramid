@@ -25,7 +25,6 @@ public class Pistol : Weapon
 
     public override void Attack(bool inverted)
     {
-        Debug.Log(playerAndSlym.shoots);
         if (!canShoot || !this.gameObject.activeSelf || !playerAndSlym.shoots) return;
 
         if (inverted) Instantiate(bullet, transform.position, transform.rotation, null);

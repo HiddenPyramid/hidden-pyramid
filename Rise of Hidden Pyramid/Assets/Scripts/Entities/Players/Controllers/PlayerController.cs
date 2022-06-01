@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour, ITakeDamage
         else if (collision.InGround && rigidbody.velocity.y < 0)
             rigidbody.velocity = new Vector3(rigidbody.velocity.x, 0f, rigidbody.velocity.z);
         else
-            rigidbody.velocity += new Vector3(0f, player.GravityValue * Time.deltaTime, 0f);
+            rigidbody.velocity += new Vector3(0f, PlayerStats.GravityValue * Time.deltaTime, 0f);
     }
 
     private void Jump()
@@ -87,14 +87,14 @@ public class PlayerController : MonoBehaviour, ITakeDamage
         {
             if (dmg <= 1){
                 plAnimator.SetTrigger("tookDamage");
-                player.Health -= 1;
-                hearts[player.Health].SetTrigger("lost");
+                PlayerStats.Health -= 1;
+                hearts[PlayerStats.Health].SetTrigger("lost");
             }
             else{
                 plAnimator.SetTrigger("tookDamage");
-                player.Health -= 2;
-                hearts[player.Health+1].SetTrigger("lost");
-                hearts[player.Health].SetTrigger("lost");
+                PlayerStats.Health -= 2;
+                hearts[PlayerStats.Health+1].SetTrigger("lost");
+                hearts[PlayerStats.Health].SetTrigger("lost");
             }
         } catch {}
     }
