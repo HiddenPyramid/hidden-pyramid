@@ -1801,9 +1801,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 886ea7c30bb907a4db4d3cf78d8fcac4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followDelay: 15
+  followDelay: 1
   followDistance: 2
-  speed: 3.5
+  speed: 1
   animator: {fileID: 0}
 --- !u!1 &4576058542272652378
 GameObject:

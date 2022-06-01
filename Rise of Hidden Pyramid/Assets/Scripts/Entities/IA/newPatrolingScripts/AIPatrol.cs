@@ -20,6 +20,8 @@ public class AIPatrol :  Golem
     void Start()
     {
         mustPatrol = true;
+        player = FindObjectOfType<PlayerManager>().GetPlayer().gameObject.transform;
+        FindObjectOfType<PlayerManager>().playerChangeEvent += GetCurrentPlayer;
     }
 
     private void FixedUpdate()
@@ -75,5 +77,10 @@ public class AIPatrol :  Golem
         transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y);
         Speed *= -1;
         mustPatrol = true;
+    }
+
+    private void GetCurrentPlayer()
+    {
+        player = FindObjectOfType<PlayerManager>().GetPlayer().gameObject.transform;
     }
 }
