@@ -1742,7 +1742,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   range: 4
-  deathDelay: 0
+  deathDelay: 3.24
   ArmVisuals:
   - {fileID: 3094496604308377319}
   - {fileID: 3094496603806309121}

@@ -15,7 +15,6 @@ public class Golem : MonoBehaviour, ITakeDamage
     protected bool CheckDie(float Health)
     {
         if (Health <= 0){
-            Debug.Log("EEEEEDDAdASDwasdEWASDEasde");
             return true;
         }
         return false;

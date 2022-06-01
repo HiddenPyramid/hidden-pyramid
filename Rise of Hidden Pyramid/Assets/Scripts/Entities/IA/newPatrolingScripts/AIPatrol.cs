@@ -135,10 +135,10 @@ public class AIPatrol : MonoBehaviour
 
     private void CheckHealth()
     {
-        Debug.Log("EIII Healtsadasd "+Health);
         if (CheckDie())
         {
-            animator.SetTrigger("die");
+            Debug.Log("Ei que mor");
+            animator.SetBool("hasDied", true);
             dead = true;
             Destroy(gameObject, animator.GetCurrentAnimatorStateInfo(0).length + deathDelay);
         }
