@@ -13,7 +13,6 @@ public class AIPatrol :  Golem
 
     public Rigidbody rb;
     public Transform wallCheckPos, player;
-    public Collider playerBackDetect;
     public LayerMask wallLayer;
     public float range;
 
@@ -41,9 +40,14 @@ public class AIPatrol :  Golem
         
         if(distToPlayer <= range)
         {
+            if (player.position.x > transform.position.x && transform.localScale.x > 0
+            || player.position.x < transform.position.x && transform.localScale.x < 0)
+                Flip();
+
             mustPatrol = false;
             AttackPlayer();
-        } else
+        } 
+        else
         {
             animator.SetBool("isInRange", false);
             mustPatrol = true;
@@ -57,7 +61,7 @@ public class AIPatrol :  Golem
 
     protected override void Move()
     {
-      
+        
         if (mustFlip)
         {
             Flip();
