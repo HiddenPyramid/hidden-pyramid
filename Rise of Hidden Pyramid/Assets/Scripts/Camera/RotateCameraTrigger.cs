@@ -34,7 +34,6 @@ public class RotateCameraTrigger : MonoBehaviour
             startRotation=_camera.transform.rotation;
             player = other.gameObject;
             StartCoroutine(DisablePlayer());
-            SwitchToNextPlayer();
         }
     }
 
@@ -58,6 +57,7 @@ public class RotateCameraTrigger : MonoBehaviour
         player.GetComponent<PlayerMovement>().enabled = false;
         yield return new WaitForSeconds(timeToLerp);
         player.GetComponent<PlayerMovement>().enabled = true;
+        SwitchToNextPlayer();
         gameObject.SetActive(false);
     }
 
