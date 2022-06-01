@@ -17,10 +17,14 @@ public class AIPatrol :  Golem
     public LayerMask wallLayer;
     public float range;
 
+    public bool lookingLeft = true;
  
     void Start()
     {
         mustPatrol = true;
+        
+        player = FindObjectOfType<PlayerManager>().GetPlayer().gameObject.transform;
+        FindObjectOfType<PlayerManager>().playerChangeEvent += GetCurrentPlayer;
     }
 
     private void FixedUpdate()
@@ -60,16 +64,37 @@ public class AIPatrol :  Golem
       
         if (mustFlip)
         {
-            Flip();
+            Flip(lookingLeft);
+            lookingLeft = !lookingLeft;
         }
         rb.velocity = new Vector3(Speed * Time.fixedDeltaTime * -1 , rb.velocity.y, rb.velocity.z);
     }
 
-    public void Flip()
+    public void Flip(bool lookingLeft)
     {
+        if (lookingLeft) FlipLeft();
+        else FlipRight();
         mustPatrol = false;
-        transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y);
         Speed *= -1;
         mustPatrol = true;
+    }
+
+    private void FlipLeft()
+    {
+        Debug.Log("Flip left");
+        transform.localScale = new Vector3(-1, transform.localScale.y);
+        lookingLeft = true;
+    }
+
+    private void FlipRight()
+    {
+        Debug.Log("Flip right");
+        transform.localScale = new Vector3(1, transform.localScale.y);
+        lookingLeft = false;
+    }
+
+    private void GetCurrentPlayer()
+    {
+        player = FindObjectOfType<PlayerManager>().GetPlayer().gameObject.transform;
     }
 }

@@ -25,7 +25,6 @@ public class Pistol : Weapon
 
     public override void Attack(bool inverted)
     {
-        Debug.Log(playerAndSlym.shoots);
         if (!canShoot || !this.gameObject.activeSelf || !playerAndSlym.shoots) return;
 
         if (inverted) Instantiate(bullet, transform.position, transform.rotation, null);
@@ -48,13 +47,10 @@ public class Pistol : Weapon
         switch (playerAndSlym.axisToEnforce2DMovement)
         {
             case Player2DMovementEnforcer.Axis.x:
-                Debug.Log("AAAAAAAAAAAAAAAAAA");
                 return new Quaternion(0,0,0,-1);
             case Player2DMovementEnforcer.Axis.z:
-                Debug.Log("EEEEEEEEEEEEEEEEEEE");
                 return new Quaternion(0,0,0,-1);
             default:
-                Debug.Log("DEFAULT");
                 return new Quaternion(0,0,0,-1);
         }
     }
