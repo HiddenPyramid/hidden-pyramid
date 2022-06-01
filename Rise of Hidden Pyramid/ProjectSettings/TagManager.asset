@@ -20,9 +20,9 @@ TagManager:
   - Enemy
   - Background
   - Wall
-  - 
-  - 
-  - 
+  - Outside
+  - Inside
+  - InsideOut
   - 
   - 
   - 
