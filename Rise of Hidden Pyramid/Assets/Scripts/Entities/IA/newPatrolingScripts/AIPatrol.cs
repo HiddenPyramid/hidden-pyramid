@@ -3,8 +3,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AIPatrol :  Golem
+public class AIPatrol : MonoBehaviour
 {
+
+
+    [SerializeField]
+    protected float Health;
+    [SerializeField]
+    protected float Speed;
+    [SerializeField]
+    protected bool Chase;
+    [SerializeField]
+    protected Transform Visuals;
+    [SerializeField]
+    protected Animator animator;
+
+    protected List<Transform> playersDetected;
+    protected PlayerDetection detection;
+    protected GolemCollision collision;
+
+
+
+
+
+
     private float distToPlayer;
 
     [HideInInspector]
@@ -24,8 +46,11 @@ public class AIPatrol :  Golem
     private bool dead = false;
     private int armIndex;
 
-    [SerializeField]
-    protected float Health;
+    void Awake()
+    {
+        detection = GetComponent<PlayerDetection>();
+        collision = GetComponent<GolemCollision>();
+    }
 
  
     void Start()
@@ -85,7 +110,7 @@ public class AIPatrol :  Golem
         animator.SetBool("isInRange", true);
     }
 
-    protected override void Move()
+    protected void Move()
     {
         
         if (mustFlip)
@@ -138,17 +163,20 @@ public class AIPatrol :  Golem
         return (Health / initialHP) <= (armThreshold);
     }
 
-    public override void TakeDamage(float dmg)
+
+    protected bool CheckDie()
+    {
+        if (Health <= 0){
+            Debug.Log("EEEEEDDAdASDwasdEWASDEasde");
+            return true;
+        }
+        return false;
+    }
+
+    public void TakeDamage(float dmg)
     {
         animator.SetTrigger("tookDamage");
-        Debug.Log("Previous "+Health);
         Health -= dmg;
-        Debug.Log("Current "+Health);
-    }
-    protected override bool CheckDie()
-    {
-        if (Health <= 0)
-            return true;
-        return false;
+        Debug.Log(Health);
     }
 }
