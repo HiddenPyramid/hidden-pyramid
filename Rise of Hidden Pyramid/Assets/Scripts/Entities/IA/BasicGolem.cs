@@ -6,6 +6,22 @@ using UnityEngine;
 public class BasicGolem : Golem
 {
     [SerializeField]
+    protected float Health;
+    [SerializeField]
+    protected float Speed;
+    [SerializeField]
+    protected bool Chase;
+    [SerializeField]
+    protected Transform Visuals;
+    [SerializeField]
+    protected Animator animator;
+
+    protected List<Transform> playersDetected;
+    protected PlayerDetection detection;
+    protected GolemCollision collision;
+
+
+    [SerializeField]
     private float SprintSpeed;
     [SerializeField]
      private float deathDelay;
@@ -19,6 +35,15 @@ public class BasicGolem : Golem
     private bool dead = false;
 
     private int armIndex;
+
+
+     void Awake()
+    {
+        detection = GetComponent<PlayerDetection>();
+        collision = GetComponent<GolemCollision>();
+    }
+
+
     private void Start()
     {
         initialHP = Health;
@@ -59,7 +84,7 @@ public class BasicGolem : Golem
     {
         if (playersDetected.Count > 0)
         {
-            Chase();
+            ChasePlayer();
             animator.SetBool("chase", true);
         }
         else
@@ -74,7 +99,7 @@ public class BasicGolem : Golem
         transform.position += Speed * Time.deltaTime * transform.right;
     }
 
-    private void Chase()
+    private void ChasePlayer()
     {
         Vector3 dir = playersDetected[0].position - transform.position;
         dir.Scale(transform.right);
@@ -82,7 +107,7 @@ public class BasicGolem : Golem
     }
     private void CheckHealth()
     {
-        if (CheckDie())
+        if (CheckDie(Health))
         {
             animator.SetTrigger("die");
             dead = true;

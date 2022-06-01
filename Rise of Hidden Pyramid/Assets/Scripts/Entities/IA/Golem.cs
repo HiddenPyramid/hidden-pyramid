@@ -2,41 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Golem : MonoBehaviour, ITakeDamage
+public class Golem : MonoBehaviour, ITakeDamage
 {
-    [SerializeField]
-    protected float Health;
-    [SerializeField]
-    protected float Speed;
-    [SerializeField]
-    protected bool Chase;
-    [SerializeField]
-    protected Transform Visuals;
-    [SerializeField]
-    protected Animator animator;
-
-    protected List<Transform> playersDetected;
-    protected PlayerDetection detection;
-    protected GolemCollision collision;
-
-    // Start is called before the first frame update
-    void Awake()
-    {
-        detection = GetComponent<PlayerDetection>();
-        collision = GetComponent<GolemCollision>();
-    }
-
-    protected abstract void Move();
+    public AIPatrol aiPatrol;
 
     public void TakeDamage(float dmg)
     {
-        animator.SetTrigger("tookDamage");
-        Health -= dmg;
+        aiPatrol.TakeDamage(dmg);
     }
-    protected bool CheckDie()
+
+    protected virtual void Move(){}
+    protected bool CheckDie(float Health)
     {
-        if (Health <= 0)
+        if (Health <= 0){
+            Debug.Log("EEEEEDDAdASDwasdEWASDEasde");
             return true;
+        }
         return false;
     }
 }
