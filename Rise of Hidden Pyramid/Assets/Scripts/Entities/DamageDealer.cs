@@ -33,7 +33,7 @@ public class DamageDealer : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        /*var reciever = other.gameObject.GetComponent<ITakeDamage>();
+        var reciever = other.gameObject.GetComponent<ITakeDamage>();
         var movement = other.gameObject.GetComponent<PlayerMovement>();
         if (reciever != null)
         {
@@ -46,6 +46,6 @@ public class DamageDealer : MonoBehaviour
             var dir = other.transform.position - transform.position;
             dir.Scale(transform.right);
             movement.Push(dir.normalized * push);
-        }*/
+        }
     }
 }
