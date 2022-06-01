@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour, ITakeDamage
 
     private ChAnimation chAnimation;
     public Animator [] hearts;
+    public Animator plAnimator;
     private float gainHeartDelay = 0.5f;
 
 
@@ -85,10 +86,12 @@ public class PlayerController : MonoBehaviour, ITakeDamage
         try
         {
             if (dmg <= 1){
+                plAnimator.SetTrigger("tookDamage");
                 player.Health -= 1;
                 hearts[player.Health].SetTrigger("lost");
             }
             else{
+                plAnimator.SetTrigger("tookDamage");
                 player.Health -= 2;
                 hearts[player.Health+1].SetTrigger("lost");
                 hearts[player.Health].SetTrigger("lost");
