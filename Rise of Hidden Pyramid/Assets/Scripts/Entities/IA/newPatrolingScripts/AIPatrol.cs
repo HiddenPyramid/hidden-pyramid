@@ -36,7 +36,8 @@ public class AIPatrol : MonoBehaviour
     public Rigidbody rb;
     public Transform wallCheckPos, player;
     public LayerMask wallLayer;
-    public float range;
+    public float range = 8.0f;
+    public float rangeToAttack = 3.0f;
 
 
     [SerializeField] private float deathDelay;
@@ -94,9 +95,12 @@ public class AIPatrol : MonoBehaviour
             if (player.position.x > transform.position.x && transform.localScale.x > 0
             || player.position.x < transform.position.x && transform.localScale.x < 0)
                 Flip();
-
-            mustPatrol = false;
-            AttackPlayer();
+            
+            if (distToPlayer <= rangeToAttack)
+            {
+                mustPatrol = false;
+                AttackPlayer();
+            }
         } 
         else
         {
@@ -105,6 +109,7 @@ public class AIPatrol : MonoBehaviour
         }
     }
     
+
     private void AttackPlayer()
     { 
         animator.SetBool("isInRange", true);

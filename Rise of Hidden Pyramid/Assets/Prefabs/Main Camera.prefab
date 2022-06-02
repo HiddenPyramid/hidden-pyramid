@@ -122,10 +122,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
-  SmoothTime: 0
+  SmoothTime: 0.27
   Offset: {x: 1, y: 0.5, z: -5}
   yBlocked: 1
-  yBlockPosition: 78.43
+  yBlockPositions:
+  - 78.43
+  - 20
+  currentYBlockIndex: 0
 --- !u!114 &4299383953357088625
 MonoBehaviour:
   m_ObjectHideFlags: 0

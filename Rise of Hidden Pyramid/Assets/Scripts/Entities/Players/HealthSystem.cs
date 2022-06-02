@@ -12,8 +12,11 @@ public class HealthSystem : MonoBehaviour
     private int Lives;
 
     private PlayerStats player;
-    public Animator playerAnimator, slymAnimator;
+    public Animator playerAnimator, slymAnimator, shadowPlayerAnimator;
     private PlayerController playerController;
+
+    public float playerDieTime = 5f;
+    private bool hasDied = false;
 
     private void Start()
     {
@@ -27,67 +30,32 @@ public class HealthSystem : MonoBehaviour
 
     private void CheckDead()
     {
-        if(PlayerStats.Health <= 0)
+        if(PlayerStats.Health <= 0 && !hasDied)
         {
-            transform.position = Respawn;
-            transform.rotation = Quaternion.identity;
-            Camera.main.transform.rotation = transform.rotation;
-            PlayerStats.Health = Lives;
-            
-            playerAnimator.SetTrigger(Parameter.ANIM_DIES);
-            slymAnimator.SetTrigger(Parameter.ANIM_DIES);
-
-            playerController.RegainLives();
+            hasDied = true;
+            StartCoroutine(Die());
         }
     }
-    //private PlayerStats player;
-    //private PlayerController controller;
-    //private HealthSystem partner;
-    //private InputAction reviveAction;
-    //private bool dead = false;
 
-    //public bool Dead { get => dead; set => dead = value; }
-    //public HealthSystem Partner { get => partner; set => partner = value; }
-    // Start is called before the first frame update
-    //void Start()
-    //{
-    //    //player = GetComponent<PlayerStats>();
-    //    //controller = GetComponent<PlayerController>();
-    //    //reviveAction = GetComponent<PlayerInput>().actions[Parameter.ACTION_REVIVE];
-    //    //reviveAction.started += _ => SetReviving();
-    //    //reviveAction.performed += _ => RevivePartner();
-    //}
-    //// Update is called once per frame
-    //void Update()
-    //{
-    //    if(player.Health <= 0)
-    //        Die();
-    //}
+    private IEnumerator Die()
+    {
+        playerAnimator.SetTrigger(Parameter.ANIM_DIES);
+        shadowPlayerAnimator.SetTrigger(Parameter.ANIM_DIES);
 
-    //public void Revive()
-    //{
-    //    dead = false;
-    //    controller.enabled = true;
-    //}
+        yield return new WaitForSeconds(playerDieTime);
 
-    //private void Die()
-    //{
-    //    dead = true;
-    //    controller.enabled = false;
-    //}
-    //private void RevivePartner()
-    //{
-    //    if (partner == null) return;
-    //    partner.Revive();
-    //    controller.enabled = true;
-    //}
-    //private void SetReviving()
-    //{
-    //    if (partner == null) return;
-    //    if (partner.Dead)
-    //    {
-    //        controller.enabled = false;
-    //    }
-    //}
+        playerAnimator.SetTrigger(Parameter.ANIM_REVIVES);
+        shadowPlayerAnimator.SetTrigger(Parameter.ANIM_REVIVES);
+
+        transform.position = Respawn;
+        //transform.rotation = Quaternion.identity;
+        //Camera.main.transform.rotation = transform.rotation;
+        PlayerStats.Health = Lives;
+            
+        
+
+        playerController.RegainLives();
+        hasDied = false;
+    }
 
 }

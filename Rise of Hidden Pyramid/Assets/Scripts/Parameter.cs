@@ -26,6 +26,7 @@ public static class Parameter
     public static readonly String ANIM_RUNNING = "isRunning";
     public static readonly String ANIM_JUMPING = "isJumping";
     public static readonly String ANIM_DIES = "dies";
+    public static readonly String ANIM_REVIVES = "revives";
     public static readonly String ANIM_TAKEOFF = "takeOf";
 
     //Tags
