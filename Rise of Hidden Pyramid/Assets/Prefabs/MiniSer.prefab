@@ -479,6 +479,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2504343488011012939}
   - component: {fileID: 8763872833781776390}
+  - component: {fileID: 1126475143915628625}
   m_Layer: 0
   m_Name: BD_slyn
   m_TagString: Untagged
@@ -550,6 +551,102 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!82 &1126475143915628625
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1689566847887736797}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: a3df0f7ab2d80544698fb6b8ef77d2ab, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &2021223216875942718
 GameObject:
   m_ObjectHideFlags: 0
@@ -1328,8 +1425,8 @@ MonoBehaviour:
   - {fileID: 7928542792772635736}
   - {fileID: 5801416453867028466}
   m_Bounds:
-    m_Center: {x: 15.048542, y: -7.0568705, z: 0}
-    m_Extent: {x: 4.4981003, y: 1.2661207, z: 0}
+    m_Center: {x: 15.086201, y: -6.6741962, z: 0}
+    m_Extent: {x: 4.4738216, y: 1.377095, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &3530077722958408597
@@ -1801,8 +1898,8 @@ MonoBehaviour:
   - {fileID: 6528542988032054222}
   - {fileID: 5801416453867028466}
   m_Bounds:
-    m_Center: {x: 15.361207, y: -7.3781767, z: 0}
-    m_Extent: {x: 6.517207, y: 4.101781, z: 0}
+    m_Center: {x: 15.286183, y: -7.12827, z: 0}
+    m_Extent: {x: 6.538417, y: 4.125759, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &4459898003529574560
@@ -2452,8 +2549,8 @@ MonoBehaviour:
   - {fileID: 1200489583639200354}
   - {fileID: 5801416453867028466}
   m_Bounds:
-    m_Center: {x: 15.038319, y: -7.0769787, z: 0}
-    m_Extent: {x: 6.1728406, y: 2.8310616, z: 0}
+    m_Center: {x: 15.063937, y: -6.965395, z: 0}
+    m_Extent: {x: 6.183942, y: 2.7022266, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &6109902169403434383
@@ -2556,8 +2653,8 @@ MonoBehaviour:
   - {fileID: 7928542792772635736}
   - {fileID: 6528542988032054222}
   m_Bounds:
-    m_Center: {x: 15.040432, y: -7.0763054, z: 0}
-    m_Extent: {x: 3.6990542, y: 1.143111, z: 0}
+    m_Center: {x: 15.082464, y: -6.714054, z: 0}
+    m_Extent: {x: 3.666483, y: 1.2596161, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &6352370506332326919
