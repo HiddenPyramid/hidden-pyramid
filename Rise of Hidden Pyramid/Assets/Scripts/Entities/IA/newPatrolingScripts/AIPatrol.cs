@@ -3,8 +3,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AIPatrol :  Golem
+public class AIPatrol : MonoBehaviour
 {
+
+
+    [SerializeField]
+    protected float Health;
+    [SerializeField]
+    protected float Speed;
+    [SerializeField]
+    protected bool Chase;
+    [SerializeField]
+    protected Transform Visuals;
+    [SerializeField]
+    protected Animator animator;
+
+    protected List<Transform> playersDetected;
+    protected PlayerDetection detection;
+    protected GolemCollision collision;
+
+
+
+
+
+
     private float distToPlayer;
 
     [HideInInspector]
@@ -16,12 +38,29 @@ public class AIPatrol :  Golem
     public LayerMask wallLayer;
     public float range;
 
+
+    [SerializeField] private float deathDelay;
+    [SerializeField] private List<Transform> ArmVisuals;
+    [SerializeField] private List<ArmFall> ArmRagdolls;
+    private float initialHP;
+    private bool dead = false;
+    private int armIndex;
+
+    void Awake()
+    {
+        detection = GetComponent<PlayerDetection>();
+        collision = GetComponent<GolemCollision>();
+    }
+
  
     void Start()
     {
         mustPatrol = true;
         player = FindObjectOfType<PlayerManager>().GetPlayer().gameObject.transform;
         FindObjectOfType<PlayerManager>().playerChangeEvent += GetCurrentPlayer;
+
+        initialHP = Health;
+        armIndex = 0;
     }
 
     private void FixedUpdate()
@@ -31,7 +70,17 @@ public class AIPatrol :  Golem
             mustFlip = Physics.CheckSphere(wallCheckPos.position, 0.1f, wallLayer);
         }
     }
+
     void Update()
+    {
+        if (!dead)
+        {
+            CheckHealth();
+            CheckDirection();
+        }
+    }
+
+    private void CheckDirection()
     {
         if (mustPatrol)
         {
@@ -61,7 +110,7 @@ public class AIPatrol :  Golem
         animator.SetBool("isInRange", true);
     }
 
-    protected override void Move()
+    protected void Move()
     {
         
         if (mustFlip)
@@ -82,5 +131,52 @@ public class AIPatrol :  Golem
     private void GetCurrentPlayer()
     {
         player = FindObjectOfType<PlayerManager>().GetPlayer().gameObject.transform;
+    }
+
+    private void CheckHealth()
+    {
+        if (CheckDie())
+        {
+            Debug.Log("Ei que mor");
+            animator.SetBool("hasDied", true);
+            dead = true;
+            Destroy(gameObject, animator.GetCurrentAnimatorStateInfo(0).length + deathDelay);
+        }
+        if (RemainingArms() && FallingArmThresholdPassed())
+        {
+            ArmVisuals[armIndex].gameObject.SetActive(false);
+            Debug.Log("Ei desactivat");
+            Instantiate(ArmRagdolls[armIndex], ArmVisuals[armIndex].position, ArmVisuals[armIndex].rotation);
+            armIndex = armIndex+1;
+        }
+    }
+
+    private bool RemainingArms()
+    {
+        return this.armIndex < this.ArmVisuals.Count;
+    }
+
+    private bool FallingArmThresholdPassed()
+    {
+        float inverseIndex = this.ArmVisuals.Count - this.armIndex - 1;
+        float armThreshold = 1.0f / (float)this.ArmVisuals.Count * inverseIndex; 
+        return (Health / initialHP) <= (armThreshold);
+    }
+
+
+    protected bool CheckDie()
+    {
+        if (Health <= 0){
+            Debug.Log("EEEEEDDAdASDwasdEWASDEasde");
+            return true;
+        }
+        return false;
+    }
+
+    public void TakeDamage(float dmg)
+    {
+        animator.SetTrigger("tookDamage");
+        Health -= dmg;
+        Debug.Log(Health);
     }
 }

@@ -27,12 +27,12 @@ public class HealthSystem : MonoBehaviour
 
     private void CheckDead()
     {
-        if(player.Health <= 0)
+        if(PlayerStats.Health <= 0)
         {
             transform.position = Respawn;
             transform.rotation = Quaternion.identity;
             Camera.main.transform.rotation = transform.rotation;
-            player.Health = Lives;
+            PlayerStats.Health = Lives;
             
             playerAnimator.SetTrigger(Parameter.ANIM_DIES);
             slymAnimator.SetTrigger(Parameter.ANIM_DIES);
