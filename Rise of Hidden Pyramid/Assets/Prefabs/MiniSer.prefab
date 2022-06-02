@@ -527,6 +527,7 @@ Transform:
   - {fileID: 5974310876726554922}
   - {fileID: 2328791571813988887}
   - {fileID: 8678220381021370706}
+  - {fileID: 4485087077208196735}
   m_Father: {fileID: 3263868943726549445}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2694,6 +2695,36 @@ MonoBehaviour:
     m_Extent: {x: 2.0381298, y: 0.8346, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
+--- !u!1 &7335284837841408140
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4485087077208196735}
+  m_Layer: 0
+  m_Name: sfxExplosion
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4485087077208196735
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7335284837841408140}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2504343488011012939}
+  m_RootOrder: 30
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7472373277586266090
 GameObject:
   m_ObjectHideFlags: 0
