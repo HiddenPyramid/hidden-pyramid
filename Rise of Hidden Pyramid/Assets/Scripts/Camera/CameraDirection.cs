@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class CameraDirection : MonoBehaviour
 {
     public CameraController cameraController;
-    private float lastDirection = 0;
+    private float lastDirection = -1;
 
     private float input;
 
