@@ -11,6 +11,8 @@ public class Pistol : Weapon
     private float rate;
     private bool canShoot = true;
     private PlayerAndSlym playerAndSlym;
+    public Animator animator;
+    public ParticleSystem explosion;
 
     private void Start()
     {
@@ -26,9 +28,11 @@ public class Pistol : Weapon
     public override void Attack(bool inverted)
     {
         if (!canShoot || !this.gameObject.activeSelf || !playerAndSlym.shoots) return;
-
+        animator.SetTrigger("shoot");
+        explosion.Play();
         if (inverted) Instantiate(bullet, transform.position, transform.rotation, null);
         else {
+
             Bullet instantiatedBullet = Instantiate(bullet, transform.position, transform.rotation * GetQuaternion(), null).GetComponent<Bullet>();
             instantiatedBullet.inverted = true;
         }
