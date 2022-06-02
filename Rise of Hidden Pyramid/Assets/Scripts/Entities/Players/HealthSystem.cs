@@ -15,6 +15,9 @@ public class HealthSystem : MonoBehaviour
     public Animator playerAnimator, slymAnimator;
     private PlayerController playerController;
 
+    public float playerDieTime = 5f;
+    private bool hasDied = false;
+
     private void Start()
     {
         player = GetComponent<PlayerStats>();
@@ -27,18 +30,29 @@ public class HealthSystem : MonoBehaviour
 
     private void CheckDead()
     {
-        if(PlayerStats.Health <= 0)
+        if(PlayerStats.Health <= 0 && !hasDied)
         {
-            transform.position = Respawn;
-            transform.rotation = Quaternion.identity;
-            Camera.main.transform.rotation = transform.rotation;
-            PlayerStats.Health = Lives;
-            
-            playerAnimator.SetTrigger(Parameter.ANIM_DIES);
-            slymAnimator.SetTrigger(Parameter.ANIM_DIES);
-
-            playerController.RegainLives();
+            hasDied = true;
+            StartCoroutine(Die());
         }
+    }
+
+    private IEnumerator Die()
+    {
+        playerAnimator.SetTrigger(Parameter.ANIM_DIES);
+        slymAnimator.SetTrigger(Parameter.ANIM_DIES);
+        
+        yield return new WaitForSeconds(playerDieTime);
+
+        transform.position = Respawn;
+        //transform.rotation = Quaternion.identity;
+        //Camera.main.transform.rotation = transform.rotation;
+        PlayerStats.Health = Lives;
+            
+        
+
+        playerController.RegainLives();
+        hasDied = false;
     }
     //private PlayerStats player;
     //private PlayerController controller;

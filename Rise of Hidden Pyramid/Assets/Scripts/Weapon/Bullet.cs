@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
     [SerializeField]
     private float speed = 25.0f;
     public bool inverted = false;
+    public float timeToDestroy = 1.0f;
 
     private void Start()
     {
@@ -22,7 +23,7 @@ public class Bullet : MonoBehaviour
 
     IEnumerator DestroyBullet()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(timeToDestroy);
         Destroy(gameObject);
     }
 

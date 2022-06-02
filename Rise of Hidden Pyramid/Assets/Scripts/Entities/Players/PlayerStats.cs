@@ -6,7 +6,7 @@ public class PlayerStats : MonoBehaviour
 {
 
     [Header("Variables")]
-    public static int Health = 2;
+    public static int Health = 3;
     public static float BaseDamage;
     public static float Armor = 0;
     public static float GravityValue = -9.81f;

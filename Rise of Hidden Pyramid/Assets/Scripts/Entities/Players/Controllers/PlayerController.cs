@@ -16,6 +16,9 @@ public class PlayerController : MonoBehaviour, ITakeDamage
     public Animator plAnimator;
     private float gainHeartDelay = 0.5f;
 
+    public float invulnerabilityTime = 3f;
+    private bool canTakeDamage = true;
+
 
     private void Start()
     {
@@ -34,6 +37,8 @@ public class PlayerController : MonoBehaviour, ITakeDamage
         SetGravity();   
         CheckEndJump();
         CheckWalled();
+
+        Debug.Log(PlayerStats.Health);
     }
 
     private void CheckWalled()
@@ -83,20 +88,31 @@ public class PlayerController : MonoBehaviour, ITakeDamage
 
     public void TakeDamage(float dmg)
     {
-        try
+        if (canTakeDamage)
         {
-            if (dmg <= 1){
-                plAnimator.SetTrigger("tookDamage");
-                PlayerStats.Health -= 1;
-                hearts[PlayerStats.Health].SetTrigger("lost");
-            }
-            else{
-                plAnimator.SetTrigger("tookDamage");
-                PlayerStats.Health -= 2;
-                hearts[PlayerStats.Health+1].SetTrigger("lost");
-                hearts[PlayerStats.Health].SetTrigger("lost");
-            }
-        } catch {}
+            StartCoroutine(Invulnerability());
+            try
+            {
+                if (dmg <= 1){
+                    plAnimator.SetTrigger("tookDamage");
+                    PlayerStats.Health -= 1;
+                    hearts[PlayerStats.Health].SetTrigger("lost");
+                }
+                else{
+                    plAnimator.SetTrigger("tookDamage");
+                    PlayerStats.Health -= 2;
+                    hearts[PlayerStats.Health+1].SetTrigger("lost");
+                    hearts[PlayerStats.Health].SetTrigger("lost");
+                }
+            } catch {}
+        }
+    }
+
+    private IEnumerator Invulnerability()
+    {
+        canTakeDamage = false;
+        yield return new WaitForSeconds(invulnerabilityTime);
+        canTakeDamage = true;
     }
 
     public void RegainLives()
