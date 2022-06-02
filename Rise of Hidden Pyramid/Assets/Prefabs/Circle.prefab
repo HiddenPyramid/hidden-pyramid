@@ -5226,6 +5226,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 12
   inverted: 0
+  timeToDestroy: 1
+  particleSystem: {fileID: 5483159244535000769, guid: 100d153c91c6aae44bda83cb234a5e0f, type: 3}
 --- !u!114 &7560303994594002799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5242,6 +5244,7 @@ MonoBehaviour:
   destroyOnHit: 1
   push: 30
   animator: {fileID: 0}
+  particleSystem: {fileID: 5483159244535000769, guid: 100d153c91c6aae44bda83cb234a5e0f, type: 3}
 --- !u!135 &642930601537481189
 SphereCollider:
   m_ObjectHideFlags: 0
