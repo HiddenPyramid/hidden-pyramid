@@ -13,7 +13,7 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     private Vector3 Offset;
     public bool yBlocked = true;
-    public float [] yBlockPositions = {78.43f, 20f};
+    public float [] yBlockPositions = {77.08f, 20f};
     public int currentYBlockIndex = 0;
 
     private bool currentSwapped = false;

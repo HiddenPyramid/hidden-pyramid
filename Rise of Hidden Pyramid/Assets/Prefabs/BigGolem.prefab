@@ -1714,7 +1714,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  destroyOnHit: 0
   push: 50
   animator: {fileID: 3094496603761805788}
 --- !u!114 &3094496604738678887
@@ -1742,7 +1741,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   range: 8
-  rangeToAttack: 1
+  rangeToAttack: 3
   deathDelay: 3.24
   ArmVisuals:
   - {fileID: 3094496604308377319}

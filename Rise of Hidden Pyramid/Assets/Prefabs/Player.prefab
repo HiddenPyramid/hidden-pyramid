@@ -8352,6 +8352,7 @@ MonoBehaviour:
   Lives: 3
   playerAnimator: {fileID: 7036804646267761182}
   slymAnimator: {fileID: 0}
+  shadowPlayerAnimator: {fileID: 6874117454682974597}
   playerDieTime: 5
 --- !u!136 &9157727554737214192
 CapsuleCollider:
