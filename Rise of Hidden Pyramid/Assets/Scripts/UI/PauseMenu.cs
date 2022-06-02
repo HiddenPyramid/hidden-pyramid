@@ -10,20 +10,13 @@ public class PauseMenu : MonoBehaviour
     public Animator playAnimator, pauseAnimator;
     public Animator pauseMenuAnimator;
 
-    private void Start() 
-    {
-        ExitPause();
-    }
-
     public void EnterPause()
     {
-        Debug.Log("pause");
         DeactivateUI();
     }
 
     public void ExitPause()
     {
-        Debug.Log("exit");
         ReactivateUI();
     }
 
@@ -31,11 +24,12 @@ public class PauseMenu : MonoBehaviour
     {
         foreach (Animator UIanimator in UItoDeactivateOnPause)
         {
+            UIanimator.gameObject.SetActive(true);
             UIanimator.SetBool("paused", true);
-            Debug.Log("cOR");
         }
         foreach (Animator UIanimator in UItoActivateOnPause)
         {
+            UIanimator.gameObject.SetActive(true);
             UIanimator.SetBool("paused", false);
         }
 
@@ -52,10 +46,12 @@ public class PauseMenu : MonoBehaviour
     {
         foreach (Animator UIanimator in UItoDeactivateOnPause)
         {
+            UIanimator.gameObject.SetActive(true);
             UIanimator.SetBool("paused", false);
         }
         foreach (Animator UIanimator in UItoActivateOnPause)
         {
+            UIanimator.gameObject.SetActive(true);
             UIanimator.SetBool("paused", true);
         }
         
