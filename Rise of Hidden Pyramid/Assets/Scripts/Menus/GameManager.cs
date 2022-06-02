@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public static SceneIndexes currentScene;
     [SerializeField] private GameObject loadingScreen;
     [SerializeField] private ProgressBar bar;
+    public static bool paused = false;
     private List<AsyncOperation> scenesLoading = new List<AsyncOperation>();
     private void Awake()
     {

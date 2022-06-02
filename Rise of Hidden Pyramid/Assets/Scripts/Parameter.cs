@@ -13,6 +13,7 @@ public static class Parameter
     public static readonly String ACTION_REVIVE = "Revive";
     public static readonly String ACTION_JUMP = "Jump";
     public static readonly String ACTION_MOVE = "Move";
+    public static readonly String ACTION_PAUSE = "Pause";
 
     //Layers
     public const int LAYER_ITEM = 7;
