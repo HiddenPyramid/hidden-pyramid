@@ -13,8 +13,11 @@ public class DamageDealer : MonoBehaviour
 
     public Animator animator;
 
+    public ParticleSystem particleSystem;
+
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("comencem");
         var reciever = collision.gameObject.GetComponent<ITakeDamage>();
         var movement = collision.gameObject.GetComponent<PlayerMovement>();
         if (reciever != null)
@@ -29,7 +32,9 @@ public class DamageDealer : MonoBehaviour
             movement.Push(dir.normalized * push);
         }
         if (destroyOnHit)
+        {
             Destroy(gameObject);
+        }
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -39,7 +44,14 @@ public class DamageDealer : MonoBehaviour
         {
             reciever.TakeDamage(damage);
             if (destroyOnHit)
-                Destroy(gameObject);
+        {
+            if (particleSystem != null)
+            {
+                Instantiate(particleSystem, transform.position, transform.rotation, null);
+                //if (!particleSystem.isPlaying) particleSystem.Play();
+            }
+            Destroy(gameObject);
+        }
         }
         if (movement != null && push != 0)
         {

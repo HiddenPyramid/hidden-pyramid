@@ -9,6 +9,8 @@ public class Bullet : MonoBehaviour
     public bool inverted = false;
     public float timeToDestroy = 1.0f;
 
+    public ParticleSystem particleSystem;
+
     private void Start()
     {
         StartCoroutine(DestroyBullet());
@@ -24,6 +26,10 @@ public class Bullet : MonoBehaviour
     IEnumerator DestroyBullet()
     {
         yield return new WaitForSeconds(timeToDestroy);
+        if (particleSystem != null)
+        {
+            Instantiate(particleSystem, transform.position, transform.rotation, null).Play();
+        }
         Destroy(gameObject);
     }
 
