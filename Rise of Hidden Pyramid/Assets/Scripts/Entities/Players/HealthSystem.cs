@@ -17,6 +17,8 @@ public class HealthSystem : MonoBehaviour
 
     public float playerDieTime = 5f;
     private bool hasDied = false;
+    public Animator curtainAnimator;
+    private float timeToCloseCurtain = 3f;
 
     private void Start()
     {
@@ -43,6 +45,10 @@ public class HealthSystem : MonoBehaviour
         shadowPlayerAnimator.SetTrigger(Parameter.ANIM_DIES);
 
         yield return new WaitForSeconds(playerDieTime);
+
+        curtainAnimator.SetTrigger(Parameter.ANIM_REVIVES);
+
+        yield return new WaitForSeconds(timeToCloseCurtain);
 
         playerAnimator.SetTrigger(Parameter.ANIM_REVIVES);
         shadowPlayerAnimator.SetTrigger(Parameter.ANIM_REVIVES);

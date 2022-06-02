@@ -17,7 +17,6 @@ public class DamageDealer : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("comencem");
         var reciever = collision.gameObject.GetComponent<ITakeDamage>();
         var movement = collision.gameObject.GetComponent<PlayerMovement>();
         if (reciever != null)
