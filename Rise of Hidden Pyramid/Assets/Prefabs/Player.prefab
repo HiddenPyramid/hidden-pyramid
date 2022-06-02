@@ -8348,7 +8348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a88c52dda3507f4eba2443247bec913, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Respawn: {x: 62.15, y: 78.43, z: 13}
+  Respawn: {x: -35.14, y: 0, z: 0}
   Lives: 2
   playerAnimator: {fileID: 7036804646267761182}
   slymAnimator: {fileID: 0}
