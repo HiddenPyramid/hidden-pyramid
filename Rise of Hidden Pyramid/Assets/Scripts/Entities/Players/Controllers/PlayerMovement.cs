@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private float input;
     private Vector3 push;
 
-    private bool moveBlocked = false;
+    public bool moveBlocked = false;
 
     public CameraDirection cameraDirection;
 

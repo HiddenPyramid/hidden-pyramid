@@ -43,6 +43,8 @@ public class HealthSystem : MonoBehaviour
 
     private IEnumerator Die()
     {
+        GetComponent<PlayerMovement>().BlockMove();
+
         playerAnimator.SetTrigger(Parameter.ANIM_DIES);
         shadowPlayerAnimator.SetTrigger("dieAndDisappear");
 
@@ -71,6 +73,7 @@ public class HealthSystem : MonoBehaviour
 
         playerController.RegainLives();
         hasDied = false;
+        GetComponent<PlayerMovement>().UnblockMove();
     }
 
 }

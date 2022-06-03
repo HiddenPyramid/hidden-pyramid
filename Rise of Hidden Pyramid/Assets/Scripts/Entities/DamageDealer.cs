@@ -43,14 +43,14 @@ public class DamageDealer : MonoBehaviour
         {
             reciever.TakeDamage(damage);
             if (destroyOnHit)
-        {
+            {
             if (particleSystem != null)
             {
                 Instantiate(particleSystem, transform.position, transform.rotation, null);
                 //if (!particleSystem.isPlaying) particleSystem.Play();
             }
             Destroy(gameObject);
-        }
+            }
         }
         if (movement != null && push != 0)
         {

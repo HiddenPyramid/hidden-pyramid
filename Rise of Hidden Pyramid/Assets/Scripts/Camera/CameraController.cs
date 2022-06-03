@@ -17,6 +17,14 @@ public class CameraController : MonoBehaviour
     public int currentYBlockIndex = 0;
 
     private bool currentSwapped = false;
+    public bool cameraShaking = false;
+
+    private Vector3 cameraShakeVector1 = new Vector3(-1.5f, 0.6f, 1.0f);
+    private Vector3 cameraShakeVector2 = new Vector3(2.5f, -0.50f, -0.1f);
+    private Vector3 cameraShakeVector3 = new Vector3(-1.5f, -0.3f, 1.0f);
+
+    public float shakeInterval = 0.2f;
+    public Animator curtainAnimator;
 
     private void Start() 
     {
@@ -27,6 +35,7 @@ public class CameraController : MonoBehaviour
     void Update()
     {
         FollowPlayer();
+        if (cameraShaking) CameraShake();
     }
 
     private void FollowPlayer()
@@ -80,5 +89,25 @@ public class CameraController : MonoBehaviour
     public void BlockY()
     {
         this.yBlocked = true;
+    }
+
+    public void CameraShake()
+    {
+        cameraShaking = false;
+        StartCoroutine(CameraShaking());
+    }
+
+    private IEnumerator CameraShaking()
+    {
+        curtainAnimator.SetTrigger("takeDamage");
+        Vector3 originalOffset = Offset;
+        Offset = originalOffset - cameraShakeVector1;
+        yield return new WaitForSeconds(shakeInterval);
+        Offset = originalOffset - cameraShakeVector2;
+        yield return new WaitForSeconds(shakeInterval);
+        Offset = originalOffset - cameraShakeVector3;
+        yield return new WaitForSeconds(shakeInterval);
+
+        Offset = originalOffset;
     }
 }

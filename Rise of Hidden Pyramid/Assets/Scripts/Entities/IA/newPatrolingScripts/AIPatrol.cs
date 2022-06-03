@@ -162,6 +162,7 @@ public class AIPatrol : MonoBehaviour
         {
             collider.enabled = false;
         }
+        gameObject.GetComponent<Rigidbody>().useGravity = false;
     }
 
     private bool RemainingArms()
