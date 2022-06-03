@@ -8354,6 +8354,8 @@ MonoBehaviour:
   slymAnimator: {fileID: 0}
   shadowPlayerAnimator: {fileID: 6874117454682974597}
   playerDieTime: 5
+  curtainAnimator: {fileID: 0}
+  particleSystem: {fileID: 5483159244535000769, guid: dac0aa296a3bf634cb4ea7f654b3792e, type: 3}
 --- !u!136 &9157727554737214192
 CapsuleCollider:
   m_ObjectHideFlags: 0

@@ -305,6 +305,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 4806152214839585090}
+  particleSystem: {fileID: 5483159244535000769, guid: 7fdc31096f182e64c994491e68a2000e, type: 3}
 --- !u!54 &4806152214839585090
 Rigidbody:
   m_ObjectHideFlags: 0

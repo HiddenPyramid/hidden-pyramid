@@ -23,10 +23,6 @@ public class AIPatrol : MonoBehaviour
     protected GolemCollision collision;
 
 
-
-
-
-
     private float distToPlayer;
 
     [HideInInspector]
@@ -46,6 +42,9 @@ public class AIPatrol : MonoBehaviour
     private float initialHP;
     private bool dead = false;
     private int armIndex;
+
+
+    public ParticleSystem particleSystem;
 
     void Awake()
     {
@@ -142,7 +141,8 @@ public class AIPatrol : MonoBehaviour
     {
         if (CheckDie())
         {
-            Debug.Log("Ei que mor");
+            DeactivateColliders();
+            Instantiate(particleSystem, transform.position, transform.rotation, null);
             animator.SetBool("hasDied", true);
             dead = true;
             Destroy(gameObject, animator.GetCurrentAnimatorStateInfo(0).length + deathDelay);
@@ -153,6 +153,14 @@ public class AIPatrol : MonoBehaviour
             Debug.Log("Ei desactivat");
             Instantiate(ArmRagdolls[armIndex], ArmVisuals[armIndex].position, ArmVisuals[armIndex].rotation);
             armIndex = armIndex+1;
+        }
+    }
+
+    private void DeactivateColliders()
+    {
+        foreach (Collider collider in gameObject.GetComponents<Collider>())
+        {
+            collider.enabled = false;
         }
     }
 
@@ -172,7 +180,6 @@ public class AIPatrol : MonoBehaviour
     protected bool CheckDie()
     {
         if (Health <= 0){
-            Debug.Log("EEEEEDDAdASDwasdEWASDEasde");
             return true;
         }
         return false;
