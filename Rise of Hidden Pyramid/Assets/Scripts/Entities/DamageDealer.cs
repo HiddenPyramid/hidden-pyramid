@@ -12,10 +12,27 @@ public class DamageDealer : MonoBehaviour
     private float push;
 
     public Animator animator;
+    public bool activated = true;
 
     public ParticleSystem particleSystem;
 
     private void OnCollisionEnter(Collision collision)
+    {
+        if (activated)
+        {
+            ManageCollision(collision);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (activated)
+        {
+            ManageCollider(other);
+        }
+    }
+
+    private void ManageCollision(Collision collision)
     {
         var reciever = collision.gameObject.GetComponent<ITakeDamage>();
         var movement = collision.gameObject.GetComponent<PlayerMovement>();
@@ -35,7 +52,8 @@ public class DamageDealer : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    private void OnTriggerEnter(Collider other)
+
+    private void ManageCollider(Collider other)
     {
         var reciever = other.gameObject.GetComponent<ITakeDamage>();
         var movement = other.gameObject.GetComponent<PlayerMovement>();
@@ -44,12 +62,11 @@ public class DamageDealer : MonoBehaviour
             reciever.TakeDamage(damage);
             if (destroyOnHit)
             {
-            if (particleSystem != null)
-            {
-                Instantiate(particleSystem, transform.position, transform.rotation, null);
-                //if (!particleSystem.isPlaying) particleSystem.Play();
-            }
-            Destroy(gameObject);
+                if (particleSystem != null)
+                {
+                    Instantiate(particleSystem, transform.position, transform.rotation, null);
+                }
+                Destroy(gameObject);
             }
         }
         if (movement != null && push != 0)

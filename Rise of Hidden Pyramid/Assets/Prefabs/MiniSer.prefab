@@ -2050,8 +2050,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   followDelay: 1
-  followDistance: 3.48
-  speed: 2.13
+  followDistance: 1.29
+  speed: 1.28
   animator: {fileID: 0}
 --- !u!1 &4886805480549346162
 GameObject:
