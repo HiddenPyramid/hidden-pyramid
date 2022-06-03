@@ -11,7 +11,7 @@ public class MovingPillar : MonoBehaviour
     public Vector3 velocity = Vector3.zero;
     public float changingDistance = 1.5f;
     public MovingPillarCollider pillarCollider;
-
+    public ParticleSystem fire;
 
     private void Update() 
     {
@@ -33,10 +33,19 @@ public class MovingPillar : MonoBehaviour
             this.animator.SetTrigger("move");
             moving = true;
         }
+        this.fire.Play();
         this.animator.SetTrigger("shoot");
         pillarCollider.Shoot();
+        StartCoroutine(shootUnshoot());
     }
 
+    private IEnumerator shootUnshoot()
+    {
+        pillarCollider.Shoot();
+        yield return new WaitForSeconds(3);
+        pillarCollider.Unshoot();
+
+    }
     public void Unshoot()
     {
         pillarCollider.Unshoot();
