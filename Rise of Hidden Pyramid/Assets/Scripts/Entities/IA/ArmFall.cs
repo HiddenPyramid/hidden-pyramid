@@ -6,6 +6,8 @@ public class ArmFall : MonoBehaviour
     [SerializeField]
     private Rigidbody rigidbody;
 
+    public ParticleSystem particleSystem;
+
     private void Start() 
     {
         this.Drop();
@@ -29,6 +31,7 @@ public class ArmFall : MonoBehaviour
     IEnumerator Delay()
     {
         yield return new WaitForSeconds(1.5f);
+        Instantiate(particleSystem, transform.position, transform.rotation, null);
         Destroy(gameObject);
     }
 }

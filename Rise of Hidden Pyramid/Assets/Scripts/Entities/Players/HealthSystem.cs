@@ -15,10 +15,12 @@ public class HealthSystem : MonoBehaviour
     public Animator playerAnimator, slymAnimator, shadowPlayerAnimator;
     private PlayerController playerController;
 
-    public float playerDieTime = 5f;
+    public float playerDieTime = 4.2f;
     private bool hasDied = false;
     public Animator curtainAnimator;
     private float timeToCloseCurtain = 3f;
+
+    public ParticleSystem particleSystem;
 
     private void Start()
     {
@@ -42,9 +44,16 @@ public class HealthSystem : MonoBehaviour
     private IEnumerator Die()
     {
         playerAnimator.SetTrigger(Parameter.ANIM_DIES);
-        shadowPlayerAnimator.SetTrigger(Parameter.ANIM_DIES);
+        shadowPlayerAnimator.SetTrigger("dieAndDisappear");
 
-        yield return new WaitForSeconds(playerDieTime);
+        yield return new WaitForSeconds(playerDieTime/2);
+        
+        if (particleSystem != null)
+        {
+            Instantiate(particleSystem, transform.position, transform.rotation, null);
+        }
+
+        yield return new WaitForSeconds(playerDieTime/2);
 
         curtainAnimator.SetTrigger(Parameter.ANIM_REVIVES);
 
