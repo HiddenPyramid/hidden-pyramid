@@ -41,8 +41,6 @@ public class PlayerController : MonoBehaviour, ITakeDamage
         SetGravity();   
         CheckEndJump();
         CheckWalled();
-
-        Debug.Log(PlayerStats.Health);
     }
 
     private void CheckWalled()

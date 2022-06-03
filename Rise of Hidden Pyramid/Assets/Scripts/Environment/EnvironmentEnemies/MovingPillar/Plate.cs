@@ -8,6 +8,7 @@ public class Plate : MonoBehaviour
     public Animator animator;
 
     private void OnTriggerEnter(Collider other) {
+        Debug.Log("ENTRRRAAA");
         if (hitPlayer(other) || hitEnemy(other))
         {
             movingPillar.Shoot();
@@ -28,6 +29,6 @@ public class Plate : MonoBehaviour
     }
     private bool hitEnemy(Collider other)
     {
-        return other.CompareTag("Enemy");
+        return other.CompareTag("Enemy") || other.gameObject.layer == LayerMask.NameToLayer("Enemy");
     }
 }
