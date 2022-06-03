@@ -1726,7 +1726,7 @@ MonoBehaviour:
     m_Bits: 2048
   range: 8
   rangeToAttack: 3
-  deathDelay: 3.24
+  deathDelay: 5
   ArmVisuals:
   - {fileID: 3094496604308377319}
   - {fileID: 3094496603806309121}
