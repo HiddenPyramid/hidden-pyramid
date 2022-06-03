@@ -19,6 +19,9 @@ public class PlayerController : MonoBehaviour, ITakeDamage
     public float invulnerabilityTime = 3f;
     private bool canTakeDamage = true;
 
+    private PlayerMovement playerMovement;
+    public CameraController cameraController;
+    public Animator curtainAnimator;
 
     private void Start()
     {
@@ -27,6 +30,7 @@ public class PlayerController : MonoBehaviour, ITakeDamage
         collision = GetComponent<CollisionManager>();
         jumpAction = GetComponent<PlayerInput>().actions[Parameter.ACTION_JUMP];
         chAnimation = GetComponent<ChAnimation>();
+        playerMovement = GetComponent<PlayerMovement>();
         
         jumpAction.performed += _ => Jump();
         jumpAction.canceled += _ => Fall();
@@ -59,7 +63,7 @@ public class PlayerController : MonoBehaviour, ITakeDamage
 
     private void Jump()
     {
-        if (collision.InGround)
+        if (collision.InGround  && !playerMovement.moveBlocked)
         {
             Vector3 vec = new Vector3(rigidbody.velocity.x, player.JumpHeight, rigidbody.velocity.z);
             rigidbody.velocity = vec;
@@ -94,11 +98,17 @@ public class PlayerController : MonoBehaviour, ITakeDamage
             try
             {
                 if (dmg <= 1){
+                    Debug.Log("Damage");
+                    curtainAnimator.SetTrigger("takeDamage");
+                    cameraController.cameraShaking = true;
                     plAnimator.SetTrigger("tookDamage");
                     PlayerStats.Health -= 1;
                     hearts[PlayerStats.Health].SetTrigger("lost");
                 }
                 else{
+                    Debug.Log("Damage");
+                    curtainAnimator.SetTrigger("takeDamage");
+                    cameraController.cameraShaking = true;
                     plAnimator.SetTrigger("tookDamage");
                     PlayerStats.Health -= 2;
                     hearts[PlayerStats.Health+1].SetTrigger("lost");

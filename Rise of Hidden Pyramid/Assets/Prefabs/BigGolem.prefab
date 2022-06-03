@@ -1715,7 +1715,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   destroyOnHit: 0
-  push: 50
+  push: 20
   animator: {fileID: 3094496603761805788}
   particleSystem: {fileID: 5483159244535000769, guid: 7fdc31096f182e64c994491e68a2000e, type: 3}
 --- !u!114 &3094496604738678887
