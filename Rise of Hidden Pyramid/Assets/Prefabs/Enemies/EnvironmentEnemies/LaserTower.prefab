@@ -867,9 +867,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59e5d43399369044abb6010167d637c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
+  damage: 1
   destroyOnHit: 0
   push: 0
+  animator: {fileID: 0}
+  activated: 1
+  particleSystem: {fileID: 0}
 --- !u!1 &962840340742523922
 GameObject:
   m_ObjectHideFlags: 0
@@ -925,7 +928,7 @@ MonoBehaviour:
   warningInterval: 5
   goBackTrigger: {fileID: 6102857936135326949}
   timeToDie: 2
-  initialHP: 50
+  initialHP: 12
   Health: 0
   arm: {fileID: 0}
   head: {fileID: 0}

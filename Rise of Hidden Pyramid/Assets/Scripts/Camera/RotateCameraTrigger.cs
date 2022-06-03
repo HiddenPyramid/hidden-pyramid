@@ -29,6 +29,7 @@ public class RotateCameraTrigger : MonoBehaviour
     {
         if(other.gameObject.layer == Parameter.LAYER_PLAYER)
         {
+            HealthSystem.spawnLevel ++;
             rotation = true;
             timeCount=0.0f;
             startRotation=_camera.transform.rotation;

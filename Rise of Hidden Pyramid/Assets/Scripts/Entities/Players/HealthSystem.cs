@@ -22,6 +22,9 @@ public class HealthSystem : MonoBehaviour
 
     public ParticleSystem particleSystem;
 
+    public GameObject[] spawnLevels;
+    public static int spawnLevel;
+
     private void Start()
     {
         player = GetComponent<PlayerStats>();
@@ -30,6 +33,7 @@ public class HealthSystem : MonoBehaviour
     private void Update()
     {
         CheckDead();
+        Debug.Log(transform.position);
     }
 
     private void CheckDead()
@@ -43,6 +47,8 @@ public class HealthSystem : MonoBehaviour
 
     private IEnumerator Die()
     {
+        spawnLevels[spawnLevel].SetActive(true);
+        spawnLevel ++;
         GetComponent<PlayerMovement>().BlockMove();
 
         playerAnimator.SetTrigger(Parameter.ANIM_DIES);

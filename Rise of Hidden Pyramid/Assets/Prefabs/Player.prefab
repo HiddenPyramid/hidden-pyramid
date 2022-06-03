@@ -8213,6 +8213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 120acf4b5fdf07e46b42e25d2e61f06c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveBlocked: 0
   cameraDirection: {fileID: 4299383953357088625, guid: 72f573a33f1c6564ab3ec71c9ab3925c, type: 3}
 --- !u!114 &9101979153957857650
 MonoBehaviour:
@@ -8274,6 +8275,8 @@ MonoBehaviour:
   hearts: []
   plAnimator: {fileID: 7036804646267761182}
   invulnerabilityTime: 1.5
+  cameraController: {fileID: 0}
+  curtainAnimator: {fileID: 0}
 --- !u!114 &6050777331477609099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8348,7 +8351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a88c52dda3507f4eba2443247bec913, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Respawn: {x: -35.14, y: 0, z: 0}
+  Respawn: {x: 166.6, y: 0, z: 0}
   Lives: 3
   playerAnimator: {fileID: 7036804646267761182}
   slymAnimator: {fileID: 0}
@@ -8356,6 +8359,7 @@ MonoBehaviour:
   playerDieTime: 5
   curtainAnimator: {fileID: 0}
   particleSystem: {fileID: 5483159244535000769, guid: dac0aa296a3bf634cb4ea7f654b3792e, type: 3}
+  spawnLevels: []
 --- !u!136 &9157727554737214192
 CapsuleCollider:
   m_ObjectHideFlags: 0
