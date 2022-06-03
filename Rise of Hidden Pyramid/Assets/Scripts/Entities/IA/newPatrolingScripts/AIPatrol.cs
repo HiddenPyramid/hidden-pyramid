@@ -43,6 +43,13 @@ public class AIPatrol : MonoBehaviour
     private bool dead = false;
     private int armIndex;
 
+    public enum DirectionSegment
+    {
+        first, second, third
+    }
+
+    public DirectionSegment directionSegment;
+
 
     public ParticleSystem particleSystem;
 
@@ -121,7 +128,33 @@ public class AIPatrol : MonoBehaviour
         {
             Flip();
         }
+        switch (directionSegment)
+        {
+            case DirectionSegment.first:
+                MoveX();
+                break;
+            case DirectionSegment.second:
+                MoveZ();
+                break;
+            case DirectionSegment.third:
+                MoveNegativeX();
+                break;
+        }
+    }
+
+    private void MoveX()
+    {
         rb.velocity = new Vector3(Speed * Time.fixedDeltaTime * -1 , rb.velocity.y, rb.velocity.z);
+    }
+
+    private void MoveZ()
+    {
+        rb.velocity = new Vector3(rb.velocity.x , rb.velocity.y, Speed * Time.fixedDeltaTime * -1);
+    }
+
+    private void MoveNegativeX()
+    {
+        rb.velocity = new Vector3(- Speed * Time.fixedDeltaTime * -1 , rb.velocity.y, rb.velocity.z);
     }
 
     public void Flip()

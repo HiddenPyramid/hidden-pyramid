@@ -1737,6 +1737,7 @@ MonoBehaviour:
   - {fileID: 3520664344869180466, guid: 3a25baaa7376828499234adc8feffede, type: 3}
   - {fileID: 3761534294715948198, guid: 79f5825edfeaa7d4ebb9a78c99b034de, type: 3}
   - {fileID: 65337532460022318, guid: c12db46af3e419c4fa626db7d26941a7, type: 3}
+  directionSegment: 0
   particleSystem: {fileID: 5483159244535000769, guid: 7fdc31096f182e64c994491e68a2000e, type: 3}
 --- !u!54 &3094496604738678938
 Rigidbody:
@@ -1747,7 +1748,7 @@ Rigidbody:
   m_GameObject: {fileID: 3094496604738678885}
   serializedVersion: 2
   m_Mass: 100
-  m_Drag: 0
+  m_Drag: 2
   m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
