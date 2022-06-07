@@ -9,6 +9,8 @@ public class SceneLoadTrigger : MonoBehaviour
     [SerializeField] private AudioSource optionalButtonAudio;
     [SerializeField] private float waitDuration = 3f;
     public Animator curtainAnimator;
+    [SerializeField] private AudioSource optionalAudioToFadeOut;
+    public float smoothTime = 3f;
 
     public void LoadNextScene()
     {
@@ -25,6 +27,20 @@ public class SceneLoadTrigger : MonoBehaviour
 
     private IEnumerator LoadGameWaiting()
     {
+        // FadeOutAudio
+        if (optionalAudioToFadeOut != null)
+        {
+            float currentTime = 0f;
+            while (optionalAudioToFadeOut.volume > 0.001f)
+            {
+                currentTime += Time.deltaTime;
+                optionalAudioToFadeOut.volume = Mathf.Lerp(optionalAudioToFadeOut.volume, 0f, currentTime/smoothTime);
+                yield return new WaitForEndOfFrame();
+            }
+            optionalAudioToFadeOut.volume = 0f;
+        }
+
+        // LoadGameWaiting
         float duration = PlayAndGetAudioDuration();
         yield return new WaitForSeconds(duration);
         duration = waitDuration > duration ? waitDuration : duration;

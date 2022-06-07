@@ -7,7 +7,7 @@ public class MusicSwitcher : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip nextClip;
 
-    public float smoothTime = 0.7f;
+    public float smoothTime = 2f;
     float velocity = 0.0f;
     public float delayTime = 0.3f;
     public float maxVolume = 1f;
@@ -25,23 +25,26 @@ public class MusicSwitcher : MonoBehaviour
 
     private void SwitchMusic()
     {
-        StartCoroutine(FadeOutClip());
-        StartCoroutine(LoadNextClip());
+        StartCoroutine(FadeOutClipLoadNextClip());
     }
 
-    private IEnumerator FadeOutClip()
+    private IEnumerator FadeOutClipLoadNextClip()
     {
-        while (audioSource.volume > 0.1f)
+        // FadeOutClip
+        float currentTime = 0f;
+        while (audioSource.volume > 0.009f)
         {
-            audioSource.volume = Mathf.SmoothDamp(audioSource.volume, 0f, ref velocity, smoothTime);
+            currentTime += Time.deltaTime;
+            audioSource.volume = Mathf.Lerp(audioSource.volume, 0f, currentTime/smoothTime);
             yield return new WaitForEndOfFrame();
         }
         audioSource.volume = 0f;
-    }
 
-    private IEnumerator LoadNextClip()
-    {
-        yield return new WaitForSeconds (smoothTime + delayTime);
+        // LoadNextClip
+        yield return new WaitForSeconds (smoothTime);
+        audioSource.gameObject.SetActive(false);
+        yield return new WaitForSeconds (delayTime);
+        audioSource.gameObject.SetActive(true);
         audioSource.clip = nextClip;
         audioSource.volume = maxVolume;
     }
