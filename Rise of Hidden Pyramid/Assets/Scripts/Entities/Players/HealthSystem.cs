@@ -48,7 +48,6 @@ public class HealthSystem : MonoBehaviour
     private IEnumerator Die()
     {
         spawnLevels[spawnLevel].SetActive(true);
-        spawnLevel ++;
         GetComponent<PlayerMovement>().BlockMove();
 
         playerAnimator.SetTrigger(Parameter.ANIM_DIES);
