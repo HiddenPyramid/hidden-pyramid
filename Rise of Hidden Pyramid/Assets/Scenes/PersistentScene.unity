@@ -924,6 +924,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1846750024}
   m_CullTransparentMesh: 1
+--- !u!95 &1997232839 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6815138594423608033, guid: 5fd60aa6322e83f4e9395e75f9ed3bb4, type: 3}
+  m_PrefabInstance: {fileID: 1007476482}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &70570187499519448
 Transform:
   m_ObjectHideFlags: 0
@@ -953,6 +958,8 @@ MonoBehaviour:
   loadingScreen: {fileID: 7423080114544044156}
   bar: {fileID: 7423080112907689103}
   paused: 0
+  curtainAnimator: {fileID: 1997232839}
+  curtainCloseTime: 1.5
 --- !u!114 &70570187499519450
 MonoBehaviour:
   m_ObjectHideFlags: 0
