@@ -182,6 +182,7 @@ public class AIPatrol : MonoBehaviour
         }
         if (RemainingArms() && FallingArmThresholdPassed())
         {
+            animator.SetTrigger("tookDamage");
             ArmVisuals[armIndex].gameObject.SetActive(false);
             Debug.Log("Ei desactivat");
             Instantiate(ArmRagdolls[armIndex], ArmVisuals[armIndex].position, ArmVisuals[armIndex].rotation);
@@ -221,7 +222,8 @@ public class AIPatrol : MonoBehaviour
 
     public void TakeDamage(float dmg)
     {
-        animator.SetTrigger("tookDamage");
+        if(!(FallingArmThresholdPassed()))
+            animator.SetTrigger("tookLittleDamage");
         Health -= dmg;
         Debug.Log(Health);
     }
