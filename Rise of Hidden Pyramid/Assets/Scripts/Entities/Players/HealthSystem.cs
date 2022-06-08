@@ -33,7 +33,6 @@ public class HealthSystem : MonoBehaviour
     private void Update()
     {
         CheckDead();
-        Debug.Log(transform.position);
     }
 
     private void CheckDead()

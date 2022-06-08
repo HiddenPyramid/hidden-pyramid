@@ -8,12 +8,16 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public static SceneIndexes currentScene;
-    [SerializeField] private GameObject loadingScreen;
+    [SerializeField] private Animator loadingScreen;
     [SerializeField] private ProgressBar bar;
+
     public bool paused = false;
     private List<AsyncOperation> scenesLoading = new List<AsyncOperation>();
+    private AsyncOperation nextSceneOperation;
+
     public Animator curtainAnimator;
     public float curtainCloseTime = 0.35f;
+    public GameObject canvas;
 
     private void Awake()
     {
@@ -25,15 +29,26 @@ public class GameManager : MonoBehaviour
     public void LoadGame(SceneIndexes nextScene)
     {
         loadingScreen.gameObject.SetActive(true);
+        canvas.gameObject.SetActive(true);
+
+        loadingScreen.SetTrigger("fakeLoad");
         curtainAnimator.SetTrigger("openCurtainFast");
 
-        scenesLoading.Add(SceneManager.UnloadSceneAsync((int)currentScene));
-        scenesLoading.Add(SceneManager.LoadSceneAsync((int)nextScene, LoadSceneMode.Additive));
-        currentScene = nextScene;
-        StartCoroutine(FAKE_SMOOTH_GetSceneLoadProgressAndActivateScene());
+
+        UnloadAndLoadScenes(nextScene);
+
+        StartCoroutine(FAKE_GetSceneLoadProgressAndActivateScene());
     }
 
-    //////////////////////////////////////////////////////////////// REAL PROGRESS BUT UNSMOOTH RESULT
+    private void UnloadAndLoadScenes(SceneIndexes nextScene)
+    {
+        scenesLoading.Add(SceneManager.UnloadSceneAsync((int)currentScene));
+        nextSceneOperation = SceneManager.LoadSceneAsync((int)nextScene, LoadSceneMode.Additive);
+        nextSceneOperation.allowSceneActivation = false;
+        scenesLoading.Add(nextSceneOperation);
+
+        currentScene = nextScene;
+    }
     
     private IEnumerator GetSceneLoadProgressAndActivateScene()
     {
@@ -47,7 +62,10 @@ public class GameManager : MonoBehaviour
         }
         curtainAnimator.SetTrigger("closeCurtainFast");
         yield return new WaitForSeconds(curtainCloseTime);
+
         loadingScreen.gameObject.SetActive(false);
+        canvas.gameObject.SetActive(false);
+
         SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(((int)currentScene)));
     }
 
@@ -62,26 +80,30 @@ public class GameManager : MonoBehaviour
         bar.UpdateCurrent(Mathf.RoundToInt(totalSceneProgress));
     }
 
-    //////////////////////////////////////////////////////////////// FAKE PROGRESS BUT SMOOTH RESULT
-    private IEnumerator FAKE_SMOOTH_GetSceneLoadProgressAndActivateScene()
+
+
+    ///////////////////// FAKE LOADING
+    private IEnumerator FAKE_GetSceneLoadProgressAndActivateScene()
     {
-        float totalSceneProgress = 0;
-        while (totalSceneProgress < 100f)
-        {
-            totalSceneProgress += Time.deltaTime / scenesLoading.Count / 10;
-            bar.UpdateCurrent(Mathf.RoundToInt(totalSceneProgress));
-        }
+        
+        yield return new WaitForSeconds(5f);//loadingScreen.GetCurrentAnimatorStateInfo(0).length);
+        nextSceneOperation.allowSceneActivation = true;
 
         for (int i = 0; i < scenesLoading.Count; i++)
         {
             while (!scenesLoading[i].isDone)
             {
-                yield return new WaitForEndOfFrame(); // Without classic UpdateProgress
+                //UpdateProgress();
+                yield return null;
             }
         }
         curtainAnimator.SetTrigger("closeCurtainFast");
         yield return new WaitForSeconds(curtainCloseTime);
+        
+
         loadingScreen.gameObject.SetActive(false);
+        canvas.gameObject.SetActive(false);
+
         SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(((int)currentScene)));
     }
 
