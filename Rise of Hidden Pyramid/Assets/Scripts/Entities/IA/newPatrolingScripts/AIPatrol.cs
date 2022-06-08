@@ -18,12 +18,17 @@ public class AIPatrol : MonoBehaviour
     [SerializeField]
     protected Animator animator;
 
+    public ParticleSystem dieParticles;
+    public ParticleSystem[] attackParticles;
+
     protected List<Transform> playersDetected;
     protected PlayerDetection detection;
     protected GolemCollision collision;
 
+    
 
     private float distToPlayer;
+    private bool attacking;
 
     [HideInInspector]
     public bool mustPatrol;
@@ -49,9 +54,6 @@ public class AIPatrol : MonoBehaviour
     }
 
     public DirectionSegment directionSegment;
-
-
-    public ParticleSystem particleSystem;
 
     void Awake()
     {
@@ -117,29 +119,46 @@ public class AIPatrol : MonoBehaviour
     
 
     private void AttackPlayer()
-    { 
+    {
+        attacking = true;
         animator.SetBool("isInRange", true);
+        StartCoroutine(attackParticleAnimation());
+        Debug.Log("Holi");
+        
     }
 
+    IEnumerator attackParticleAnimation()
+    {
+        yield return new WaitForSeconds(1.27f);
+        for (int i = 0; i<attackParticles.Length; i++)
+        {
+            attackParticles[i].Play();
+            yield return new WaitForSeconds(.1f);
+        }
+        attacking = false;
+    }
     protected void Move()
     {
+        if (!attacking)
+        {
+            if (mustFlip)
+            {
+                Flip();
+            }
+            switch (directionSegment)
+            {
+                case DirectionSegment.first:
+                    MoveX();
+                    break;
+                case DirectionSegment.second:
+                    MoveZ();
+                    break;
+                case DirectionSegment.third:
+                    MoveNegativeX();
+                    break;
+            }    
+        }
         
-        if (mustFlip)
-        {
-            Flip();
-        }
-        switch (directionSegment)
-        {
-            case DirectionSegment.first:
-                MoveX();
-                break;
-            case DirectionSegment.second:
-                MoveZ();
-                break;
-            case DirectionSegment.third:
-                MoveNegativeX();
-                break;
-        }
     }
 
     private void MoveX()
@@ -160,6 +179,10 @@ public class AIPatrol : MonoBehaviour
     public void Flip()
     {
         mustPatrol = false;
+        for (int i = 0; i < attackParticles.Length; i++)
+        {
+            attackParticles[i].Stop();
+        }
         transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y);
         Speed *= -1;
         mustPatrol = true;
@@ -175,7 +198,7 @@ public class AIPatrol : MonoBehaviour
         if (CheckDie())
         {
             DeactivateColliders();
-            Instantiate(particleSystem, transform.position, transform.rotation, null);
+            Instantiate(dieParticles, transform.position, transform.rotation, null);
             animator.SetBool("hasDied", true);
             dead = true;
             Destroy(gameObject, animator.GetCurrentAnimatorStateInfo(0).length + deathDelay);
@@ -184,7 +207,6 @@ public class AIPatrol : MonoBehaviour
         {
             animator.SetTrigger("tookDamage");
             ArmVisuals[armIndex].gameObject.SetActive(false);
-            Debug.Log("Ei desactivat");
             Instantiate(ArmRagdolls[armIndex], ArmVisuals[armIndex].position, ArmVisuals[armIndex].rotation);
             armIndex = armIndex+1;
         }
@@ -222,8 +244,6 @@ public class AIPatrol : MonoBehaviour
 
     public void TakeDamage(float dmg)
     {
-        if(!(FallingArmThresholdPassed()))
-            animator.SetTrigger("tookLittleDamage");
         Health -= dmg;
         Debug.Log(Health);
     }
