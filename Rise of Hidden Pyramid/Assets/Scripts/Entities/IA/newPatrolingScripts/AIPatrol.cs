@@ -121,9 +121,9 @@ public class AIPatrol : MonoBehaviour
     private void AttackPlayer()
     {
         attacking = true;
+        animator.SetBool("punching", true);
         animator.SetBool("isInRange", true);
         StartCoroutine(attackParticleAnimation());
-        Debug.Log("Holi");
         
     }
 
@@ -135,6 +135,7 @@ public class AIPatrol : MonoBehaviour
             attackParticles[i].Play();
             yield return new WaitForSeconds(.1f);
         }
+        animator.SetBool("punching", false);
         attacking = false;
     }
     protected void Move()
@@ -196,10 +197,10 @@ public class AIPatrol : MonoBehaviour
     private void CheckHealth()
     {
         if (CheckDie())
-        {
+        {   
+            animator.SetBool("hasDied", true);
             DeactivateColliders();
             Instantiate(dieParticles, transform.position, transform.rotation, null);
-            animator.SetBool("hasDied", true);
             dead = true;
             Destroy(gameObject, animator.GetCurrentAnimatorStateInfo(0).length + deathDelay);
         }
