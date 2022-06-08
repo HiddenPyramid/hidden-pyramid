@@ -268,7 +268,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: b6661280798ec9148bfe5af26de6a317, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -363,8 +363,8 @@ MonoBehaviour:
   - {fileID: 3895121486543559027}
   - {fileID: 3895121487074318035}
   m_Bounds:
-    m_Center: {x: -0.5088271, y: -0.0015966892, z: 0}
-    m_Extent: {x: 1.3828605, y: 1.2607086, z: 0}
+    m_Center: {x: -0.0014002323, y: -0.040910006, z: 0}
+    m_Extent: {x: 1.0500503, y: 1.22561, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &3895121485893689414
