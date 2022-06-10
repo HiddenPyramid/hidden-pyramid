@@ -8,6 +8,7 @@ public class Bullet : MonoBehaviour
     private float speed = 25.0f;
     public bool inverted = false;
     public float timeToDestroy = 1.0f;
+    public float timeToDestroyParticles = 2.0f;
 
     public ParticleSystem particleSystem;
 
@@ -25,11 +26,16 @@ public class Bullet : MonoBehaviour
 
     IEnumerator DestroyBullet()
     {
+        ParticleSystem particles = null;
         yield return new WaitForSeconds(timeToDestroy);
         if (particleSystem != null)
         {
-            Instantiate(particleSystem, transform.position, transform.rotation, null).Play();
+            particles = Instantiate(particleSystem, transform.position, transform.rotation, null);
+            particles.Play();
         }
+        yield return new WaitForSeconds(timeToDestroyParticles);
+        if (particles != null)
+            Destroy(particles.gameObject);
         Destroy(gameObject);
     }
 

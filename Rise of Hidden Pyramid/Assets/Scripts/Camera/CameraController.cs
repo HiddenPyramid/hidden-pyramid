@@ -146,11 +146,10 @@ public class CameraController : MonoBehaviour
 
     private IEnumerator DoSmoothDamp()
     {
-        Debug.Log("sadsad");
         isDamping = true;
-       SmoothTime = 0.2f;
-       yield return new WaitForSeconds(2f);
-       SmoothTime = 0f;
-       isDamping = false;
+        SmoothTime = 0.2f;
+        yield return new WaitForSeconds(2f);
+        SmoothTime = 0f;
+        isDamping = false;
     }
 }
