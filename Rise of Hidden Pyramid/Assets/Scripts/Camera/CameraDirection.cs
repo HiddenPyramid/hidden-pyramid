@@ -6,10 +6,13 @@ using UnityEngine.InputSystem;
 public class CameraDirection : MonoBehaviour
 {
     public CameraController cameraController;
+    private float lastInput; 
 
     public void SetInput(float newInput)
     {
-        Debug.Log(newInput);
+        if (newInput != 0 && lastInput != newInput) cameraController.SmoothDamp();
+        if (newInput != 0) lastInput = newInput;
+
         if (newInput == 1) cameraController.PositiveXOffset();
         else if (newInput == -1) cameraController.NegativeXOffset();
     }

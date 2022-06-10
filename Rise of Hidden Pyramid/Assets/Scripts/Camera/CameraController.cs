@@ -8,10 +8,10 @@ using System.Linq;
 public class CameraController : MonoBehaviour
 {
     public Transform Player;
-    [SerializeField]
-    private float SmoothTime = 0f;
-    [SerializeField]
-    private Vector3 Offset;
+    [SerializeField] private float SmoothTime = 0.015f;
+    private bool isDamping = false;
+
+    [SerializeField] private Vector3 Offset;
     public bool yBlocked = true;
     public float [] yBlockPositions = {77.08f, 20f};
     public int currentYBlockIndex = 0;
@@ -139,5 +139,18 @@ public class CameraController : MonoBehaviour
         Offset = originalOffset;
     }
 
-    
+    public void SmoothDamp()
+    {
+        if (!isDamping) StartCoroutine(DoSmoothDamp());
+    }
+
+    private IEnumerator DoSmoothDamp()
+    {
+        Debug.Log("sadsad");
+        isDamping = true;
+       SmoothTime = 0.2f;
+       yield return new WaitForSeconds(2f);
+       SmoothTime = 0f;
+       isDamping = false;
+    }
 }
