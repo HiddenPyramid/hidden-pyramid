@@ -68,12 +68,35 @@ public class CameraController : MonoBehaviour
                                        new Vector3 ( - newOffset.x, newOffset.y, newOffset.z);
     }
 
-    public void SwapXOffset()
+    public void PositiveXOffset()
+    {
+        float xOffset = GetPostitiveXOffset();
+        SetXOffset(xOffset);
+    }
+
+    public void NegativeXOffset()
+    {
+        float xOffset = GetNegativeXOffset();
+        SetXOffset(xOffset);
+    }
+
+    private float GetPostitiveXOffset()
+    {
+        Debug.Log("vull positiu");
+        return Mathf.Abs(this.Offset.x);
+    }
+
+    private float GetNegativeXOffset()
+    {
+        Debug.Log("vull negatiu");
+        return -Mathf.Abs(this.Offset.x);
+    }
+
+    private void SetXOffset(float xOffset)
     {
         this.Offset = new Vector3(- this.Offset.x, 
                                     this.Offset.y, 
                                     this.Offset.z);
-        this.currentSwapped = ! this.currentSwapped;
     }
 
     private void GetCurrentPlayer()
