@@ -308,7 +308,7 @@
                 {
                     "name": "",
                     "id": "1e18fc31-ee06-46a0-8da9-a1563066a946",
-                    "path": "<Keyboard>/p",
+                    "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard;Gamepad",

@@ -16,7 +16,7 @@ public class Shooting : MonoBehaviour
     private Vector3 direction;
     private bool isGamepad = false;
 
-    private bool inverted = false;
+    private bool inverted = true;
     // Start is called before the first frame update
 
     void Start()
