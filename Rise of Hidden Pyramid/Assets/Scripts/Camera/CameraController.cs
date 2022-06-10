@@ -16,7 +16,6 @@ public class CameraController : MonoBehaviour
     public float [] yBlockPositions = {77.08f, 20f};
     public int currentYBlockIndex = 0;
 
-    private bool currentSwapped = false;
     public bool cameraShaking = false;
     public bool cameraShakingNoDamage = false;
 
@@ -64,8 +63,7 @@ public class CameraController : MonoBehaviour
 
     public void SetOffset(Vector3 newOffset)
     {
-        this.Offset = currentSwapped ? new Vector3 (   newOffset.x, newOffset.y, newOffset.z) : 
-                                       new Vector3 ( - newOffset.x, newOffset.y, newOffset.z);
+        this.Offset =  new Vector3 (   newOffset.x, newOffset.y, newOffset.z);
     }
 
     public void PositiveXOffset()
@@ -82,19 +80,17 @@ public class CameraController : MonoBehaviour
 
     private float GetPostitiveXOffset()
     {
-        Debug.Log("vull positiu");
         return Mathf.Abs(this.Offset.x);
     }
 
     private float GetNegativeXOffset()
     {
-        Debug.Log("vull negatiu");
-        return -Mathf.Abs(this.Offset.x);
+        return - Mathf.Abs(this.Offset.x);
     }
 
     private void SetXOffset(float xOffset)
     {
-        this.Offset = new Vector3(- this.Offset.x, 
+        this.Offset = new Vector3( xOffset, 
                                     this.Offset.y, 
                                     this.Offset.z);
     }
