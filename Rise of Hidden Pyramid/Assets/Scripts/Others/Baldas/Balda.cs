@@ -39,7 +39,6 @@ public class Balda : MonoBehaviour
 
     void Shoot()
     {
-        Debug.Log("Shooooting");
         laser.GetComponent<Laser>().Shoot();
     }
 

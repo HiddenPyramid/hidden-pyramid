@@ -13,11 +13,8 @@ public class LevelSpawner : MonoBehaviour
     public GameObject level;    
     
     private void OnTriggerEnter(Collider other) {
-        Debug.Log("entra spawner");
         if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("MainCamera"))
-        { Debug.Log("fa spawner");
             Spawn();
-        }
     }
 
     private void Spawn()

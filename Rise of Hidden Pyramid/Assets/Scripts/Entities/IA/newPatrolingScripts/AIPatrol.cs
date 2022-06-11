@@ -246,6 +246,5 @@ public class AIPatrol : MonoBehaviour
     public void TakeDamage(float dmg)
     {
         Health -= dmg;
-        Debug.Log(Health);
     }
 }

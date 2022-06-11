@@ -14,7 +14,6 @@ public class ShootingEnemy : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        Debug.Log("Taking damage!");
         health -= damage;
 
         if (health <= 0)
@@ -36,8 +35,6 @@ public class ShootingEnemy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log(collider.gameObject);
-
         if (collider.gameObject.CompareTag("Player"))
         {
 

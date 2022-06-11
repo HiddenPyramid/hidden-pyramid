@@ -96,7 +96,6 @@ public class PlayerController : MonoBehaviour, ITakeDamage
             try
             {
                 if (dmg <= 1){
-                    Debug.Log(PlayerStats.Health+" la saluuuut");
                     curtainAnimator.SetTrigger("takeDamage");
                     cameraController.cameraShaking = true;
                     plAnimator.SetTrigger("tookDamage");
@@ -104,7 +103,6 @@ public class PlayerController : MonoBehaviour, ITakeDamage
                     hearts[PlayerStats.Health].SetTrigger("lost");
                 }
                 else{
-                    Debug.Log("Damage");
                     curtainAnimator.SetTrigger("takeDamage");
                     cameraController.cameraShaking = true;
                     plAnimator.SetTrigger("tookDamage");

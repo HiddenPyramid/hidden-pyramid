@@ -19,9 +19,7 @@ public class NameSaver : MonoBehaviour
 
     private void LoadNameIfPossible()
     {
-        Debug.Log("prova");
         string name = SaveContainer.LoadName();
         if (name != null && name.Length != 0) input.text = name;
-        Debug.Log("resultat: "+name);
     }
 }  

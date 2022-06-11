@@ -16,6 +16,5 @@ public class GoBackTrigger : MonoBehaviour
     private void GoBack(GameObject player)
     {
         player.GetComponent<Rigidbody>().AddForce(direction*force);
-        Debug.Log("go bACK");
     }
 }

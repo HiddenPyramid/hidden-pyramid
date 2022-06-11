@@ -23,7 +23,6 @@ public class PuzzleManager : MonoBehaviour
 
     void DestroyDoor()
     {
-        Debug.Log("Puzzle Solved!");
         Destroy(door);
     }
 

@@ -15,7 +15,6 @@ public class ArmFall : MonoBehaviour
     
     public void Drop()
     {
-        Debug.Log("Dropeja");
         transform.SetParent(null);
         rigidbody.useGravity = true;
     }

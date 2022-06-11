@@ -9,7 +9,6 @@ public class FlipTrigger : MonoBehaviour
     {
         if (other.gameObject.CompareTag(Parameter.PLAYER))
         {
-            Debug.Log("He arribat");
             aipatrol.Flip();
         }
     }

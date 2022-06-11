@@ -21,7 +21,6 @@ public class PlayerPausing : MonoBehaviour
         if (PlayerPausing.onCooldown == 0)
         {
             StartCoroutine(CooldownWait());
-            Debug.Log("Pausing");
             GameManager.instance.paused = !GameManager.instance.paused;
             if (GameManager.instance.paused) pauseMenu.EnterPause();
             else pauseMenu.ExitPause();

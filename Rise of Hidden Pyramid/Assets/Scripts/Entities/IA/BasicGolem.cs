@@ -116,7 +116,6 @@ public class BasicGolem : Golem
         if (RemainingArms() && FallingArmThresholdPassed())
         {
             ArmVisuals[armIndex].gameObject.SetActive(false);
-            Debug.Log("Ei desactivat");
             Instantiate(ArmRagdolls[armIndex], ArmVisuals[armIndex].position, ArmVisuals[armIndex].rotation);
             armIndex = armIndex+1;
         }

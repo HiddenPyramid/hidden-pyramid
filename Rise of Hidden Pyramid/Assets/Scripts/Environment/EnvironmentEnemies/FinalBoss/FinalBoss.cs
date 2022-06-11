@@ -51,7 +51,6 @@ public class FinalBoss : MonoBehaviour
         }
         finalRoom.SetBool("toEnd",true);
         headWithBody.FallBoss();
-        Debug.Log("END");
     }
 
     private IEnumerator RightAttack()

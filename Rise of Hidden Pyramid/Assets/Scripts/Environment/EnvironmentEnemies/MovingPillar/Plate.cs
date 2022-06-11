@@ -8,7 +8,6 @@ public class Plate : MonoBehaviour
     public Animator animator;
 
     private void OnTriggerEnter(Collider other) {
-        Debug.Log("ENTRRRAAA");
         if (hitPlayer(other) || hitEnemy(other))
         {
             movingPillar.Shoot();
