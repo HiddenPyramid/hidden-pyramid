@@ -8,10 +8,12 @@ using System.Linq;
 public class CameraController : MonoBehaviour
 {
     public Transform Player;
-    [SerializeField] private float SmoothTime = 0.015f;
-    private bool isDamping = false;
+    [SerializeField] private float SmoothTime = 0.3f;
+    [SerializeField] private float dampMinDistance = 0.2f;
+    [SerializeField] private float regularSmoothTime = 0.1f;
 
     [SerializeField] private Vector3 Offset;
+    private Vector3 lastValidOffset;
     public bool yBlocked = true;
     public float [] yBlockPositions = {77.08f, 20f};
     public int currentYBlockIndex = 0;
@@ -26,8 +28,11 @@ public class CameraController : MonoBehaviour
     public float shakeInterval = 0.15f;
     public Animator curtainAnimator;
 
+    private IEnumerator lastSmoothCoroutine = null;
+
     private void Start() 
     {
+        lastValidOffset = Offset;
         Player = FindObjectOfType<PlayerManager>().GetPlayer().gameObject.transform;
         FindObjectOfType<PlayerManager>().playerChangeEvent += GetCurrentPlayer;
     }
@@ -41,8 +46,8 @@ public class CameraController : MonoBehaviour
     private void FollowPlayer()
     {
         Vector3 vel = Vector3.zero;
-        //transform.position = Vector3.SmoothDamp(transform.position, GetPosition(), ref vel, SmoothTime);
-        transform.position = GetPosition();
+        transform.position = Vector3.SmoothDamp(transform.position, GetPosition(), ref vel, regularSmoothTime);
+        //transform.position = GetPosition();
     }
 
     private Vector3 GetPosition()
@@ -64,7 +69,9 @@ public class CameraController : MonoBehaviour
 
     public void SetOffset(Vector3 newOffset)
     {
-        StartCoroutine(SmoothOffsetChange(newOffset));
+        if (lastSmoothCoroutine != null) StopCoroutine(lastSmoothCoroutine);
+        lastSmoothCoroutine = SmoothOffsetChange(newOffset);
+        StartCoroutine(lastSmoothCoroutine);
     }
 
     private IEnumerator SmoothOffsetChange(Vector3 newOffset)
@@ -77,31 +84,32 @@ public class CameraController : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         this.Offset = newOffset;
+        lastValidOffset = Offset;
     }
 
     private bool NotNearNewOffset(Vector3 newOffset)
     {
-        return (Offset - newOffset).magnitude > 0.5f; 
+        return (Offset - newOffset).magnitude > dampMinDistance; 
     }
 
     public void SwapPositiveXOffset()
     {
-        SetOffset(new Vector3(GetPostitiveXOffset(), Offset.y, Offset.z));
+        SetOffset(new Vector3(GetPostitiveXOffset(), lastValidOffset.y, lastValidOffset.z));
     }
 
     public void SwapNegativeXOffset()
     {
-        SetOffset(new Vector3(GetNegativeXOffset(), Offset.y, Offset.z));
+        SetOffset(new Vector3(GetNegativeXOffset(), lastValidOffset.y, lastValidOffset.z));
     }
 
     private float GetPostitiveXOffset()
     {
-        return Mathf.Abs(this.Offset.x);
+        return Mathf.Abs(this.lastValidOffset.x);
     }
 
     private float GetNegativeXOffset()
     {
-        return - Mathf.Abs(this.Offset.x);
+        return - Mathf.Abs(this.lastValidOffset.x);
     }
 
     private void GetCurrentPlayer()
