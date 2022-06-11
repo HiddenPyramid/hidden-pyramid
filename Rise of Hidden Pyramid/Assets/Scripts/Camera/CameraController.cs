@@ -41,7 +41,8 @@ public class CameraController : MonoBehaviour
     private void FollowPlayer()
     {
         Vector3 vel = Vector3.zero;
-        transform.position = Vector3.SmoothDamp(transform.position, GetPosition(), ref vel, SmoothTime);
+        //transform.position = Vector3.SmoothDamp(transform.position, GetPosition(), ref vel, SmoothTime);
+        transform.position = GetPosition();
     }
 
     private Vector3 GetPosition()
@@ -63,19 +64,34 @@ public class CameraController : MonoBehaviour
 
     public void SetOffset(Vector3 newOffset)
     {
-        this.Offset =  new Vector3 (   newOffset.x, newOffset.y, newOffset.z);
+        StartCoroutine(SmoothOffsetChange(newOffset));
     }
 
-    public void PositiveXOffset()
+    private IEnumerator SmoothOffsetChange(Vector3 newOffset)
     {
-        float xOffset = GetPostitiveXOffset();
-        SetXOffset(xOffset);
+        Vector3 oldOffset = new Vector3(this.Offset.x, this.Offset.y, this.Offset.z);
+        Vector3 vel = Vector3.zero;
+        while (NotNearNewOffset(newOffset))
+        {
+            this.Offset = Vector3.SmoothDamp(this.Offset, newOffset, ref vel, SmoothTime);
+            yield return new WaitForEndOfFrame();
+        }
+        this.Offset = newOffset;
     }
 
-    public void NegativeXOffset()
+    private bool NotNearNewOffset(Vector3 newOffset)
     {
-        float xOffset = GetNegativeXOffset();
-        SetXOffset(xOffset);
+        return (Offset - newOffset).magnitude > 0.5f; 
+    }
+
+    public void SwapPositiveXOffset()
+    {
+        SetOffset(new Vector3(GetPostitiveXOffset(), Offset.y, Offset.z));
+    }
+
+    public void SwapNegativeXOffset()
+    {
+        SetOffset(new Vector3(GetNegativeXOffset(), Offset.y, Offset.z));
     }
 
     private float GetPostitiveXOffset()
@@ -86,13 +102,6 @@ public class CameraController : MonoBehaviour
     private float GetNegativeXOffset()
     {
         return - Mathf.Abs(this.Offset.x);
-    }
-
-    private void SetXOffset(float xOffset)
-    {
-        this.Offset = new Vector3( xOffset, 
-                                    this.Offset.y, 
-                                    this.Offset.z);
     }
 
     private void GetCurrentPlayer()
@@ -137,19 +146,5 @@ public class CameraController : MonoBehaviour
         yield return new WaitForSeconds(shakeInterval);
 
         Offset = originalOffset;
-    }
-
-    public void SmoothDamp()
-    {
-        if (!isDamping) StartCoroutine(DoSmoothDamp());
-    }
-
-    private IEnumerator DoSmoothDamp()
-    {
-        isDamping = true;
-        SmoothTime = 0.2f;
-        yield return new WaitForSeconds(2f);
-        SmoothTime = 0f;
-        isDamping = false;
     }
 }

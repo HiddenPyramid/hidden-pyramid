@@ -10,10 +10,8 @@ public class CameraDirection : MonoBehaviour
 
     public void SetInput(float newInput)
     {
-        if (newInput != 0 && lastInput != newInput) cameraController.SmoothDamp();
+        if (newInput == 1 && lastInput != newInput) cameraController.SwapPositiveXOffset();
+        else if (newInput == -1 && lastInput != newInput) cameraController.SwapNegativeXOffset();
         if (newInput != 0) lastInput = newInput;
-
-        if (newInput == 1) cameraController.PositiveXOffset();
-        else if (newInput == -1) cameraController.NegativeXOffset();
     }
 }

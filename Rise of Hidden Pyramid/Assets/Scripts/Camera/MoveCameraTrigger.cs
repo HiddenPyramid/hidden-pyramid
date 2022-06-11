@@ -23,7 +23,6 @@ public class MoveCameraTrigger : MonoBehaviour
     private void MoveCamera()
     {
         cameraController.SetOffset(this.offset);
-        cameraController.SmoothDamp();
     }
     
 }
