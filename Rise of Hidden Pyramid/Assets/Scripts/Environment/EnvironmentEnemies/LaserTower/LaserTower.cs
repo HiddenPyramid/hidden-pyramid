@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class LaserTower : MonoBehaviour, ITakeDamage
 {
+    public ParticleSystem laserParticles;
+    public ParticleSystem warningParticles;
+
     public LaserRay laserRay;
-    public WarningLaser warningLaser;
+    //public WarningLaser warningLaser;
     public Animator animator;
     private bool isActive = true;
-    public float laserInterval = 10f;
-    public float warningInterval = 5f;
+
+    public float pauseDuration = 4f;
+    public float warningDuration = 3f;
+    public float laserDuration = 1f;
+
     public GoBackTrigger goBackTrigger;
 
     public float timeToDie = 2.0f;
@@ -34,25 +40,42 @@ public class LaserTower : MonoBehaviour, ITakeDamage
 
     private IEnumerator ShootingLoop()
     {
+        StopLaser();
+        StopWarning();
         while (isActive)
         {
-            yield return new WaitForSeconds(warningInterval);
+            yield return new WaitForSeconds(pauseDuration);
             //goBackTrigger.gameObject.SetActive(false);
             ShootWarning();
-            yield return new WaitForSeconds(laserInterval);
+            yield return new WaitForSeconds(warningDuration);
             //goBackTrigger.gameObject.SetActive(true);
+            StopWarning();
             ShootLaser();
+            yield return new WaitForSeconds(laserDuration);
+            StopLaser();
         }
     }
     private void ShootLaser()
     {
         this.animator.SetTrigger("shoot");
         this.laserRay.Shoot();
+        this.laserParticles.Play();
+    }
+
+    private void StopLaser()
+    {
+        this.laserRay.Stop();
+        this.laserParticles.Stop();
     }
 
     private void ShootWarning()
     {
-        this.warningLaser.Shoot();
+        this.warningParticles.Play();
+    }
+
+    private void StopWarning()
+    {
+        this.warningParticles.Stop();
     }
 
 
@@ -71,6 +94,8 @@ public class LaserTower : MonoBehaviour, ITakeDamage
     {
         if (CheckDie())
         {
+            StopLaser();
+            StopWarning();
             animator.SetTrigger("die");
             //StartCoroutine(WaitToDestroy(timeToDie));
             this.isActive = false;

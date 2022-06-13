@@ -10,4 +10,9 @@ public class LaserRay : MonoBehaviour
     {
         this.animator.SetTrigger("shoot");
     }
+
+    public void Stop()
+    {
+        this.animator.SetTrigger("stop");
+    }
 }
