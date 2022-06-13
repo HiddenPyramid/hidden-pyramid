@@ -33,9 +33,10 @@ public class Bullet : MonoBehaviour
             particles = Instantiate(particleSystem, transform.position, transform.rotation, null);
             particles.Play();
         }
-        yield return new WaitForSeconds(timeToDestroyParticles);
         if (particles != null)
-            Destroy(particles.gameObject);
+            FindObjectOfType<ExplosionDestroyer>().WaitToDestroy(particles.gameObject, timeToDestroyParticles);
+        
+        Debug.Log("pyuuum");
         Destroy(gameObject);
     }
 
