@@ -23,6 +23,8 @@ public class ChAnimation : MonoBehaviour
     private bool startedJumping = false;
 
     public ParticleSystem walkParticles;
+    public ParticleSystem jumpParticles;
+    public ParticleSystem landParticles;
     // Start is called before the first frame update
     void Start()
     {
@@ -70,6 +72,9 @@ public class ChAnimation : MonoBehaviour
     {
         if (!animator.GetBool(Parameter.ANIM_JUMPING))
         {
+            walkParticles.Stop();
+            jumpParticles.Play();
+
             animator.SetTrigger(Parameter.ANIM_TAKEOFF);
             animator.SetBool(Parameter.ANIM_JUMPING, true);
             shadowAnimator.SetBool(Parameter.ANIM_JUMPING, true);
@@ -86,6 +91,9 @@ public class ChAnimation : MonoBehaviour
     {
         if (animator.GetBool(Parameter.ANIM_JUMPING))
         {
+            landParticles.Play();
+            walkParticles.Play();
+
             animator.SetBool(Parameter.ANIM_JUMPING, false);
             shadowAnimator.SetBool(Parameter.ANIM_JUMPING, false);
         }
