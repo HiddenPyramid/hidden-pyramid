@@ -10,11 +10,18 @@ public class DestroyableWall : MonoBehaviour
     public Collider [] collidersToDeactivate;
     public Rigidbody [] piecesToExplode;
 
+    public ParticleSystem particlesOnDestroy;
+    public AudioSource audioOnDestroy;
+
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.CompareTag("Bullet"))
         {
             SetupPieces();
+            
             explosiveOrigin.Explode(piecesToExplode);
+            particlesOnDestroy.Play();
+            audioOnDestroy.Play();
+
             StartCoroutine(DeactivateColliders());
         }
     }
