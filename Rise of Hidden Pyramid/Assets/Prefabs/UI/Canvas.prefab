@@ -610,6 +610,8 @@ MonoBehaviour:
   optionalButtonAudio: {fileID: 0}
   waitDuration: 3
   curtainAnimator: {fileID: 7185979035370831079}
+  optionalAudioToFadeOut: {fileID: 0}
+  smoothTime: 3
 --- !u!1 &4087530817269506876
 GameObject:
   m_ObjectHideFlags: 0
@@ -2683,6 +2685,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3304760781201613548, guid: 5fd60aa6322e83f4e9395e75f9ed3bb4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3712285877551500249, guid: 5fd60aa6322e83f4e9395e75f9ed3bb4, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4152814955877542825, guid: 5fd60aa6322e83f4e9395e75f9ed3bb4, type: 3}
