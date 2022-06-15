@@ -11,7 +11,6 @@ public class PlayerManager : MonoBehaviour
     public delegate void playerChangeDelegate();
     public event playerChangeDelegate playerChangeEvent;
     private bool isChanging = false;
-    public bool isAlive = true;
 
     public Player2DMovementEnforcer player2DMovementEnforcer;
 
@@ -80,5 +79,10 @@ public class PlayerManager : MonoBehaviour
                 player2DMovementEnforcer.SetPosition(currentPlayer.transform.position.z, Player2DMovementEnforcer.Axis.z);
             break;
         }
+    }
+
+    public float GetHealth()
+    {
+        return GetPlayer().GetComponent<HealthSystem>().GetHealth();
     }
 }

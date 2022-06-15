@@ -46,6 +46,7 @@ public class AIPatrol : MonoBehaviour
     private bool dead = false;
     private int armIndex;
     private PlayerManager playerManager;
+    private bool playerAlive = true;
 
     public enum DirectionSegment
     {
@@ -104,10 +105,14 @@ public class AIPatrol : MonoBehaviour
             || player.position.x < transform.position.x && transform.localScale.x < 0)
                 Flip();
             
-            if (distToPlayer <= rangeToAttack && playerManager.isAlive)
+            if (distToPlayer <= rangeToAttack)
             {
-                mustPatrol = false;
-                AttackPlayer();
+                if (playerManager.GetHealth() <= 0)
+                    animator.SetBool("isInRange", false);
+                else {
+                    mustPatrol = false;
+                    AttackPlayer();
+                }
             }
         } 
         else
@@ -120,12 +125,10 @@ public class AIPatrol : MonoBehaviour
 
     private void AttackPlayer()
     {
-        Debug.Log(playerManager.isAlive);
         attacking = true;
         animator.SetBool("punching", true);
         animator.SetBool("isInRange", true);
         StartCoroutine(attackParticleAnimation());
-        
     }
 
     IEnumerator attackParticleAnimation()
