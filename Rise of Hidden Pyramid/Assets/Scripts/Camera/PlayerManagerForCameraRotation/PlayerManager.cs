@@ -11,6 +11,7 @@ public class PlayerManager : MonoBehaviour
     public delegate void playerChangeDelegate();
     public event playerChangeDelegate playerChangeEvent;
     private bool isChanging = false;
+    public bool isAlive = true;
 
     public Player2DMovementEnforcer player2DMovementEnforcer;
 

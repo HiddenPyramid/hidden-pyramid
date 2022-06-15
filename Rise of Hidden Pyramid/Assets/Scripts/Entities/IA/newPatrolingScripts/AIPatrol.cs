@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class AIPatrol : MonoBehaviour
 {
-
-
     [SerializeField]
     protected float Health;
     [SerializeField]
@@ -47,6 +45,7 @@ public class AIPatrol : MonoBehaviour
     private float initialHP;
     private bool dead = false;
     private int armIndex;
+    private PlayerManager playerManager;
 
     public enum DirectionSegment
     {
@@ -64,9 +63,10 @@ public class AIPatrol : MonoBehaviour
  
     void Start()
     {
+        playerManager = FindObjectOfType<PlayerManager>();
         mustPatrol = true;
-        player = FindObjectOfType<PlayerManager>().GetPlayer().gameObject.transform;
-        FindObjectOfType<PlayerManager>().playerChangeEvent += GetCurrentPlayer;
+        player = playerManager.GetPlayer().gameObject.transform;
+        playerManager.playerChangeEvent += GetCurrentPlayer;
 
         initialHP = Health;
         armIndex = 0;
@@ -104,7 +104,7 @@ public class AIPatrol : MonoBehaviour
             || player.position.x < transform.position.x && transform.localScale.x < 0)
                 Flip();
             
-            if (distToPlayer <= rangeToAttack)
+            if (distToPlayer <= rangeToAttack && playerManager.isAlive)
             {
                 mustPatrol = false;
                 AttackPlayer();
@@ -120,6 +120,7 @@ public class AIPatrol : MonoBehaviour
 
     private void AttackPlayer()
     {
+        Debug.Log(playerManager.isAlive);
         attacking = true;
         animator.SetBool("punching", true);
         animator.SetBool("isInRange", true);

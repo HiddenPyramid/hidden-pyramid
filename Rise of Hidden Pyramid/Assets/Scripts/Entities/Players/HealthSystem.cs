@@ -47,6 +47,8 @@ public class HealthSystem : MonoBehaviour
 
     private IEnumerator Die()
     {
+        FindObjectOfType<PlayerManager>().isAlive = false;
+
         spawnLevels[spawnLevel].SetActive(true);
         GetComponent<PlayerMovement>().BlockMove();
 
@@ -81,6 +83,12 @@ public class HealthSystem : MonoBehaviour
         
         yield return new WaitForSeconds(1f);
         keepOnAnimator.gameObject.SetActive(false);
+
+        FindObjectOfType<PlayerManager>().isAlive = true;
     }
 
+    public float GetHealth()
+    {
+        return PlayerStats.Health;
+    }
 }

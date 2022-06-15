@@ -8,6 +8,7 @@ public class FallingHead : MonoBehaviour
     public ParticleSystem dustParticles;
     public AudioSource fallingAudio, menacingAudio;
     public CameraController cameraController;
+    public float shakeDelay = 0.2f;
 
     private bool hasFallen = false;
 
@@ -19,7 +20,7 @@ public class FallingHead : MonoBehaviour
             FallHead();
             ThrowParticles();
             PlayAudio();
-            ShakeCamera();
+            StartCoroutine(ShakeCamera());
         }
     }
 
@@ -29,7 +30,11 @@ public class FallingHead : MonoBehaviour
 
     private void ThrowParticles() { this.dustParticles.Play(); }
 
-    private void PlayAudio() { this.fallingAudio.Play(); this.menacingAudio.Play(); }
+    private void PlayAudio() { this.fallingAudio.Play(); }
 
-    private void ShakeCamera() { this.cameraController.cameraShakingNoDamage = true; }
+    private IEnumerator ShakeCamera() { 
+        yield return new WaitForSeconds(shakeDelay); 
+        this.cameraController.cameraShakingNoDamage = true; 
+        this.menacingAudio.Play();
+    }
 }
