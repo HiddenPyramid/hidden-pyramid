@@ -16340,7 +16340,7 @@ MonoBehaviour:
   Chase: 1
   Visuals: {fileID: 3094496603761805789}
   animator: {fileID: 3094496603761805788}
-  dieParticles: {fileID: 0}
+  dieParticles: {fileID: 5483159244535000769, guid: 7fdc31096f182e64c994491e68a2000e, type: 3}
   attackParticles:
   - {fileID: 8073915491791276942}
   - {fileID: 3475247134734062806}
