@@ -22,9 +22,9 @@ public class ChAnimation : MonoBehaviour
     private int lastInput;
     private bool startedJumping = false;
 
-    public ParticleSystem walkParticles;
-    public ParticleSystem jumpParticles;
-    public ParticleSystem landParticles;
+    public ParticleSystem walkParticles, jumpParticles, landParticles;
+    public AudioSource walkAudio, jumpAudio, landAudio;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +47,7 @@ public class ChAnimation : MonoBehaviour
             followPlayer.Deinverse();
             //walkParticles.gameObject.transform.localScale = Vector3.one;
             if (!walkParticles.isPlaying) walkParticles.Play();
+            if (!walkAudio.isPlaying) walkAudio.Play();
         }
         else if(input < 0)
         {
@@ -59,12 +60,14 @@ public class ChAnimation : MonoBehaviour
             followPlayer.Inverse();
             //walkParticles.gameObject.transform.localScale = new Vector3(-1, shadowVisuals.localScale.y, shadowVisuals.localScale.z);
             if (!walkParticles.isPlaying) walkParticles.Play();
+            if (!walkAudio.isPlaying) walkAudio.Play();
         }
         else
         {
             animator.SetBool(Parameter.ANIM_RUNNING, false);
             shadowAnimator.SetBool(Parameter.ANIM_RUNNING, false);
             if (walkParticles.isPlaying) walkParticles.Stop();
+            if (!walkAudio.isPlaying) walkAudio.Stop();
         }
     }
 
@@ -74,6 +77,8 @@ public class ChAnimation : MonoBehaviour
         {
             walkParticles.Stop();
             jumpParticles.Play();
+            if (!walkAudio.isPlaying) walkAudio.Stop();
+            if (!jumpAudio.isPlaying) jumpAudio.Play();
 
             animator.SetTrigger(Parameter.ANIM_TAKEOFF);
             animator.SetBool(Parameter.ANIM_JUMPING, true);
@@ -93,6 +98,7 @@ public class ChAnimation : MonoBehaviour
         {
             landParticles.Play();
             walkParticles.Play();
+            if (!landAudio.isPlaying) landAudio.Play();
 
             animator.SetBool(Parameter.ANIM_JUMPING, false);
             shadowAnimator.SetBool(Parameter.ANIM_JUMPING, false);

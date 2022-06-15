@@ -12,6 +12,8 @@ public class Bullet : MonoBehaviour
 
     public ParticleSystem particleSystem;
 
+    public AudioSource explodeAudio;
+
     private void Start()
     {
         StartCoroutine(DestroyBullet());
@@ -27,6 +29,7 @@ public class Bullet : MonoBehaviour
     IEnumerator DestroyBullet()
     {
         ParticleSystem particles = null;
+        explodeAudio.Play();
         yield return new WaitForSeconds(timeToDestroy);
         if (particleSystem != null)
         {
@@ -36,7 +39,6 @@ public class Bullet : MonoBehaviour
         if (particles != null)
             FindObjectOfType<ExplosionDestroyer>().WaitToDestroy(particles.gameObject, timeToDestroyParticles);
         
-        Debug.Log("pyuuum");
         Destroy(gameObject);
     }
 

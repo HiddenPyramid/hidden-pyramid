@@ -5160,6 +5160,133 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &8198278955995972704
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7850431688128845978}
+  - component: {fileID: 6525371653486643740}
+  m_Layer: 0
+  m_Name: ExplodeAudio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7850431688128845978
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8198278955995972704}
+  m_LocalRotation: {x: -0, y: 0.42458656, z: -0, w: 0.90538734}
+  m_LocalPosition: {x: -1.474914, y: -0.13811284, z: 1.5673084}
+  m_LocalScale: {x: 2.6918054, y: 7.465186, z: 3.352581}
+  m_Children: []
+  m_Father: {fileID: 2695394206489246970}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &6525371653486643740
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8198278955995972704}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 7409427071522678755, guid: 8834306dc7db65349a2d0a232e7a6d0b, type: 2}
+  m_audioClip: {fileID: 8300000, guid: a7006252559036d4ea1f5773e5ee334f, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.6
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &8243359337127234745
 GameObject:
   m_ObjectHideFlags: 0
@@ -5193,6 +5320,7 @@ Transform:
   m_LocalScale: {x: 0.1339551, y: 0.13395514, z: 0.5358205}
   m_Children:
   - {fileID: 3650581867087234009}
+  - {fileID: 7850431688128845978}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -50.249, z: 0}
@@ -5227,7 +5355,9 @@ MonoBehaviour:
   speed: 12
   inverted: 0
   timeToDestroy: 1
+  timeToDestroyParticles: 2
   particleSystem: {fileID: 5483159244535000769, guid: 100d153c91c6aae44bda83cb234a5e0f, type: 3}
+  explodeAudio: {fileID: 6525371653486643740}
 --- !u!114 &7560303994594002799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5244,6 +5374,7 @@ MonoBehaviour:
   destroyOnHit: 1
   push: 30
   animator: {fileID: 0}
+  activated: 1
   particleSystem: {fileID: 5483159244535000769, guid: 100d153c91c6aae44bda83cb234a5e0f, type: 3}
 --- !u!135 &642930601537481189
 SphereCollider:

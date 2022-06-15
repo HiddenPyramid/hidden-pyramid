@@ -13,6 +13,7 @@ public class Pistol : Weapon
     private PlayerAndSlym playerAndSlym;
     public Animator animator;
     public ParticleSystem explosion;
+    public AudioSource shootAudio;
 
     private void Start()
     {
@@ -28,6 +29,8 @@ public class Pistol : Weapon
     public override void Attack(bool inverted)
     {
         if (!canShoot || !this.gameObject.activeSelf || !playerAndSlym.shoots) return;
+
+        shootAudio.Play();
         animator.SetTrigger("shoot");
         explosion.Play();
         if (inverted) Instantiate(bullet, transform.position, transform.rotation, null);
