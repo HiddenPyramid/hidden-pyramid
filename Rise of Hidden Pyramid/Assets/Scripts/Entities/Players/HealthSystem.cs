@@ -89,6 +89,7 @@ public class HealthSystem : MonoBehaviour
 
     public float GetHealth()
     {
+        Debug.Log(PlayerStats.Health);
         return PlayerStats.Health;
     }
 }

@@ -82,7 +82,7 @@ MonoBehaviour:
     min: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 5.7
+    m_Value: 2.08
     min: 0
   scatter:
     m_OverrideState: 0
@@ -150,6 +150,44 @@ MonoBehaviour:
   rounded:
     m_OverrideState: 0
     m_Value: 0
+--- !u!114 &-912439200795965413
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66f335fb1ffd8684294ad653bf1c7564, type: 3}
+  m_Name: ColorAdjustments
+  m_EditorClassIdentifier: 
+  active: 1
+  m_AdvancedMode: 0
+  postExposure:
+    m_OverrideState: 1
+    m_Value: 2.43
+  contrast:
+    m_OverrideState: 0
+    m_Value: 0
+    min: -100
+    max: 100
+  colorFilter:
+    m_OverrideState: 0
+    m_Value: {r: 1, g: 1, b: 1, a: 1}
+    hdr: 1
+    showAlpha: 0
+    showEyeDropper: 1
+  hueShift:
+    m_OverrideState: 0
+    m_Value: 0
+    min: -180
+    max: 180
+  saturation:
+    m_OverrideState: 0
+    m_Value: 0
+    min: -100
+    max: 100
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,6 +207,7 @@ MonoBehaviour:
   - {fileID: -8750158875482342969}
   - {fileID: 1826230709123194036}
   - {fileID: 2085852628968809096}
+  - {fileID: -912439200795965413}
 --- !u!114 &849379129802519247
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -202,13 +241,13 @@ MonoBehaviour:
   m_AdvancedMode: 0
   lift:
     m_OverrideState: 1
-    m_Value: {x: 0.9904144, y: 1, z: 0.9544573, w: 0.04405286}
+    m_Value: {x: 1, y: 0.8971397, z: 0.84157085, w: 0.04405286}
   gamma:
     m_OverrideState: 1
-    m_Value: {x: 0.8126347, y: 0.8389179, z: 1, w: -0.2643172}
+    m_Value: {x: 1, y: 0.9234294, z: 0.9827179, w: -0.2643172}
   gain:
     m_OverrideState: 1
-    m_Value: {x: 0.98044115, y: 1, z: 0.96088225, w: 0.4704875}
+    m_Value: {x: 1, y: 0.93706954, z: 0.9095068, w: 0.4704875}
 --- !u!114 &2085852628968809096
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -225,13 +264,13 @@ MonoBehaviour:
   m_AdvancedMode: 0
   shadows:
     m_OverrideState: 1
-    m_Value: {x: 0.6626671, y: 0.6341271, z: 1, w: 0}
+    m_Value: {x: 1, y: 0.87946564, z: 0.74629116, w: -0.036854945}
   midtones:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 0.9280807, z: 0.9383059, w: 0}
+    m_Value: {x: 1, y: 0.76204336, z: 0.73553467, w: 0}
   highlights:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 0.567371, z: 0.6355993, w: 0}
+    m_Value: {x: 1, y: 0.6279944, z: 0.6357068, w: 0}
   shadowsStart:
     m_OverrideState: 0
     m_Value: 0
