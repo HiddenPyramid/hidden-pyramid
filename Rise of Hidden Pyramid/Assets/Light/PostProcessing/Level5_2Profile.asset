@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c01700fd266d6914ababb731e09af2eb, type: 3}
   m_Name: DepthOfField
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   m_AdvancedMode: 0
   mode:
     m_OverrideState: 1
@@ -78,7 +78,7 @@ MonoBehaviour:
   m_AdvancedMode: 0
   threshold:
     m_OverrideState: 1
-    m_Value: 0.48
+    m_Value: 0.09
     min: 0
   intensity:
     m_OverrideState: 1
@@ -203,10 +203,10 @@ MonoBehaviour:
   m_AdvancedMode: 0
   shadows:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 0.9182831, z: 0.89624035, w: 0}
+    m_Value: {x: 1, y: 0.867194, z: 0.8247758, w: 0.225}
   midtones:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 0.940473, z: 0.8884069, w: 0}
+    m_Value: {x: 1, y: 0.940473, z: 0.8884069, w: 0.074999996}
   highlights:
     m_OverrideState: 1
     m_Value: {x: 1, y: 0.7269074, z: 0.7267662, w: 0}
@@ -238,11 +238,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66f335fb1ffd8684294ad653bf1c7564, type: 3}
   m_Name: ColorAdjustments
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   m_AdvancedMode: 0
   postExposure:
     m_OverrideState: 1
-    m_Value: -0.06
+    m_Value: 2.32
   contrast:
     m_OverrideState: 0
     m_Value: 0
@@ -283,7 +283,7 @@ MonoBehaviour:
     m_Value: {x: 1, y: 0.86406875, z: 0.9626545, w: 0.04405286}
   gamma:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 0.9452769, z: 0.97135466, w: -0.0063319374}
+    m_Value: {x: 1, y: 0.93216753, z: 0.87456656, w: -0.20633194}
   gain:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 0.9318231, z: 0.9018112, w: 0.4704875}
+    m_Value: {x: 1, y: 0.9318231, z: 0.9018112, w: 0.375}
