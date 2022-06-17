@@ -4,25 +4,27 @@ using UnityEngine;
 
 public class MusicSwitcher : MonoBehaviour
 {
-    public AudioSource audioSource;
-    public AudioClip nextClip;
-
+    public AudioSource levelAudioSource, bossAudioSource;
+    //public AudioClip nextClip;
+    /*
     public float smoothTime = 2f;
     float velocity = 0.0f;
     public float delayTime = 0.3f;
-    public float maxVolume = 1f;
+    public float maxVolume = 1f;*/
 
     public bool alreadySwitched = false;
 
     private void OnTriggerEnter(Collider other) 
     {
-        if (!alreadySwitched &&  other.gameObject.CompareTag(Parameter.PLAYER))
+        if (!alreadySwitched && other.gameObject.CompareTag(Parameter.PLAYER))
         {
             alreadySwitched = true;
-            SwitchMusic();
+            levelAudioSource.Stop();
+            bossAudioSource.Play();
+            //SwitchMusic();
         }
     }
-
+    /*
     private void SwitchMusic()
     {
         StartCoroutine(FadeOutClipLoadNextClip());
@@ -49,5 +51,5 @@ public class MusicSwitcher : MonoBehaviour
         audioSource.gameObject.SetActive(true);
         audioSource.clip = nextClip;
         audioSource.volume = maxVolume;
-    }
+    }*/
 }

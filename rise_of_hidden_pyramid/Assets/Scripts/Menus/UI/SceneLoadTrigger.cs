@@ -14,15 +14,21 @@ public class SceneLoadTrigger : MonoBehaviour
 
     public bool whiteCurtain = false;
 
+    private bool isLoadingScene = false;
+
     private void Start() {
         GameManager.whiteCurtain = whiteCurtain;
     }
 
     public void LoadNextScene()
     {
-        if (optionalPausePanel != null) optionalPausePanel.PrepareToQuit();
-        TryToCloseCurtain();
-        StartCoroutine(LoadGameWaiting());
+        if (!isLoadingScene)
+        {
+            isLoadingScene = true;
+            if (optionalPausePanel != null) optionalPausePanel.PrepareToQuit();
+            TryToCloseCurtain();
+            StartCoroutine(LoadGameWaiting());
+        }
     }
 
     private void TryToCloseCurtain()
@@ -53,6 +59,8 @@ public class SceneLoadTrigger : MonoBehaviour
         float duration = PlayAndGetAudioDuration();
         yield return new WaitForSeconds(duration);
         duration = waitDuration > duration ? waitDuration : duration;
+
+        isLoadingScene = false;
 
         GameManager.instance.LoadGame(nextScene);
     }

@@ -17,6 +17,7 @@ public class CreditsLoader : MonoBehaviour
     private void PrepareCredits()
     {
         audioSource.clip = creditsAudio;
+        audioSource.Play();
         gameLogo.SetActive(false);
         gameCredits.SetActive(true);
     }
@@ -24,6 +25,7 @@ public class CreditsLoader : MonoBehaviour
     private void PrepareMenu()
     {
         audioSource.clip = menuAudio;
+        audioSource.Play();
         gameLogo.SetActive(true);
         gameCredits.SetActive(false);
     }
