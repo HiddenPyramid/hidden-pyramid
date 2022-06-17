@@ -40,6 +40,8 @@ public class MusicSwitcher : MonoBehaviour
         }
         audioSource.volume = 0f;
 
+        audioSource.transform.position = this.transform.position;
+
         // LoadNextClip
         yield return new WaitForSeconds (smoothTime);
         audioSource.gameObject.SetActive(false);
