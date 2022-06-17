@@ -7,11 +7,16 @@ public class EntranceDoor : MonoBehaviour
     public bool opened = true;
     public Animator animator;
     public GameObject doorCollider;
+
     public GameObject lightsToDeactivate;
+    public DestroyableWall wallToDestroy;
+    private float checkDelay = 0.7f;
 
     public void OpenDoor()
     {
-        if(!opened)
+        if (WallNotDestroyed())
+            StartCoroutine(WaitAndOpen());
+        else if(!opened)
         {
             opened = true;
             animator.SetTrigger("open");
@@ -29,5 +34,15 @@ public class EntranceDoor : MonoBehaviour
             doorCollider.SetActive(true);
             if (lightsToDeactivate != null) lightsToDeactivate.SetActive(false);
         }
+    }
+
+    private bool WallNotDestroyed() { return wallToDestroy != null && !wallToDestroy.isDestroyed; }
+
+    private IEnumerator WaitAndOpen()
+    {
+        while (WallNotDestroyed())
+            yield return new WaitForSeconds(checkDelay);
+        
+        OpenDoor();
     }
 }

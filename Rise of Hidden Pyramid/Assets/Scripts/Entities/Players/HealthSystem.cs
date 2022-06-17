@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 public class HealthSystem : MonoBehaviour
 {
     [SerializeField]
-    private Vector3 Respawn;
+    private Transform Respawn;
     [SerializeField]
     private int Lives;
 
@@ -25,6 +25,8 @@ public class HealthSystem : MonoBehaviour
 
     public GameObject[] spawnLevels;
     public static int spawnLevel;
+
+    public NoDamageOnDie noDamageOnDie;
 
     private void Start()
     {
@@ -47,7 +49,12 @@ public class HealthSystem : MonoBehaviour
 
     private IEnumerator Die()
     {
+        Debug.Log("Starts diingggg");
+        
+        noDamageOnDie.StopReceivingDamage();
+
         spawnLevels[spawnLevel].SetActive(true);
+        Debug.Log(spawnLevel);
         GetComponent<PlayerMovement>().BlockMove();
 
         playerAnimator.SetTrigger(Parameter.ANIM_DIES);
@@ -70,7 +77,7 @@ public class HealthSystem : MonoBehaviour
         playerAnimator.SetTrigger(Parameter.ANIM_REVIVES);
         shadowPlayerAnimator.SetTrigger(Parameter.ANIM_REVIVES);
 
-        transform.position = Respawn;
+        transform.position = Respawn.position;
         //transform.rotation = Quaternion.identity;
         //Camera.main.transform.rotation = transform.rotation;
         PlayerStats.Health = Lives;
@@ -81,6 +88,8 @@ public class HealthSystem : MonoBehaviour
         
         yield return new WaitForSeconds(1f);
         keepOnAnimator.gameObject.SetActive(false);
+
+        noDamageOnDie.RestartReceivingDamage();
     }
 
     public float GetHealth()

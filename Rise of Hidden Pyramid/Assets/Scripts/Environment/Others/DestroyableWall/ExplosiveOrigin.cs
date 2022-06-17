@@ -14,6 +14,9 @@ public class ExplosiveOrigin : MonoBehaviour
         foreach (Rigidbody rb in rigidbodies)
             rb.AddExplosionForce(explosionForce, transform.position, explosionRadius, upwardsModifier);
 
+        foreach (Rigidbody rb in rigidbodies)
+            rb.GetComponentInParent<Animator>().enabled = true;
+
         Instantiate(particles, transform.position, Quaternion.identity);
     }
 }

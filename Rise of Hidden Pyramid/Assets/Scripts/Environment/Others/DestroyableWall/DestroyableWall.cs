@@ -12,10 +12,12 @@ public class DestroyableWall : MonoBehaviour
 
     public ParticleSystem particlesOnDestroy;
     public AudioSource audioOnDestroy;
+    public bool isDestroyed = false;
 
     private void OnTriggerEnter(Collider other) {
-        if (other.gameObject.CompareTag("Bullet"))
+        if (!isDestroyed && other.gameObject.CompareTag("Bullet"))
         {
+            isDestroyed = true;
             SetupPieces();
             
             explosiveOrigin.Explode(piecesToExplode);
