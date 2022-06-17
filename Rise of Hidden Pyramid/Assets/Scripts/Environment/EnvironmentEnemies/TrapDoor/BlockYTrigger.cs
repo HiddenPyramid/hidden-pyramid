@@ -10,6 +10,7 @@ public class BlockYTrigger : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            Debug.Log("ESIIII IPERFECTE Que HO FA");
             cameraController.BlockY();
         }
     }

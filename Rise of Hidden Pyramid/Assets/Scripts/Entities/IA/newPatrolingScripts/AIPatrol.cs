@@ -15,6 +15,8 @@ public class AIPatrol : MonoBehaviour
     protected Transform Visuals;
     [SerializeField]
     protected Animator animator;
+    [SerializeField]
+    protected Animator shadowAnimator;
 
     public ParticleSystem dieParticles;
     public ParticleSystem[] attackParticles;
@@ -95,6 +97,7 @@ public class AIPatrol : MonoBehaviour
         if (mustPatrol)
         {
             animator.SetBool("isInRange", false);
+            shadowAnimator.SetBool("isInRange", false);
             Move();
         }
         distToPlayer = Vector3.Distance(transform.position, player.position);
@@ -107,9 +110,10 @@ public class AIPatrol : MonoBehaviour
             
             if (distToPlayer <= rangeToAttack)
             {
-                if (playerManager.GetHealth() <= 0)
+                if (playerManager.GetHealth() <= 0) {
                     animator.SetBool("isInRange", false);
-                else {
+                    shadowAnimator.SetBool("isInRange", false);
+                } else {
                     mustPatrol = false;
                     AttackPlayer();
                 }
@@ -118,6 +122,7 @@ public class AIPatrol : MonoBehaviour
         else
         {
             animator.SetBool("isInRange", false);
+            shadowAnimator.SetBool("isInRange", false);
             mustPatrol = true;
         }
     }
@@ -128,6 +133,8 @@ public class AIPatrol : MonoBehaviour
         attacking = true;
         animator.SetBool("punching", true);
         animator.SetBool("isInRange", true);
+        shadowAnimator.SetBool("punching", true);
+        shadowAnimator.SetBool("isInRange", true);
         StartCoroutine(attackParticleAnimation());
     }
 
@@ -140,6 +147,7 @@ public class AIPatrol : MonoBehaviour
             yield return new WaitForSeconds(.1f);
         }
         animator.SetBool("punching", false);
+        shadowAnimator.SetBool("punching", false);
         attacking = false;
     }
     protected void Move()
@@ -203,6 +211,7 @@ public class AIPatrol : MonoBehaviour
         if (CheckDie())
         {   
             animator.SetBool("hasDied", true);
+            shadowAnimator.SetBool("hasDied", true);
             DeactivateColliders();
             Instantiate(dieParticles, transform.position, transform.rotation, null);
             dead = true;
@@ -211,6 +220,7 @@ public class AIPatrol : MonoBehaviour
         if (RemainingArms() && FallingArmThresholdPassed())
         {
             animator.SetTrigger("tookDamage");
+            shadowAnimator.SetTrigger("tookDamage");
             ArmVisuals[armIndex].gameObject.SetActive(false);
             Instantiate(ArmRagdolls[armIndex], ArmVisuals[armIndex].position, ArmVisuals[armIndex].rotation);
             armIndex = armIndex+1;

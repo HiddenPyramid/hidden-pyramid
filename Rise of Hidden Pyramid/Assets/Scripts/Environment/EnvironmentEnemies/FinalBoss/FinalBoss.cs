@@ -19,7 +19,7 @@ public class FinalBoss : MonoBehaviour
     public bool rightReady = true;
     public bool headReady = true;
     public float checkInterval = 1f;
-    public Animator finalRoom;
+    //public Animator finalRoom;
 
     private void Start() 
     {
@@ -49,7 +49,7 @@ public class FinalBoss : MonoBehaviour
             yield return new WaitForSeconds(delay);
             DecrementDelay();
         }
-        finalRoom.SetBool("toEnd",true);
+        //finalRoom.SetBool("toEnd",true);
         headWithBody.FallBoss();
     }
 
@@ -90,7 +90,7 @@ public class FinalBoss : MonoBehaviour
     public void Activate()
     {
         StartCoroutine(BossAttack());
-        finalRoom.SetTrigger("move");
+        //finalRoom.SetTrigger("move");
     }
 
     private void DecrementDelay()
