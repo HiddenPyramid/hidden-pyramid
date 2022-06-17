@@ -17,7 +17,9 @@ public class Shooting : MonoBehaviour
     private bool isGamepad = false;
 
     private bool inverted = true;
-    // Start is called before the first frame update
+
+    public float cooldown = 1.45f;
+    private bool canShoot = true;
 
     void Start()
     {
@@ -48,8 +50,19 @@ public class Shooting : MonoBehaviour
 
     private void Shoot(InputAction.CallbackContext callback)
     {
-        if(currentWeapon != null)
-            currentWeapon.Attack(inverted);
+        if (canShoot)
+        {
+            StartCoroutine(ShootCooldown());
+            if(currentWeapon != null)
+                currentWeapon.Attack(inverted);
+        }
+    }
+
+    private IEnumerator ShootCooldown()
+    {
+        this.canShoot = false;
+        yield return new WaitForSeconds(cooldown);
+        this.canShoot = true;
     }
 
     /* private void CheckWeapon()

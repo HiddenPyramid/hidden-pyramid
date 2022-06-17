@@ -934,12 +934,11 @@ MonoBehaviour:
   laserDuration: 1
   goBackTrigger: {fileID: 6102857936135326949}
   timeToDie: 2
-  initialHP: 12
+  initialHP: 8
   Health: 0
   arm: {fileID: 0}
   head: {fileID: 0}
   isLeft: 1
-  particleHolder: {fileID: 7626481257655925233}
 --- !u!95 &962840340742523933
 Animator:
   serializedVersion: 3
@@ -1547,7 +1546,7 @@ Animator:
   m_GameObject: {fileID: 2071165320769224705}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 25d054d625fa6a543b75092ae2dfe46f, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
