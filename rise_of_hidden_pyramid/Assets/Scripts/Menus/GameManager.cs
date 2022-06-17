@@ -19,6 +19,9 @@ public class GameManager : MonoBehaviour
     public float curtainCloseTime = 0.35f;
     public GameObject canvas;
 
+    public static bool isCredits = false;
+    public static bool whiteCurtain = false;
+
     private void Awake()
     {
         instance = this;

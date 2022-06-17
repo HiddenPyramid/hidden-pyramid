@@ -21,6 +21,8 @@ public class FinalBoss : MonoBehaviour
     public float checkInterval = 1f;
     //public Animator finalRoom;
 
+    public SceneLoadTrigger sceneLoadTrigger;
+
     private void Start() 
     {
         downTime = initialDownTime;
@@ -51,6 +53,7 @@ public class FinalBoss : MonoBehaviour
         }
         //finalRoom.SetBool("toEnd",true);
         headWithBody.FallBoss();
+        EndOfGame();
     }
 
     private IEnumerator RightAttack()
@@ -90,6 +93,7 @@ public class FinalBoss : MonoBehaviour
     public void Activate()
     {
         StartCoroutine(BossAttack());
+        EndOfGame(); // To remove
         //finalRoom.SetTrigger("move");
     }
 
@@ -103,5 +107,11 @@ public class FinalBoss : MonoBehaviour
     {
         float decrementedValue = this.downTime - this.decrement;
         this.downTime = decrementedValue < this.finalDownTime ? this.finalDownTime : decrementedValue;
+    }
+
+    private void EndOfGame()
+    {
+        GameManager.isCredits = true;
+        sceneLoadTrigger.LoadNextScene();
     }
 }

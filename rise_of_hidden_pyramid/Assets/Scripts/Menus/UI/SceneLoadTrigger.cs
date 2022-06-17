@@ -12,6 +12,12 @@ public class SceneLoadTrigger : MonoBehaviour
     [SerializeField] private AudioSource optionalAudioToFadeOut;
     public float smoothTime = 3f;
 
+    public bool whiteCurtain = false;
+
+    private void Start() {
+        GameManager.whiteCurtain = whiteCurtain;
+    }
+
     public void LoadNextScene()
     {
         if (optionalPausePanel != null) optionalPausePanel.PrepareToQuit();
@@ -22,7 +28,10 @@ public class SceneLoadTrigger : MonoBehaviour
     private void TryToCloseCurtain()
     {
         if (curtainAnimator != null)
+        {
+            if (GameManager.whiteCurtain) curtainAnimator.SetBool("white", true);
             curtainAnimator.SetTrigger("close");
+        }
     }
 
     private IEnumerator LoadGameWaiting()
