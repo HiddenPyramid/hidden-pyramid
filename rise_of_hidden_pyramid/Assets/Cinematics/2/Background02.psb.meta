@@ -840,14 +840,14 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: -1
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: 74
     mosaicPosition: {x: 0, y: 0}
   - name: ed
     spriteName: 
     isGroup: 1
     parentIndex: 0
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: 169
     mosaicPosition: {x: 0, y: 0}
   - name: ed copia
@@ -910,7 +910,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: 1
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: 128
     mosaicPosition: {x: 0, y: 0}
   - name: ed2
@@ -1015,7 +1015,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: 0
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: 176
     mosaicPosition: {x: 0, y: 0}
   - name: Capa 9
@@ -1036,7 +1036,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: 0
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: 183
     mosaicPosition: {x: 0, y: 0}
   - name: Capa 10
@@ -1057,7 +1057,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: 0
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: 189
     mosaicPosition: {x: 0, y: 0}
   - name: 3

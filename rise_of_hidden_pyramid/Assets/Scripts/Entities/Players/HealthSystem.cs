@@ -28,6 +28,8 @@ public class HealthSystem : MonoBehaviour
 
     public NoDamageOnDie noDamageOnDie;
 
+    public bool die = false;
+
     private void Start()
     {
         player = GetComponent<PlayerStats>();
@@ -36,6 +38,8 @@ public class HealthSystem : MonoBehaviour
     private void Update()
     {
         CheckDead();
+
+        if (die) { die = false; PlayerStats.Health = 0; }// EXTRA DEBUGGING
     }
 
     private void CheckDead()

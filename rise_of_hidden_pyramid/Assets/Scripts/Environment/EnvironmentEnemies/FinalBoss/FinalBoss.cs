@@ -93,7 +93,7 @@ public class FinalBoss : MonoBehaviour
     public void Activate()
     {
         StartCoroutine(BossAttack());
-        EndOfGame(); // To remove
+        StartCoroutine(WaitToEndOfGame()); // To remove
         //finalRoom.SetTrigger("move");
     }
 
@@ -109,9 +109,14 @@ public class FinalBoss : MonoBehaviour
         this.downTime = decrementedValue < this.finalDownTime ? this.finalDownTime : decrementedValue;
     }
 
-    private void EndOfGame()
+    public void EndOfGame()
     {
         GameManager.isCredits = true;
         sceneLoadTrigger.LoadNextScene();
+    }
+
+    private IEnumerator WaitToEndOfGame()
+    {
+        yield return null;
     }
 }

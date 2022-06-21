@@ -11,6 +11,8 @@ public class Head : MonoBehaviour
     public bool leftAlive = true;
     public bool rightAlive = true;
 
+    public FinalBoss finalBoss;
+
     public void Lower()
     {
         headAnimator.SetTrigger("lower");
@@ -38,5 +40,6 @@ public class Head : MonoBehaviour
     public void FallBoss()
     {
         headAnimator.SetTrigger("fall");
+        finalBoss.EndOfGame();
     }
 }

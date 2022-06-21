@@ -934,7 +934,7 @@ MonoBehaviour:
   laserDuration: 1
   goBackTrigger: {fileID: 6102857936135326949}
   timeToDie: 2
-  initialHP: 8
+  initialHP: 3
   Health: 0
   arm: {fileID: 0}
   head: {fileID: 0}
