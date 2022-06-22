@@ -57,6 +57,7 @@ public class HealthSystem : MonoBehaviour
     {        
         noDamageOnDie.StopReceivingDamage();
 
+        SolveLevelIndexOnBossBattle();
         spawnLevels[spawnLevel].SetActive(true);
         if (optionalTrapRespawner!= null) optionalTrapRespawner.RespawnTrap();
         GetComponent<PlayerMovement>().BlockMove();
@@ -94,6 +95,14 @@ public class HealthSystem : MonoBehaviour
         keepOnAnimator.gameObject.SetActive(false);
 
         noDamageOnDie.RestartReceivingDamage();
+    }
+
+    private void SolveLevelIndexOnBossBattle()
+    {
+        if (spawnLevels.Length < spawnLevel+1)
+        {
+            spawnLevel = 2;
+        }
     }
 
     public float GetHealth()
