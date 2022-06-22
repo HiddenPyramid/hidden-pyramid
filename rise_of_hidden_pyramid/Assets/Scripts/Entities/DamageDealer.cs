@@ -16,6 +16,8 @@ public class DamageDealer : MonoBehaviour
 
     public ParticleSystem particleSystem;
 
+    public PlayerMoverOnTrappedd optionalPlayerMoverOnTrappedd;
+
     private void OnCollisionEnter(Collision collision)
     {
         if (activated)
@@ -59,6 +61,7 @@ public class DamageDealer : MonoBehaviour
         var movement = other.gameObject.GetComponent<PlayerMovement>();
         if (reciever != null)
         {
+            ManagePlayerMoverOnTrapped(other.gameObject);
             reciever.TakeDamage(damage);
             if (destroyOnHit)
             {
@@ -75,5 +78,10 @@ public class DamageDealer : MonoBehaviour
             dir.Scale(transform.right);
             movement.Push(dir.normalized * push);
         }
+    }
+
+    private void ManagePlayerMoverOnTrapped(GameObject player)
+    {
+        if (optionalPlayerMoverOnTrappedd != null) optionalPlayerMoverOnTrappedd.MovePlayer(player);
     }
 }
