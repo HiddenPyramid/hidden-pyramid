@@ -8,6 +8,7 @@ public class TrapDoor : MonoBehaviour
     private bool triggerEnabled = true;
     public PlayerManager playerManager;
     public CameraController cameraController;
+    public PlayerManager optionalPlayerManagerToBlockMovement;
 
     public float waitTime = 3f;
     
@@ -27,6 +28,7 @@ public class TrapDoor : MonoBehaviour
 
             MoveShadowY();
             UnblockCamera();
+            BlockPlayerMovement();
         }
     }
 
@@ -38,5 +40,14 @@ public class TrapDoor : MonoBehaviour
     private void UnblockCamera()
     {
         cameraController.UnblockY();
+    }
+
+    private void BlockPlayerMovement()
+    {
+        if (optionalPlayerManagerToBlockMovement != null) 
+        {
+            PlayerMovement playerMovement = optionalPlayerManagerToBlockMovement.GetPlayer().GetComponent<PlayerMovement>();
+            playerMovement.moveBlocked = true;
+        } 
     }
 }
