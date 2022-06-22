@@ -44,6 +44,7 @@ public class AIPatrol : MonoBehaviour
     [SerializeField] private float deathDelay;
     [SerializeField] private List<Transform> ArmVisuals;
     [SerializeField] private List<ArmFall> ArmRagdolls;
+    [SerializeField] private float timeBetwenExplosions = .1f;
     private float initialHP;
     private bool dead = false;
     private int armIndex;
@@ -144,7 +145,7 @@ public class AIPatrol : MonoBehaviour
         for (int i = 0; i<attackParticles.Length; i++)
         {
             attackParticles[i].Play();
-            yield return new WaitForSeconds(.1f);
+            yield return new WaitForSeconds(timeBetwenExplosions);
         }
         animator.SetBool("punching", false);
         shadowAnimator.SetBool("punching", false);
