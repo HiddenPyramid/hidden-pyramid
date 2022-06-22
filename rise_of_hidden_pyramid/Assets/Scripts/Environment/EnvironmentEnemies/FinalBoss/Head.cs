@@ -12,6 +12,7 @@ public class Head : MonoBehaviour
     public bool rightAlive = true;
 
     public FinalBoss finalBoss;
+    public float fallEndGameDelay = 20f;
 
     public void Lower()
     {
@@ -39,8 +40,15 @@ public class Head : MonoBehaviour
 
     public void FallBoss()
     {
-        Debug.Log("Head FallBoss");
         headAnimator.SetTrigger("fall");
+        Debug.Log("Està caient");
+        StartCoroutine(WaitToEndGame());
+    }
+
+    private IEnumerator WaitToEndGame()
+    {
+        yield return new WaitForSeconds(fallEndGameDelay);
+        Debug.Log("Ara se'n va");
         finalBoss.EndOfGame();
     }
 }
