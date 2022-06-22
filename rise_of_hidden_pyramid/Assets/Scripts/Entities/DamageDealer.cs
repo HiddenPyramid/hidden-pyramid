@@ -16,7 +16,7 @@ public class DamageDealer : MonoBehaviour
 
     public ParticleSystem particleSystem;
 
-    public PlayerMoverOnTrappedd optionalPlayerMoverOnTrappedd;
+    public bool instaKill = false;
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -61,7 +61,7 @@ public class DamageDealer : MonoBehaviour
         var movement = other.gameObject.GetComponent<PlayerMovement>();
         if (reciever != null)
         {
-            ManagePlayerMoverOnTrapped(other.gameObject);
+            TryToInstaKill(other.gameObject);
             reciever.TakeDamage(damage);
             if (destroyOnHit)
             {
@@ -80,8 +80,12 @@ public class DamageDealer : MonoBehaviour
         }
     }
 
-    private void ManagePlayerMoverOnTrapped(GameObject player)
+    private void TryToInstaKill(GameObject player)
     {
-        if (optionalPlayerMoverOnTrappedd != null) optionalPlayerMoverOnTrappedd.MovePlayer(player);
+        if (instaKill)
+        {
+            HealthSystem healthSytem = player.GetComponent<HealthSystem>();
+            if (healthSytem != null) healthSytem.InstaKill();
+        }
     }
 }

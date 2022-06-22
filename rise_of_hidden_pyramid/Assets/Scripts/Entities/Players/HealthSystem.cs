@@ -100,4 +100,9 @@ public class HealthSystem : MonoBehaviour
     {
         return PlayerStats.Health;
     }
+
+    public void InstaKill()
+    {
+        playerController.TakeDamage(3);
+    }
 }
