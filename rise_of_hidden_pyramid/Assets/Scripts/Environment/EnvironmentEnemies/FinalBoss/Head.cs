@@ -41,14 +41,12 @@ public class Head : MonoBehaviour
     public void FallBoss()
     {
         headAnimator.SetTrigger("fall");
-        Debug.Log("Està caient");
         StartCoroutine(WaitToEndGame());
     }
 
     private IEnumerator WaitToEndGame()
     {
         yield return new WaitForSeconds(fallEndGameDelay);
-        Debug.Log("Ara se'n va");
         finalBoss.EndOfGame();
     }
 }
