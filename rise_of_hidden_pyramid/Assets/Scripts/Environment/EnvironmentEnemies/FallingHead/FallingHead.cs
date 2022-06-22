@@ -37,4 +37,10 @@ public class FallingHead : MonoBehaviour
         this.cameraController.cameraShakingNoDamage = true; 
         this.menacingAudio.Play();
     }
+
+    public void Respawn()
+    {
+        this.hasFallen = false;
+        headAnimator.SetTrigger("respawn");
+    }
 }

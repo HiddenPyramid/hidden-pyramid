@@ -27,6 +27,8 @@ public class HealthSystem : MonoBehaviour
     public static int spawnLevel;
 
     public NoDamageOnDie noDamageOnDie;
+    public TrapRespawner optionalTrapRespawner;
+    
 
     public bool die = false;
 
@@ -52,13 +54,11 @@ public class HealthSystem : MonoBehaviour
     }
 
     private IEnumerator Die()
-    {
-        Debug.Log("Starts diingggg");
-        
+    {        
         noDamageOnDie.StopReceivingDamage();
 
         spawnLevels[spawnLevel].SetActive(true);
-        Debug.Log(spawnLevel);
+        if (optionalTrapRespawner!= null) optionalTrapRespawner.RespawnTrap();
         GetComponent<PlayerMovement>().BlockMove();
 
         playerAnimator.SetTrigger(Parameter.ANIM_DIES);

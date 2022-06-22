@@ -155,4 +155,16 @@ public class CameraController : MonoBehaviour
 
         Offset = originalOffset;
     }
+
+    public void GoToPreviouslyFixedCamera()
+    {
+        this.currentYBlockIndex --;
+        StartCoroutine(WaitToFixCamera());
+    }
+    private IEnumerator WaitToFixCamera()
+    {
+        this.yBlocked = false;
+        yield return new WaitForSeconds(5f);
+        this.yBlocked = true;
+    }
 }

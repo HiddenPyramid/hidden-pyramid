@@ -50,4 +50,9 @@ public class TrapDoor : MonoBehaviour
             playerMovement.moveBlocked = true;
         } 
     }
+
+    public void Respawn()
+    {
+        this.triggerEnabled = true;
+    }
 }
