@@ -23,9 +23,9 @@ public class LaserTower : MonoBehaviour, ITakeDamage
 
     [SerializeField]
     protected float Health;
-    public Arm arm;
-    public Head head;
-    public bool isLeft = true;
+    public Arm armIfArmTower;
+    public Head headIfCheekTower;
+    public bool isLeftIfCheekTower = true;
 
     private void Start() 
     {
@@ -111,12 +111,12 @@ public class LaserTower : MonoBehaviour, ITakeDamage
 
     private void CheckBossWarning()
     {
-        if (this.arm != null)
-            this.arm.Fall();
-        if (this.head != null)
+        if (this.armIfArmTower != null)
+            this.armIfArmTower.Fall();
+        if (this.headIfCheekTower != null)
         {
-            if (isLeft) head.FallLeft();
-            else head.FallRight();
+            if (isLeftIfCheekTower) headIfCheekTower.FallLeft();
+            else headIfCheekTower.FallRight();
         }
             
     }

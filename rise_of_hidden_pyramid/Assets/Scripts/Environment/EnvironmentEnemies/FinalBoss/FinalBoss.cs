@@ -45,12 +45,15 @@ public class FinalBoss : MonoBehaviour
             
             DecrementDelay();
         }
+        Debug.Log("Toca cap");
         while (headWithBody.alive)
         {
+            Debug.Log("Entra cap");
             StartCoroutine(HeadAttack());
             yield return new WaitForSeconds(delay);
             DecrementDelay();
         }
+        Debug.Log("S'acaba");
         //finalRoom.SetBool("toEnd",true);
         headWithBody.FallBoss();
         EndOfGame();
@@ -93,7 +96,7 @@ public class FinalBoss : MonoBehaviour
     public void Activate()
     {
         StartCoroutine(BossAttack());
-        StartCoroutine(WaitToEndOfGame()); // To remove
+       // StartCoroutine(WaitToEndOfGame()); // To remove
         //finalRoom.SetTrigger("move");
     }
 
@@ -111,12 +114,13 @@ public class FinalBoss : MonoBehaviour
 
     public void EndOfGame()
     {
+        Debug.Log("Algú crida el endofgame");
         GameManager.isCredits = true;
         sceneLoadTrigger.LoadNextScene();
     }
-
+/* 
     private IEnumerator WaitToEndOfGame()
     {
         yield return null;
-    }
+    } */
 }

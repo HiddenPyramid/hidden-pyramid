@@ -39,6 +39,7 @@ public class Head : MonoBehaviour
 
     public void FallBoss()
     {
+        Debug.Log("Head FallBoss");
         headAnimator.SetTrigger("fall");
         finalBoss.EndOfGame();
     }
