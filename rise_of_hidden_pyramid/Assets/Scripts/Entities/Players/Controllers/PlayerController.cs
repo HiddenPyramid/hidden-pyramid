@@ -135,4 +135,33 @@ public class PlayerController : MonoBehaviour, ITakeDamage
             yield return new WaitForSeconds(gainHeartDelay);
         }
     }
+
+
+
+    public void TakeDamageInstaKill(float dmg)
+    {
+        if (canTakeDamage)
+        {
+            StartCoroutine(Invulnerability());
+            try
+            {
+                if (dmg <= 1){
+                    curtainAnimator.SetTrigger("takeDamage");
+                    cameraController.cameraShaking = true;
+                    plAnimator.SetTrigger("tookDamage");
+                    PlayerStats.Health -= 1;
+                    hearts[PlayerStats.Health].SetTrigger("lost");
+                }
+                else{
+                    curtainAnimator.SetTrigger("takeDamage");
+                    cameraController.cameraShaking = true;
+                    plAnimator.SetTrigger("tookDamage");
+                    PlayerStats.Health -= 2;
+                    hearts[PlayerStats.Health+1].SetTrigger("lost");
+                    hearts[PlayerStats.Health].SetTrigger("lost");
+                }
+            } catch {}
+        }
+        PlayerStats.Health= 0;
+    }
 }

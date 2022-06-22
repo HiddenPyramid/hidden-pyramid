@@ -377,6 +377,7 @@ MonoBehaviour:
   animator: {fileID: 3437806289472254572}
   doorCollider: {fileID: 8548508059171640299}
   lightsToDeactivate: {fileID: 0}
+  wallToDestroy: {fileID: 0}
 --- !u!95 &3437806289472254572
 Animator:
   serializedVersion: 3
@@ -7485,6 +7486,7 @@ GameObject:
   - component: {fileID: 8737358971349618611}
   - component: {fileID: 1710218637949249783}
   - component: {fileID: 3506212829953056780}
+  - component: {fileID: 5614662415658112673}
   m_Layer: 0
   m_Name: plane_relief (58)
   m_TagString: Untagged
@@ -7555,6 +7557,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &5614662415658112673
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4522021120674502850}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4660843545703637653, guid: 02638831c95b168489082f9fe814c213, type: 3}
 --- !u!1 &4556533044709626192
 GameObject:
   m_ObjectHideFlags: 0

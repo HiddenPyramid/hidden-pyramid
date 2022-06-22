@@ -103,6 +103,6 @@ public class HealthSystem : MonoBehaviour
 
     public void InstaKill()
     {
-        playerController.TakeDamage(3);
+        playerController.TakeDamageInstaKill(3);
     }
 }
