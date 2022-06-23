@@ -875,6 +875,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   activated: 1
   particleSystem: {fileID: 0}
+  instaKill: 0
 --- !u!1 &962840340742523922
 GameObject:
   m_ObjectHideFlags: 0
@@ -934,11 +935,11 @@ MonoBehaviour:
   laserDuration: 1
   goBackTrigger: {fileID: 6102857936135326949}
   timeToDie: 2
-  initialHP: 3
+  initialHP: 4
   Health: 0
-  arm: {fileID: 0}
-  head: {fileID: 0}
-  isLeft: 1
+  armIfArmTower: {fileID: 0}
+  headIfCheekTower: {fileID: 0}
+  isLeftIfCheekTower: 1
 --- !u!95 &962840340742523933
 Animator:
   serializedVersion: 3

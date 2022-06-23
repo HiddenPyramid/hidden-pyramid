@@ -40,6 +40,7 @@ public class Head : MonoBehaviour
 
     public void FallBoss()
     {
+        Debug.Log("FALL BOSSS");
         headAnimator.SetTrigger("fall");
         StartCoroutine(WaitToEndGame());
     }

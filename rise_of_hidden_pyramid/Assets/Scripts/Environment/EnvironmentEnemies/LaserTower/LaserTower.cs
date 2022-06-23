@@ -98,17 +98,10 @@ public class LaserTower : MonoBehaviour, ITakeDamage
             laserRay.gameObject.SetActive(false);
             StopWarning();
             animator.SetTrigger("die");
-            //StartCoroutine(WaitToDestroy(timeToDie));
             this.isActive = false;
             CheckBossWarning();
             this.enabled = false;
         }
-    }
-
-    private IEnumerator WaitToDestroy(float seconds)
-    {
-        yield return new WaitForSeconds(seconds);
-        Destroy(gameObject);
     }
 
     private void CheckBossWarning()
