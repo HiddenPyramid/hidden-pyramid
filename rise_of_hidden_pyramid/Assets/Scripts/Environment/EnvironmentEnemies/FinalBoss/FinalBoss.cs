@@ -111,4 +111,9 @@ public class FinalBoss : MonoBehaviour
         GameManager.isCredits = true;
         sceneLoadTrigger.LoadNextScene();
     }
+
+    public bool IsAlive()
+    {
+        return headWithBody.alive;
+    }
 }

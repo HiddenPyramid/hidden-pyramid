@@ -5339,7 +5339,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 3
 --- !u!114 &6171716625866235474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5376,6 +5376,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   activated: 1
   particleSystem: {fileID: 5483159244535000769, guid: 100d153c91c6aae44bda83cb234a5e0f, type: 3}
+  instaKill: 0
 --- !u!135 &642930601537481189
 SphereCollider:
   m_ObjectHideFlags: 0

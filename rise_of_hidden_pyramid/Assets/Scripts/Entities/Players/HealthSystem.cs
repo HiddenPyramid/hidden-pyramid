@@ -29,6 +29,7 @@ public class HealthSystem : MonoBehaviour
     public NoDamageOnDie noDamageOnDie;
     public TrapRespawner optionalTrapRespawner;
     
+    public FinalBoss optionalFinalBoss;
 
     public bool die = false;
 
@@ -46,7 +47,7 @@ public class HealthSystem : MonoBehaviour
 
     private void CheckDead()
     {
-        if(PlayerStats.Health <= 0 && !hasDied)
+        if(PlayerStats.Health <= 0 && !hasDied && FinalBossIsNotDead())
         {
             hasDied = true;
             StartCoroutine(Die());
@@ -114,4 +115,12 @@ public class HealthSystem : MonoBehaviour
     {
         playerController.TakeDamageInstaKill(3);
     }
+
+    public bool FinalBossIsNotDead()
+    {
+        if (optionalFinalBoss == null) return true;
+        Debug.Log(optionalFinalBoss.IsAlive());
+        return optionalFinalBoss.IsAlive();
+    }
+
 }
