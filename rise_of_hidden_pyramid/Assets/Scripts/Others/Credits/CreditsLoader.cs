@@ -20,6 +20,7 @@ public class CreditsLoader : MonoBehaviour
         audioSource.Play();
         gameLogo.SetActive(false);
         gameCredits.SetActive(true);
+        SetBackToMenuInCasePlayerReplays();
     }
 
     private void PrepareMenu()
@@ -28,5 +29,10 @@ public class CreditsLoader : MonoBehaviour
         audioSource.Play();
         gameLogo.SetActive(true);
         gameCredits.SetActive(false);
+    }
+
+    private void SetBackToMenuInCasePlayerReplays()
+    {
+        GameManager.isCredits = false;
     }
 }
