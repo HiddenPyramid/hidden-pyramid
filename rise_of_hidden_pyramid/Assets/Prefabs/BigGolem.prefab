@@ -4741,7 +4741,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   activated: 1
   particleSystem: {fileID: 5483159244535000769, guid: 7fdc31096f182e64c994491e68a2000e, type: 3}
-  optionalPlayerMoverOnTrappedd: {fileID: 0}
+  instaKill: 0
 --- !u!1 &4235126267571572739
 GameObject:
   m_ObjectHideFlags: 0
@@ -5732,7 +5732,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   activated: 1
   particleSystem: {fileID: 5483159244535000769, guid: 7fdc31096f182e64c994491e68a2000e, type: 3}
-  optionalPlayerMoverOnTrappedd: {fileID: 0}
+  instaKill: 0
 --- !u!1 &7420413436323957259
 GameObject:
   m_ObjectHideFlags: 0
@@ -6386,6 +6386,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 313008442196422987}
     m_Modifications:
+    - target: {fileID: 1154437527002373472, guid: 656e63e0792f33b4e883f2c19bb29223, type: 3}
+      propertyPath: m_SortingOrder
+      value: 26
+      objectReference: {fileID: 0}
     - target: {fileID: 1154437527002373473, guid: 656e63e0792f33b4e883f2c19bb29223, type: 3}
       propertyPath: m_Name
       value: GolemAttackParticles (2)
@@ -6573,6 +6577,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1154437527002373472, guid: 656e63e0792f33b4e883f2c19bb29223, type: 3}
+      propertyPath: m_SortingOrder
+      value: 26
+      objectReference: {fileID: 0}
     - target: {fileID: 1154437527002373473, guid: 656e63e0792f33b4e883f2c19bb29223, type: 3}
       propertyPath: m_Name
       value: GolemAttackParticles (1)
@@ -6756,6 +6764,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 313008442196422987}
     m_Modifications:
+    - target: {fileID: 1154437527002373472, guid: 656e63e0792f33b4e883f2c19bb29223, type: 3}
+      propertyPath: m_SortingOrder
+      value: 26
+      objectReference: {fileID: 0}
     - target: {fileID: 1154437527002373473, guid: 656e63e0792f33b4e883f2c19bb29223, type: 3}
       propertyPath: m_Name
       value: GolemAttackParticles (4)
@@ -6843,6 +6855,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 313008442196422987}
     m_Modifications:
+    - target: {fileID: 1154437527002373472, guid: 656e63e0792f33b4e883f2c19bb29223, type: 3}
+      propertyPath: m_SortingOrder
+      value: 26
+      objectReference: {fileID: 0}
     - target: {fileID: 1154437527002373473, guid: 656e63e0792f33b4e883f2c19bb29223, type: 3}
       propertyPath: m_Name
       value: GolemAttackParticles (3)
