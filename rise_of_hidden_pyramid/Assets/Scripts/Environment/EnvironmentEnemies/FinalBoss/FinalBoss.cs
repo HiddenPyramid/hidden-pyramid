@@ -27,6 +27,7 @@ public class FinalBoss : MonoBehaviour
         downTime = initialDownTime;
         delay = initialDelay;
     }
+
     private IEnumerator BossAttack()
     {
         while (rightArm.alive || leftArm.alive)
@@ -114,6 +115,7 @@ public class FinalBoss : MonoBehaviour
 
     public bool IsAlive()
     {
+        Debug.Log("Left: "+headWithBody.leftAlive+" Right: "+headWithBody.rightAlive);
         return headWithBody.alive;
     }
 }

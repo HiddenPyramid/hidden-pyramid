@@ -34,13 +34,12 @@ public class Head : MonoBehaviour
     public void FallRight()
     {
         rightCheekAnimator.SetTrigger("fall");
-        rightAlive = true;
+        rightAlive = false;
         if (!leftAlive) FallBoss();
     }
 
     public void FallBoss()
     {
-        Debug.Log("FALL BOSSS");
         headAnimator.SetTrigger("fall");
         StartCoroutine(WaitToEndGame());
     }
