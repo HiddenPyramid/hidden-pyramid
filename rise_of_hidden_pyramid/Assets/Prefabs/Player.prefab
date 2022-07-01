@@ -3872,7 +3872,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed99e3ac189d2b4cb0e58a1b1353836, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JumpHeight: 13
+  JumpHeight: 11
   Speed: 5
 --- !u!114 &8006748075592524394
 MonoBehaviour:
@@ -3964,7 +3964,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponContainer: {fileID: 0}
-  cooldown: 1.45
+  cooldown: 0.5
 --- !u!114 &8144130267307317941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4013,6 +4013,8 @@ MonoBehaviour:
   particleSystem: {fileID: 5483159244535000769, guid: dac0aa296a3bf634cb4ea7f654b3792e, type: 3}
   spawnLevels: []
   noDamageOnDie: {fileID: 944041282106146670}
+  optionalTrapRespawner: {fileID: 0}
+  optionalFinalBoss: {fileID: 0}
   die: 0
 --- !u!114 &944041282106146670
 MonoBehaviour:
