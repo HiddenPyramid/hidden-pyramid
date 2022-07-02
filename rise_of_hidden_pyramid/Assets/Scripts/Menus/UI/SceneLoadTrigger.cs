@@ -45,6 +45,11 @@ public class SceneLoadTrigger : MonoBehaviour
 
     private IEnumerator LoadGameWaiting()
     {
+        // LoadGameWaiting
+        float duration = PlayAndGetAudioDuration();
+        duration = waitDuration > duration ? waitDuration : duration;
+        yield return new WaitForSeconds(duration);
+        
         // FadeOutAudio
         if (optionalAudioToFadeOut != null)
         {
@@ -58,10 +63,7 @@ public class SceneLoadTrigger : MonoBehaviour
             optionalAudioToFadeOut.volume = 0f;
         }
 
-        // LoadGameWaiting
-        float duration = PlayAndGetAudioDuration();
-        duration = waitDuration > duration ? waitDuration : duration;
-        yield return new WaitForSeconds(duration);
+        
 
         isLoadingScene = false;
 
