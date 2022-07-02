@@ -14,14 +14,23 @@ public class Head : MonoBehaviour
     public FinalBoss finalBoss;
     public float fallEndGameDelay = 20f;
 
+    private bool isLowered = false;
+
     public void Lower()
     {
         headAnimator.SetTrigger("lower");
+        isLowered = true;
     }
 
     public void Rise()
     {
         headAnimator.SetTrigger("rise");
+        isLowered = false;
+    }
+
+    public void RiseIfLowered()
+    {
+        if (isLowered) Rise();
     }
 
     public void FallLeft()

@@ -15,4 +15,9 @@ public class LaserRay : MonoBehaviour
     {
         this.animator.SetTrigger("stop");
     }
+
+    public void Defeated()
+    {
+        this.animator.SetBool("defeated", true);
+    }
 }

@@ -68,6 +68,12 @@ public class LaserTower : MonoBehaviour, ITakeDamage
         this.laserParticles.Stop();
     }
 
+    private void StopCompletelyLaser()
+    {
+        this.laserRay.Defeated();
+        StopLaser();
+    }
+
     private void ShootWarning()
     {
         this.warningParticles.Play();
@@ -94,7 +100,7 @@ public class LaserTower : MonoBehaviour, ITakeDamage
     {
         if (CheckDie())
         {
-            StopLaser();
+            StopCompletelyLaser();
             laserRay.gameObject.SetActive(false);
             StopWarning();
             animator.SetTrigger("die");

@@ -51,6 +51,8 @@ public class HealthSystem : MonoBehaviour
         {
             hasDied = true;
             StartCoroutine(Die());
+            
+            if(optionalFinalBoss!=null) optionalFinalBoss.OnPlayerDie();
         }
     }
 

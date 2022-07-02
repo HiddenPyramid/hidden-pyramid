@@ -22,6 +22,8 @@ public class FinalBoss : MonoBehaviour
 
     public SceneLoadTrigger sceneLoadTrigger;
 
+    [SerializeField] private bool playerHasDied = false;
+
     private void Start() 
     {
         downTime = initialDownTime;
@@ -47,10 +49,13 @@ public class FinalBoss : MonoBehaviour
         }
         while (headWithBody.alive)
         {
-            while (!this.headReady) { yield return new WaitForSeconds(checkInterval); }
-            StartCoroutine(HeadAttack());
-            yield return new WaitForSeconds(delay);
-            DecrementDelay();
+            if (!playerHasDied)
+            {
+                while (!this.headReady) { yield return new WaitForSeconds(checkInterval); }
+                if (!playerHasDied) StartCoroutine(HeadAttack());
+                yield return new WaitForSeconds(delay);
+                if (!playerHasDied) DecrementDelay();
+            } else yield return new WaitForSeconds(checkInterval);
         }
         headWithBody.FallBoss();
         EndOfGame();
@@ -83,17 +88,32 @@ public class FinalBoss : MonoBehaviour
     {
         this.headReady = false;
 
-        this.headWithBody.Lower();
-        yield return new WaitForSeconds(downTime);
-        this.headWithBody.Rise();
-        DecrementDownTime();
+        if (!playerHasDied) this.headWithBody.Lower();
+        if (!playerHasDied) yield return new WaitForSeconds(downTime);
+        if (!playerHasDied) this.headWithBody.Rise();
+        if (!playerHasDied) DecrementDownTime();
         this.headReady = true;
+    }
+
+    public void ActivateFirstTime()
+    {
+        StartCoroutine(BossAttack());
     }
 
     public void Activate()
     {
-        StartCoroutine(BossAttack());
+        UnpauseBossAttack();
     }
+
+    public void OnPlayerDie()
+    {
+        PauseBossAttack();
+        StartCoroutine(RetireHead());
+    }
+
+    private IEnumerator RetireHead() { yield return new WaitForSeconds(2f); this.headWithBody.RiseIfLowered(); }
+    private void PauseBossAttack() { this.playerHasDied = true;}
+    private void UnpauseBossAttack() { this.playerHasDied = false;}
 
     private void DecrementDelay()
     {

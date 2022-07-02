@@ -35,8 +35,11 @@ public class SceneLoadTrigger : MonoBehaviour
     {
         if (curtainAnimator != null)
         {
-            if (GameManager.whiteCurtain) curtainAnimator.SetBool("white", true);
-            curtainAnimator.SetTrigger("close");
+            if (GameManager.whiteCurtain) 
+            {
+                curtainAnimator.SetBool("white", true);
+                curtainAnimator.SetTrigger("closeSlowWhite");
+            } else curtainAnimator.SetTrigger("close");
         }
     }
 
@@ -57,8 +60,8 @@ public class SceneLoadTrigger : MonoBehaviour
 
         // LoadGameWaiting
         float duration = PlayAndGetAudioDuration();
-        yield return new WaitForSeconds(duration);
         duration = waitDuration > duration ? waitDuration : duration;
+        yield return new WaitForSeconds(duration);
 
         isLoadingScene = false;
 
